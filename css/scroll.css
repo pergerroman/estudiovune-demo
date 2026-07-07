@@ -1,0 +1,289 @@
+/* ===================================================================
+   Vuné — Estudio Creativo · Scroll (forma y estructura de la referencia)
+   Paleta tomada de la identidad de marca.
+   =================================================================== */
+
+:root {
+    --cyan:    #32c8e1;
+    --brown:   #5b3321;
+    --mint:    #979e6c;
+    --coral:   #bc5727;
+    --pink:    #d99bd0;
+    --cream:   #f6f3ec;
+    --ink:     #16171b;
+    --ink-2:   #1e2024;
+    --muted:   #5b6470;
+
+    --maxw: 1180px;
+    --radius: 26px;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --shadow: 0 24px 60px -28px rgba(0,0,0,.55);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-weight: 700; line-height: 1.04; letter-spacing: -.02em; margin: 0; }
+p { margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); }
+
+/* ===== Navbar fijo ===== */
+.nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px clamp(20px, 5vw, 48px);
+    transition: background .3s var(--ease), box-shadow .3s var(--ease), padding .3s var(--ease);
+    mix-blend-mode: difference; color: #fff;
+}
+.nav.scrolled {
+    mix-blend-mode: normal;
+    background: rgba(20,21,24,.78);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    box-shadow: 0 6px 30px -18px rgba(0,0,0,.6);
+    padding-top: 12px; padding-bottom: 12px;
+}
+.nav__logo { font-size: 26px; font-weight: 800; letter-spacing: -.03em; display: flex; align-items: center; gap: 8px; }
+.nav__logo span { color: var(--cyan); }
+.nav.scrolled .nav__logo span { color: var(--cyan); }
+.nav__links { display: flex; align-items: center; gap: clamp(16px, 2.6vw, 34px); }
+.nav__links a { font-weight: 500; font-size: 15px; opacity: .9; transition: opacity .2s, color .2s; }
+.nav__links a:hover { opacity: 1; color: var(--cyan); }
+.nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
+.nav__burger span { width: 24px; height: 2.5px; background: currentColor; border-radius: 3px; transition: .3s var(--ease); }
+
+/* ===== Botones ===== */
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 500; font-size: 16px;
+    padding: 15px 30px; border-radius: 100px; border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform .25s var(--ease), box-shadow .25s, background .25s, color .25s;
+}
+.btn--cyan { background: var(--cyan); color: #06232a; box-shadow: 0 14px 30px -12px rgba(50,200,225,.6); }
+.btn--cyan:hover { transform: translateY(-3px); box-shadow: 0 20px 38px -12px rgba(50,200,225,.7); }
+.btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.btn--outline:hover { border-color: #fff; transform: translateY(-3px); }
+.btn--dark { background: var(--ink); color: var(--cream); }
+.btn--dark:hover { transform: translateY(-3px); background: #000; }
+
+/* ===================================================================
+   1 · COLLAGE HERO
+   =================================================================== */
+.collage {
+    height: 100vh; min-height: 620px;
+    background-image: url('../resources/img/Collage fondo.png');
+    background-size: cover; background-position: center;
+    position: relative;
+}
+.collage::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20,21,24,.15) 0%, rgba(20,21,24,0) 30%, rgba(20,21,24,.85) 100%);
+}
+
+/* ===================================================================
+   2 · HERO NARANJA
+   =================================================================== */
+.intro {
+    position: relative; overflow: hidden;
+    background: radial-gradient(120% 130% at 15% 20%, #d9743a 0%, var(--coral) 35%, #7a3418 100%);
+    color: #fff;
+    padding: clamp(80px, 12vw, 150px) 0 clamp(90px, 13vw, 160px);
+}
+.intro::before {
+    content: ""; position: absolute; top: -20%; left: -10%;
+    width: 55%; height: 90%;
+    background: radial-gradient(circle at center, rgba(255,180,120,.55), transparent 60%);
+    filter: blur(30px); pointer-events: none;
+}
+.intro__inner { position: relative; max-width: 760px; }
+.intro h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); margin-bottom: 30px; }
+.intro p { font-size: clamp(1.05rem, 2vw, 1.3rem); max-width: 48ch; color: rgba(255,255,255,.9); margin-bottom: 38px; }
+
+/* ===================================================================
+   3 · SECCIÓN OSCURA · Q&A + imágenes
+   =================================================================== */
+.about {
+    background: var(--ink);
+    padding: clamp(70px, 10vw, 130px) 0;
+}
+.about__grid {
+    display: grid; grid-template-columns: .85fr 1.15fr;
+    gap: clamp(36px, 6vw, 80px); align-items: start;
+}
+.qa { display: grid; gap: clamp(34px, 5vw, 54px); }
+.qa__block h3 {
+    font-size: 1.05rem; color: #fff; margin-bottom: 12px;
+    padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.14);
+}
+.qa__block p { color: rgba(255,255,255,.62); font-size: .98rem; }
+
+.about__media { display: grid; gap: 16px; }
+.shot {
+    border-radius: 16px; overflow: hidden; position: relative;
+    background-image: url('../resources/img/Collage fondo.png');
+    background-size: 320% auto; box-shadow: var(--shadow);
+}
+.shot--a { height: 210px; background-position: 20% 30%; }
+.shot--b { height: 190px; background-position: 70% 60%; }
+.shot--c { height: 260px; background-position: 40% 80%; display: flex; align-items: flex-end; padding: 24px; }
+.shot--c::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.6)); }
+.shot--c span {
+    position: relative; z-index: 1; color: #fff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; font-style: italic; letter-spacing: -.02em;
+}
+.shot--c span b { font-weight: 400; font-style: normal; }
+
+/* ===================================================================
+   4 · LLAMANOS SI NECESITÁS · tarjetas post-it
+   =================================================================== */
+.services { background: var(--cream); color: var(--ink); padding: clamp(70px, 10vw, 120px) 0; }
+.services__title {
+    text-align: center; color: var(--coral);
+    font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: clamp(46px, 6vw, 70px);
+}
+.notes {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: clamp(14px, 1.6vw, 22px); align-items: start;
+}
+.note {
+    position: relative; border-radius: 6px; padding: 34px 22px 26px;
+    min-height: 250px; color: #fff;
+    box-shadow: 0 16px 34px -18px rgba(0,0,0,.45);
+    transition: transform .35s var(--ease), box-shadow .35s;
+}
+.note::before { /* clip metálico */
+    content: ""; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    width: 20px; height: 46px; border: 3px solid rgba(255,255,255,.75);
+    border-radius: 12px; border-bottom: none; opacity: .85;
+}
+.note:hover { transform: translateY(-8px) rotate(0deg) !important; box-shadow: 0 26px 50px -20px rgba(0,0,0,.5); }
+.note h3 { font-size: 1.15rem; margin-bottom: 14px; }
+.note p { font-size: .82rem; color: rgba(255,255,255,.9); line-height: 1.5; }
+.note--1 { background: var(--mint);  transform: rotate(-3deg); }
+.note--2 { background: var(--coral); transform: rotate(2deg); margin-top: 26px; }
+.note--3 { background: var(--cyan);  color: #06232a; transform: rotate(-1.5deg); }
+.note--3 p { color: rgba(6,35,42,.8); }
+.note--3::before { border-color: rgba(6,35,42,.5); }
+.note--4 { background: var(--brown); transform: rotate(3deg); margin-top: 20px; }
+.note--5 { background: var(--pink);  color: #3a1234; transform: rotate(-2deg); }
+.note--5 p { color: rgba(58,18,52,.8); }
+.note--5::before { border-color: rgba(58,18,52,.45); }
+.note__logo { position: absolute; top: 16px; right: 16px; width: 34px; opacity: .9; }
+
+/* ===================================================================
+   5 · VENTANA REGISTROS
+   =================================================================== */
+.archive {
+    position: relative; padding: clamp(90px, 13vw, 160px) 0;
+    background-image: url('../resources/img/Collage fondo.png');
+    background-size: cover; background-position: center; background-attachment: fixed;
+}
+.archive::before { content: ""; position: absolute; inset: 0; background: rgba(15,16,20,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.window {
+    position: relative; max-width: 760px; margin: 0 auto;
+    background: rgba(28,30,34,.92); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,.75);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.window__bar {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.dots { display: flex; gap: 8px; }
+.dots i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+.dots i:nth-child(1) { background: #ff5f57; }
+.dots i:nth-child(2) { background: #febc2e; }
+.dots i:nth-child(3) { background: #28c840; }
+.window__label { color: rgba(255,255,255,.45); font-size: 13px; letter-spacing: .02em; }
+.window__body { display: grid; grid-template-columns: 1fr auto; gap: 20px; padding: 30px 34px 40px; color: #fff; }
+.window__body h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); align-self: end; }
+.window__menu { display: grid; gap: 12px; text-align: right; }
+.window__menu a { font-size: 15px; color: rgba(255,255,255,.7); transition: color .2s; }
+.window__menu a:first-child { color: #fff; font-weight: 600; }
+.window__menu a:hover { color: var(--cyan); }
+.window__more { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,.45); }
+
+/* ===================================================================
+   6 · CTA VERDE
+   =================================================================== */
+.cta { background: var(--mint); color: #23260f; padding: clamp(70px, 10vw, 120px) 0; }
+.cta h2 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); margin-bottom: 22px; }
+.cta p { max-width: 44ch; font-size: 1.1rem; color: rgba(35,38,15,.78); margin-bottom: 34px; }
+
+/* ===================================================================
+   7 · FOOTER
+   =================================================================== */
+.foot { background: var(--ink); color: #fff; padding: clamp(60px, 8vw, 90px) 0 40px; }
+.foot__grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
+.foot__contact { display: grid; gap: 6px; font-size: 15px; color: rgba(255,255,255,.7); }
+.foot__contact .foot__strong { color: #fff; }
+.foot__copy { margin-top: 26px; font-size: 13px; color: rgba(255,255,255,.4); }
+.foot__brand { text-align: right; display: grid; gap: 10px; justify-items: end; }
+.foot__word { font-size: 30px; font-weight: 800; letter-spacing: -.03em; }
+.foot__word span { color: var(--cyan); }
+.foot__nav { display: grid; gap: 6px; font-size: 15px; color: rgba(255,255,255,.7); }
+.foot__nav a:hover { color: var(--cyan); }
+
+/* ===================================================================
+   8 · MIRAR / CO-DISEÑO
+   =================================================================== */
+.essay {
+    position: relative; color: #fff;
+    padding: clamp(80px, 12vw, 140px) 0;
+    background-image: url('../resources/img/Collage fondo.png');
+    background-size: cover; background-position: center;
+}
+.essay::before { content: ""; position: absolute; inset: 0; background: rgba(12,13,16,.82); }
+.essay__inner { position: relative; display: grid; gap: clamp(50px, 8vw, 90px); max-width: 720px; }
+.essay__block h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 16px; }
+.essay__block p { color: rgba(255,255,255,.6); font-size: 1rem; max-width: 60ch; }
+
+/* ===== Reveal ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.note.reveal { transform: translateY(28px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .archive { background-attachment: scroll; }
+}
+
+/* ===================================================================
+   Responsive
+   =================================================================== */
+@media (max-width: 980px) {
+    .about__grid { grid-template-columns: 1fr; }
+    .notes { grid-template-columns: repeat(2, 1fr); }
+    .note { transform: none !important; margin-top: 0 !important; }
+}
+@media (max-width: 720px) {
+    .nav__burger { display: flex; }
+    .nav__links {
+        position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px);
+        flex-direction: column; align-items: flex-start; justify-content: center;
+        gap: 26px; padding: 40px; background: var(--ink-2);
+        transform: translateX(100%); transition: transform .4s var(--ease);
+    }
+    body.nav-open .nav__links { transform: translateX(0); }
+    .notes { grid-template-columns: 1fr; }
+    .window__body { grid-template-columns: 1fr; }
+    .window__menu { text-align: left; }
+    .foot__grid { grid-template-columns: 1fr; }
+    .foot__brand { text-align: left; justify-items: start; }
+}
