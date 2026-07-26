@@ -2,6 +2,6 @@
 
 # Claude Code
 
-Seguir las instrucciones de `AGENTS.md` y consultar la memoria específica
-del proyecto antes de tomar decisiones de producto, diseño o arquitectura.
-
+Seguir `AGENTS.md` como fuente de instrucciones operativas. Consultar
+`README.md` y la memoria específica del proyecto antes de tomar decisiones de
+producto, contenido, diseño o arquitectura.

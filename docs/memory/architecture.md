@@ -1,34 +1,65 @@
 # Arquitectura
 
-## Stack
+## Resumen
 
-HTML, CSS y JavaScript en un sitio estático.
+Sitio estático de una sola página. `index.html` es la entrada única y carga
+estilos, scripts, tipografías y Three.js mediante rutas relativas o CDN.
 
-## Estructura
+## Capas
 
-- `index.html`: estructura e interacciones.
-- `css/scroll.css`: implementación principal documentada.
-- `css/style.css`: estilos adicionales; función vigente pendiente de confirmar.
-- `resources/img/`: recursos visuales.
-- `proyect/`: notas iniciales de landing e identidad.
+### Documento
 
-## Componentes principales
+- `index.html`: estructura semántica, contenido y referencias.
 
-Collage, hero, Q&A, servicios, archivo, CTA, footer y glosario conceptual.
+### Presentación
 
-## Integraciones
+- `css/scroll.css`: tokens, layout y estilos generales del recorrido.
+- `css/index.css`: cabecera vigente, canvas y tarjetas de servicios.
+- `css/style.css`: hoja histórica no vinculada.
 
-Navegación por anclas y enlaces de contacto. Los datos y destinos definitivos
-requieren validación.
+### Comportamiento
 
-## Comandos relevantes
+- `js/webgl-effect.js`: Three.js, shaders, máscara, estela y zoom.
+- `js/page-interactions.js`: reveal y estados interactivos de las tarjetas.
 
-Pendiente de completar. No hay comandos documentados en el repositorio.
+### Recursos
 
-## Restricciones técnicas
+- `src/img/`: collage, fotografías y fondos.
+- `src/icons/`: iconos sociales exportados desde Figma.
+- `src/logos/`: logotipo principal y favicon.
+- `src/misc/`: imágenes independientes de los pines de las tarjetas.
 
-- Preservar el recorrido long-scroll.
-- Respetar `prefers-reduced-motion`.
-- Mantener rutas relativas a recursos.
-- No sobrescribir los cambios sin confirmar actuales.
+## Dependencias externas
 
+- Three.js r128 desde cdnjs.
+- Inter y Averia Gruesa Libre desde Google Fonts.
+
+No existe gestor de paquetes ni proceso de compilación.
+
+## Flujo de carga
+
+1. El navegador carga `scroll.css` y luego `index.css`.
+2. Se construye la apertura y el contenido editorial.
+3. Three.js queda disponible globalmente.
+4. `webgl-effect.js` inicializa el canvas.
+5. `page-interactions.js` inicializa reveal y cards.
+
+## Restricciones
+
+- Mantener `index.html` como entrada única.
+- Mantener CSS y JavaScript propios fuera del HTML.
+- Cargar `webgl-effect.js` después de Three.js.
+- Preservar el recorrido long-scroll y las anclas vigentes.
+- Mantener rutas relativas correctas desde cada carpeta.
+- Respetar movimiento reducido y navegación por teclado.
+
+## Ejecución y validación
+
+No hay build, lint ni tests automatizados. El sitio puede servirse con:
+
+```bash
+python3 -m http.server 8000
+```
+
+La validación disponible comprende sintaxis JavaScript, existencia de archivos
+vinculados y revisión manual en navegador.

@@ -1,21 +1,24 @@
 # Referencias
 
-## Documentación
+## Fuente funcional
 
-- [`ESTRUCTURA.md`](../../ESTRUCTURA.md): recorrido, implementación y estado.
-- [`proyect/landing.md`](../../proyect/landing.md): esquema inicial.
-- [`proyect/brand.md`](../../proyect/brand.md): paleta inicial; contiene un valor mal cerrado que debe validarse.
-- [`README.md`](../../README.md): archivo provisional, no es fuente útil.
+`ESTRUCTURA-land.md` es la única descripción detallada del recorrido y
+funcionamiento de la landing.
 
-## Diseños
+## Diseño
 
-La documentación menciona una imagen o maqueta de referencia. Ruta definitiva:
-Pendiente de completar.
+- Archivo Figma: `Web-vuné`.
+- Nodo utilizado para la sección de servicios: `84:107`.
+- Los datos de movimiento de las cards fueron entregados como keyframes de
+  300 ms y trasladados a CSS y JavaScript.
 
-## Recursos externos
+## Código como fuente verificable
 
-Pendiente de completar.
+Cuando exista una diferencia entre una descripción histórica y la
+implementación, prevalece el código vigente:
 
-## Repositorios relacionados
-
-Se menciona una experiencia WebGL anterior dentro del historial de este repositorio.
+- `index.html`
+- `css/scroll.css`
+- `css/index.css`
+- `js/webgl-effect.js`
+- `js/page-interactions.js`

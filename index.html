@@ -4,206 +4,269 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vuné — Estudio creativo patagónico</title>
+    <link rel="icon" type="image/svg+xml" href="./src/logos/v-fav.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Inter:opsz,wght@14..32,300..900&display=swap">
     <link rel="stylesheet" href="./css/scroll.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
-    <!-- 2 · HERO NARANJA -->
-    <section class="intro" id="intro">
-        <div class="wrap">
-            <div class="intro__inner reveal">
-                <h1>Experimentales,<br>versátiles y locales.</h1>
-                <p>
-                    Somos Vuné, un estudio creativo patagónico. Desde la comunicación
-                    visual, la planificación y el diseño de contenido, acompañamos
-                    proyectos que quieren mostrarse mejor sin perder su forma propia.
-                </p>
-                <a href="#contacto" class="btn btn--cyan">Miremos juntos tu proyecto</a>
-            </div>
+    <!-- 1. Interfaz Fija -->
+    <div class="ui header">
+        <div class="logo">
+            <a href="./index.html" aria-label="Volver al inicio">
+                <img src="./src/logos/vuné-logo.svg" alt="Vuné">
+            </a>
         </div>
+        <div class="menu">
+            <a href="#intro">HOME</a>
+            <a href="#registros">ARCHIVO</a>
+            <a href="#nosotros">NOSOTROS</a>
+            <a href="#contacto">CONTACTO</a>
+        </div>
+    </div>
+
+    <!-- 2. Máscara WebGL Fija (Overlay interactivo) -->
+    <div id="webgl-container"></div>
+
+    <!-- 3. Colchón de scroll: se consume durante la transición del zoom -->
+    <section class="hero-stage">
+        <div class="zoom-spacer"></div>
     </section>
 
-    <!-- 3 · SECCIÓN OSCURA · Q&A -->
-    <section class="about" id="nosotros">
-        <div class="wrap">
-            <div class="about__grid">
-                <div class="qa reveal">
-                    <div class="qa__block">
-                        <h3>¿Qué es Vuné?</h3>
-                        <p>
-                            Vuné es una palabra que empezó sin una definición cerrada.
-                            Y eso nos gusta. Nos permite construir un espacio propio:
-                            flexible, curioso y en movimiento. Un estudio creativo que no
-                            parte de fórmulas, sino de preguntas, conversaciones y
-                            decisiones visuales con sentido.
-                        </p>
+    <!-- 4. Contenido -->
+    <main>
+        <!-- 2 · HERO NARANJA -->
+        <section class="intro" id="intro">
+            <div class="wrap">
+                <div class="intro__inner reveal">
+                    <h1>Experimentales,<br>versátiles y locales.</h1>
+                    <p>
+                        Somos Vuné, un estudio creativo patagónico. Desde la comunicación
+                        visual, la planificación y el diseño de contenido, acompañamos
+                        proyectos que quieren mostrarse mejor sin perder su forma propia.
+                    </p>
+                    <a href="#contacto" class="btn btn--cyan">Miremos juntos tu proyecto</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 · SECCIÓN OSCURA · Q&A -->
+        <section class="about" id="nosotros">
+            <div class="wrap">
+                <div class="about__grid">
+                    <div class="qa reveal">
+                        <div class="qa__block">
+                            <h3>¿Qué es Vuné?</h3>
+                            <p>
+                                Vuné es una palabra que empezó sin una definición cerrada.
+                                Y eso nos gusta. Nos permite construir un espacio propio:
+                                flexible, curioso y en movimiento. Un estudio creativo que no
+                                parte de fórmulas, sino de preguntas, conversaciones y
+                                decisiones visuales con sentido.
+                            </p>
+                        </div>
+                        <div class="qa__block">
+                            <h3>¿Quiénes somos?</h3>
+                            <p>
+                                Somos dos colegas trabajando desde Cipolletti, con una forma
+                                de hacer que nos representa: conversar, mirar de cerca y pensar
+                                con otros. Por eso creemos en el co-diseño como punto de partida.
+                                No porque todo se decida entre todos, sino porque nadie conoce
+                                mejor una idea que quienes la impulsan.
+                            </p>
+                        </div>
+                        <div class="qa__block">
+                            <h3>¿Qué hacemos?</h3>
+                            <p>
+                                Nuestro trabajo es escuchar, ordenar, proponer y transformar esa
+                                información en soluciones visuales reales. Vuné nace ahí: en el
+                                cruce entre lo que sabés de tu proyecto y lo que nosotros podemos
+                                aportar desde el diseño y la comunicación.
+                            </p>
+                        </div>
                     </div>
-                    <div class="qa__block">
-                        <h3>¿Quiénes somos?</h3>
-                        <p>
-                            Somos dos colegas trabajando desde Cipolletti, con una forma
-                            de hacer que nos representa: conversar, mirar de cerca y pensar
-                            con otros. Por eso creemos en el co-diseño como punto de partida.
-                            No porque todo se decida entre todos, sino porque nadie conoce
-                            mejor una idea que quienes la impulsan.
-                        </p>
-                    </div>
-                    <div class="qa__block">
-                        <h3>¿Qué hacemos?</h3>
-                        <p>
-                            Nuestro trabajo es escuchar, ordenar, proponer y transformar esa
-                            información en soluciones visuales reales. Vuné nace ahí: en el
-                            cruce entre lo que sabés de tu proyecto y lo que nosotros podemos
-                            aportar desde el diseño y la comunicación.
-                        </p>
+                    <div class="about__media reveal">
+                        <div class="shot shot--a"></div>
+                        <div class="shot shot--b"></div>
+                        <div class="shot shot--c"><span><b>Coffee</b> days</span></div>
                     </div>
                 </div>
-                <div class="about__media reveal">
-                    <div class="shot shot--a"></div>
-                    <div class="shot shot--b"></div>
-                    <div class="shot shot--c"><span><b>Coffee</b> days</span></div>
+            </div>
+        </section>
+
+        <!-- 4 · LLAMANOS SI NECESITÁS -->
+        <section class="services" id="servicios">
+            <div class="wrap">
+                <h2 class="services__title reveal">Llamanos si necesitás</h2>
+                <div class="notes">
+                    <article class="note note--1 reveal">
+                        <span class="note__pin" aria-hidden="true">
+                            <img src="./src/misc/Card1.png" alt="">
+                        </span>
+                        <h3>Webs y experiencias digitales</h3>
+                        <ul>
+                            <li>Landing pages</li>
+                            <li>Sitios web a medida</li>
+                            <li>Portfolios</li>
+                            <li>Páginas comerciales</li>
+                            <li>Diseño UX/UI y Apps</li>
+                            <li>Sistemas digitales a medida</li>
+                        </ul>
+                        <a class="note__more" href="#contacto">Saber más</a>
+                    </article>
+                    <article class="note note--2 reveal">
+                        <span class="note__pin" aria-hidden="true">
+                            <img src="./src/misc/Card2.png" alt="">
+                        </span>
+                        <h3>Identidad y dirección visual de marcas</h3>
+                        <p>Ordenamos cómo se ve y cómo se presenta un proyecto. Pensado para marcas que están iniciando, identidades que necesitan ajustar su comunicación visual o que perdieron coherencia.</p>
+                        <a class="note__more" href="#contacto">Saber más</a>
+                    </article>
+                    <article class="note note--3 reveal">
+                        <span class="note__pin" aria-hidden="true">
+                            <img src="./src/misc/Card3.png" alt="">
+                        </span>
+                        <h3>Estrategia y contenido</h3>
+                        <ul>
+                            <li>Planificación de contenido</li>
+                            <li>Diseño para redes</li>
+                            <li>Optimización de perfiles</li>
+                            <li>Calendario editorial</li>
+                            <li>Soporte creativo y acompañamiento mensual.</li>
+                        </ul>
+                        <a class="note__more" href="#contacto">Saber más</a>
+                    </article>
+                    <article class="note note--4 reveal">
+                        <span class="note__pin" aria-hidden="true">
+                            <img src="./src/misc/Card4.png" alt="">
+                        </span>
+                        <h3>Producción audiovisual</h3>
+                        <ul>
+                            <li>Fotografía institucional</li>
+                            <li>Fotografía de producto y espacios</li>
+                            <li>Registro de actividades</li>
+                            <li>Edición de video y contenido audiovisual para redes</li>
+                        </ul>
+                        <a class="note__more" href="#contacto">Saber más</a>
+                    </article>
+                    <article class="note note--5 reveal">
+                        <span class="note__pin" aria-hidden="true">
+                            <img src="./src/misc/Card5.png" alt="">
+                        </span>
+                        <h3>Eventos y experiencias</h3>
+                        <p>Acompañamos eventos y activaciones de marca desde la mirada creativa y visual, ayudando a ordenar cómo se presentan, comunican y registran.</p>
+                        <a class="note__more" href="#contacto">Saber más</a>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 4 · LLAMANOS SI NECESITÁS -->
-    <section class="services" id="servicios">
-        <div class="wrap">
-            <h2 class="services__title reveal">Llamanos si necesitás</h2>
-            <div class="notes">
-                <article class="note note--1 reveal">
-                    <h3>Webs y experiencias digitales</h3>
-                    <p>Diseñamos landing pages, sitios web o entornos digitales para comunicar de forma clara, funcional y visualmente cuidada.</p>
-                </article>
-                <article class="note note--2 reveal">
-                    <h3>Identidad y dirección visual</h3>
-                    <p>Ayudamos a ordenar cómo se ve y cómo se presenta una marca: qué transmite, qué muestra, cómo se organiza. Trabajamos sobre marcas que están empezando o identidades que necesitan revisión.</p>
-                </article>
-                <article class="note note--3 reveal">
-                    <h3>Estrategia y contenido</h3>
-                    <p>Creamos con intención, para que cada pieza tenga una razón. Definimos qué comunicar, con qué intención, dónde y cómo, para sostener una comunicación clara y coherente.</p>
-                </article>
-                <article class="note note--4 reveal">
-                    <h3>Producción visual y audiovisual</h3>
-                    <p>Generamos material propio para que cada proyecto pueda mostrarse con imágenes reales y con cuidado. Producimos fotos, piezas visuales para redes y comunicación institucional.</p>
-                </article>
-                <article class="note note--5 reveal">
-                    <img class="note__logo" src="./resources/img/logo.svg" alt="">
-                    <h3>Eventos y experiencias</h3>
-                    <p>Acompañamos eventos desde la mirada creativa y visual, ayudando a ordenar cómo se presentan, comunican y registran.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5 · VENTANA REGISTROS -->
-    <section class="archive" id="registros">
-        <div class="wrap">
-            <div class="window reveal">
-                <div class="window__bar">
-                    <div class="dots"><i></i><i></i><i></i></div>
-                    <span class="window__label">vuné / archivo</span>
-                </div>
-                <div class="window__body">
-                    <h2>Registros</h2>
-                    <nav class="window__menu">
-                        <a href="#">Registros</a>
-                        <a href="#">Experiencias digitales</a>
-                        <a href="#">Marcas</a>
-                        <a href="#">Videos</a>
-                        <a href="#">Eventos y experiencias</a>
-                        <a href="#">Diseño de datos</a>
-                        <a href="#">Desktop</a>
-                        <span class="window__more">Ver más</span>
-                    </nav>
+        <!-- 5 · VENTANA REGISTROS -->
+        <section class="archive" id="registros">
+            <div class="wrap">
+                <div class="window reveal">
+                    <div class="window__bar">
+                        <div class="dots"><i></i><i></i><i></i></div>
+                        <span class="window__label">vuné / archivo</span>
+                    </div>
+                    <div class="window__body">
+                        <h2>Registros</h2>
+                        <nav class="window__menu">
+                            <a href="#">Registros</a>
+                            <a href="#">Experiencias digitales</a>
+                            <a href="#">Marcas</a>
+                            <a href="#">Videos</a>
+                            <a href="#">Eventos y experiencias</a>
+                            <a href="#">Diseño de datos</a>
+                            <a href="#">Desktop</a>
+                            <span class="window__more">Ver más</span>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 6 · CTA VERDE -->
-    <section class="cta" id="contacto">
-        <div class="wrap reveal">
-            <h2>Miremos tu proyecto</h2>
-            <p>
-                Si tenés una idea, una web pendiente o algo que necesita tomar forma,
-                podemos empezar por una charla y ver cómo podemos acompañarte.
-            </p>
-            <a href="mailto:hola@vune.com" class="btn btn--dark">Agendemos una charla</a>
-        </div>
-    </section>
+        <!-- 6 · CTA + FOOTER -->
+        <footer class="foot" id="contacto">
+            <div class="wrap foot__inner">
+                <div class="foot__cta reveal">
+                    <h2>Miremos tu proyecto</h2>
+                    <p>
+                        Si tenés una idea, una web pendiente o algo que necesita tomar forma,
+                        podemos empezar por una charla y ver cómo podemos acompañarte.
+                    </p>
+                    <a href="mailto:hola@vune.com" class="foot__button">Agendemos una charla</a>
+                </div>
 
-    <!-- 7 · FOOTER -->
-    <footer class="foot">
-        <div class="wrap">
-            <div class="foot__grid">
-                <div>
-                    <div class="foot__contact">
-                        <span class="foot__strong">@vune.estudio</span>
+                <div class="foot__grid">
+                    <address class="foot__contact">
+                        <div class="foot__socials" aria-label="Redes sociales">
+                            <img src="./src/icons/instagram.svg" alt="">
+                            <img src="./src/icons/linkedin.svg" alt="">
+                        </div>
+                        <span>@vune.estudio</span>
                         <a href="mailto:hola@vune.com">hola@vune.com</a>
-                        <span>+54 299 421 5593</span>
-                        <span>Cipolletti, Río Negro</span>
-                        <span>Estudio creativo patagónico</span>
+                        <div class="foot__whatsapp">
+                            <img src="./src/icons/whatsapp.svg" alt="">
+                            <a
+                                href="https://wa.me/542994215193?text=%C2%A1Hola!%20%F0%9F%91%8B%20Estuve%20viendo%20el%20trabajo%20de%20Vun%C3%A9%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto.%20%C2%BFPodemos%20coordinar%20una%20charla%3F"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >+54 299 421 5193</a>
+                        </div>
+                        <span>Cipolletti, Río Negro<br>Estudio creativo patagónico</span>
+                    </address>
+
+                    <div class="foot__brand">
+                        <img src="./src/logos/vuné-logo.svg" alt="Vuné">
+                        <nav class="foot__nav" aria-label="Navegación del pie">
+                            <a href="./index.html">Home</a>
+                            <a href="#registros">Archivo</a>
+                            <a href="#nosotros">Nosotros</a>
+                            <a href="#contacto">Contacto</a>
+                        </nav>
                     </div>
-                    <p class="foot__copy">Copyright © 2026 Estudio Vuné</p>
-                </div>
-                <div class="foot__brand">
-                    <div class="foot__word">vun<span>é</span></div>
-                    <nav class="foot__nav">
-                        <a href="#top">Home</a>
-                        <a href="#registros">Archivo</a>
-                        <a href="#nosotros">Nosotros</a>
-                        <a href="#contacto">Contacto</a>
-                    </nav>
                 </div>
             </div>
-        </div>
-    </footer>
-
-    <!-- 8 · MIRAR / CO-DISEÑO -->
-    <section class="essay">
-        <div class="wrap">
-            <div class="essay__inner">
-                <div class="essay__block reveal">
-                    <h2>Mirar</h2>
-                    <p>
-                        Es el acto intencional de dirigir la vista hacia una persona, objeto
-                        o lugar dentro de lo que percibimos. A diferencia de ver, que es
-                        simplemente la capacidad óptica de percibir con los ojos, mirar
-                        implica voluntad y enfoque.
-                    </p>
-                </div>
-                <div class="essay__block reveal">
-                    <h2>Co-diseño</h2>
-                    <p>
-                        El espacio de encuentro entre la visión de quien impulsa un proyecto
-                        y la experiencia de quien lo diseña. En Vuné, no partimos de fórmulas,
-                        sino de un espacio donde cada idea puede tener su propio criterio.
-                    </p>
+            <div class="foot__copyright">
+                <div class="wrap">
+                    <p>Copyright © 2026 Estudio Vuné</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <script>
-        // Nav scrolled + burger
-        const nav = document.getElementById('nav');
-        addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
-        document.getElementById('burger').addEventListener('click', () =>
-            document.body.classList.toggle('nav-open'));
-        document.getElementById('links').addEventListener('click', e => {
-            if (e.target.tagName === 'A') document.body.classList.remove('nav-open');
-        });
+        <!-- 7 · MIRAR / CO-DISEÑO -->
+        <section class="essay">
+            <div class="wrap">
+                <div class="essay__inner">
+                    <div class="essay__block reveal">
+                        <h2>Mirar</h2>
+                        <p>
+                            Es el acto intencional de dirigir la vista hacia una persona, objeto
+                            o lugar dentro de lo que percibimos. A diferencia de ver, que es
+                            simplemente la capacidad óptica de percibir con los ojos, mirar
+                            implica voluntad y enfoque.
+                        </p>
+                    </div>
+                    <div class="essay__block reveal">
+                        <h2>Co-diseño</h2>
+                        <p>
+                            El espacio de encuentro entre la visión de quien impulsa un proyecto
+                            y la experiencia de quien lo diseña. En Vuné, no partimos de fórmulas,
+                            sino de un espacio donde cada idea puede tener su propio criterio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        // Reveal on scroll
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-        }, { threshold: .15 });
-        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="./js/webgl-effect.js"></script>
+    <script src="./js/page-interactions.js"></script>
 </body>
 </html>

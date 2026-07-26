@@ -1,37 +1,44 @@
 # Estado actual
 
-## Estado
+Última revisión: 2026-07-26.
 
-Landing estática en la rama `Demo.07-07`.
+## Implementación vigente
 
-Durante la revisión del 2026-07-23 había cambios sin confirmar en:
+- `index.html` es la entrada única.
+- La apertura WebGL y la landing editorial están integradas.
+- CSS y JavaScript propios están separados por responsabilidad.
+- La cabecera aparece cuando finaliza el zoom.
+- Las cards de servicios incluyen estilos, pines e interacción de Figma.
+- El CTA está integrado en un footer verde de pantalla completa con radios
+  superiores, contacto, marca y navegación.
+- El favicon y el logotipo externo usan assets existentes.
+- La documentación general está consolidada en `README.md`.
 
-- `index.html`
-- `css/scroll.css`
-- eliminación de `proyect/visual.md`
-- nuevo archivo `proyect/brand.md`
+## Validaciones realizadas
 
-Estos cambios externos deben preservarse y no fueron realizados por esta reorganización.
+- Sintaxis de `js/webgl-effect.js`.
+- Sintaxis de `js/page-interactions.js`.
+- Ausencia de CSS y JavaScript propios inline.
+- Existencia de los recursos locales vinculados.
+- Ausencia de referencias documentales a `effect.html` como archivo activo.
 
-## Trabajo reciente
+La revisión visual automatizada no estuvo disponible en la sesión.
 
-Pendiente de completar.
+## Pendientes
 
-## Próximos pasos
+1. Validar textos y datos de contacto, incluido el teléfono tomado de Figma.
+2. Reemplazar los enlaces `href="#"` del archivo.
+3. Confirmar imágenes definitivas para los placeholders.
+4. Revisar manualmente Safari, Chrome y Firefox.
+5. Confirmar si `css/style.css` puede eliminarse.
 
-- Validar textos transcritos y datos de contacto.
-- Confirmar assets definitivos.
-- Decidir entre collage estático y la experiencia WebGL anterior.
-- Sustituir el README provisional cuando se autorice.
-- Documentar un comando local verificable.
+## Deuda técnica
 
-## Bloqueos
+- `css/style.css` no está vinculada y conserva una implementación histórica.
+- No existen build, lint ni tests automatizados.
+- Three.js depende de un CDN externo.
 
-Validación de contenido, contacto, assets y dirección del hero.
+## Cambios externos preservados
 
-## Deuda técnica conocida
-
-El README no documenta el proyecto y la información vigente está concentrada en
-`ESTRUCTURA.md`.
-
-Última actualización: 2026-07-23.
+El árbol de trabajo contiene eliminaciones y archivos no registrados ajenos a
+esta normalización. No deben revertirse sin indicación expresa.
