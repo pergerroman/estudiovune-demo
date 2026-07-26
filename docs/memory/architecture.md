@@ -27,7 +27,8 @@ estilos, scripts, tipografías y Three.js mediante rutas relativas o CDN.
 - `src/img/`: collage, fotografías y fondos.
 - `src/icons/`: iconos sociales exportados desde Figma.
 - `src/logos/`: logotipo principal y favicon.
-- `src/misc/`: imágenes independientes de los pines de las tarjetas.
+- `src/misc/cards/`: imágenes independientes de los pines de las tarjetas.
+- `src/misc/blob/`: figuras orgánicas utilizadas como fondo.
 
 ## Dependencias externas
 

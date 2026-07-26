@@ -55,8 +55,8 @@
 
 - Fecha: 2026-07-26.
 - Estado: aceptada.
-- Decisión: cargar los cinco pines desde `src/misc/Card1.png` a
-  `src/misc/Card5.png`.
+- Decisión: cargar los cinco pines desde `src/misc/cards/Card1.png` a
+  `src/misc/cards/Card5.png`.
 - Consecuencia: `index.html` ya no contiene las imágenes de las tarjetas como
   data URI.
 

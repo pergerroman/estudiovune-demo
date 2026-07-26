@@ -39,8 +39,10 @@ cuando termina el zoom. Three.js r128 se carga desde CDN antes del script.
 
 ### 3.1 Presentación
 
-El título “Experimentales, versátiles y locales.” usa Averia Gruesa Libre. El
-resto de la interfaz usa Inter.
+El hero ocupa una pantalla completa sobre fondo marrón. A la izquierda utiliza
+`src/misc/blob/hero-orange-blur.svg` como figura desenfocada. El título
+“Experimentales, versátiles y locales.” usa Averia Gruesa Libre; el resto de la
+interfaz usa Inter.
 
 ### 3.2 Nosotros
 
@@ -62,8 +64,8 @@ Cada tarjeta posee color, rotación y pin propios. Las interacciones duran
 dispositivos táctiles el enlace permanece visible; con
 `prefers-reduced-motion` se eliminan las transiciones.
 
-Los cinco pines se cargan desde `src/misc/Card1.png` a
-`src/misc/Card5.png`.
+Los cinco pines se cargan desde `src/misc/cards/Card1.png` a
+`src/misc/cards/Card5.png`.
 
 ### 3.4 Glosario, contacto y cierre
 

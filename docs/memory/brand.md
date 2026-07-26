@@ -65,7 +65,8 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 | Instagram | `src/icons/instagram.svg` | Activo en el footer |
 | LinkedIn | `src/icons/linkedin.svg` | Activo en el footer |
 | WhatsApp | `src/icons/whatsapp.svg` | Activo en el footer |
-| Pines de cards | `src/misc/Card1.png` a `Card5.png` | Activos |
+| Pines de cards | `src/misc/cards/Card1.png` a `Card5.png` | Activos |
+| Figura desenfocada del hero | `src/misc/blob/hero-orange-blur.svg` | Activa |
 
 Los nombres con tilde usan la normalización Unicode del sistema de archivos.
 Deben copiarse desde el repositorio al crear una ruta.

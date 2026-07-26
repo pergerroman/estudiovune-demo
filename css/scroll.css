@@ -75,7 +75,7 @@ a { color: inherit; text-decoration: none; }
     cursor: pointer;
     transition: transform .25s var(--ease), box-shadow .25s, background .25s, color .25s;
 }
-.btn--cyan { background: var(--cyan); color: #06232a; box-shadow: 0 14px 30px -12px rgba(50,200,225,.6); }
+.btn--cyan { background: var(--cyan); color: #fff; box-shadow: 0 14px 30px -12px rgba(50,200,225,.6); }
 .btn--cyan:hover { transform: translateY(-3px); box-shadow: 0 20px 38px -12px rgba(50,200,225,.7); }
 .btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
 .btn--outline:hover { border-color: #fff; transform: translateY(-3px); }
@@ -118,18 +118,28 @@ a { color: inherit; text-decoration: none; }
    2 · HERO NARANJA
    =================================================================== */
 .intro {
-    position: relative; overflow: hidden;
-    background: radial-gradient(120% 130% at 15% 20%, #d9743a 0%, var(--coral) 35%, #7a3418 100%);
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--brown);
     color: #fff;
     padding: clamp(80px, 12vw, 150px) 0 clamp(90px, 13vw, 160px);
 }
 .intro::before {
-    content: ""; position: absolute; top: -20%; left: -10%;
-    width: 55%; height: 90%;
-    background: radial-gradient(circle at center, rgba(255,180,120,.55), transparent 60%);
-    filter: blur(30px); pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: min(80vw, 577px);
+    height: min(100%, 964px);
+    background: url('../src/misc/blob/hero-orange-blur.svg') left center / contain no-repeat;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
-.intro__inner { position: relative; max-width: 760px; }
+.intro > .wrap { width: 100%; }
+.intro__inner { position: relative; z-index: 1; max-width: 760px; }
 .intro h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); margin-bottom: 30px; }
 .intro p { font-size: clamp(1.05rem, 2vw, 1.3rem); max-width: 48ch; color: rgba(255,255,255,.9); margin-bottom: 38px; }
 

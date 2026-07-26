@@ -66,6 +66,11 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-26
 
+- Se dividió `src/misc/` en `cards/` para los pines y `blob/` para la figura
+  orgánica del hero.
+- Se convirtió el hero de presentación en una pantalla completa marrón, se
+  incorporó `src/misc/blob/hero-orange-blur.svg` y se cambió a blanco el texto del
+  botón celeste.
 - Se retiró la sección Registros/Archivo de esta versión, junto con sus enlaces
   de navegación y estilos exclusivos.
 - Se reemplazó el fondo de `section.essay` por
@@ -86,7 +91,7 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 - Se reemplazó el favicon PNG anterior por `src/logos/v-fav.svg` y se
   actualizaron los usos del logotipo a `src/logos/vuné-logo.svg`.
 - Se reemplazaron las cinco imágenes embebidas de las cards por los archivos
-  `src/misc/Card1.png` a `src/misc/Card5.png`.
+  `src/misc/cards/Card1.png` a `src/misc/cards/Card5.png`.
 - Se implementaron los siete nodos de Figma del cierre y se integró el CTA
   dentro de un footer verde de pantalla completa con esquinas superiores
   redondeadas.
