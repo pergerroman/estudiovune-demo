@@ -102,3 +102,13 @@
   termina el zoom, y pausarlas cuando la pestaña pierde visibilidad.
 - Consecuencia: se conserva el efecto aprobado al volver al inicio con menor
   consumo sostenido de CPU y GPU durante el contenido editorial.
+
+## Hero como señal de marca
+
+- Fecha: 2026-07-26.
+- Estado: aceptada.
+- Decisión: representar el hero posterior al canvas como una señal editorial
+  patagónica, combinando tipografía Averia de gran escala, órbitas, logotipo,
+  coordenadas, colores complementarios y un ticker continuo.
+- Consecuencia: el objeto es ornamental, no altera el mensaje institucional y
+  pasa a segundo plano en mobile o cuando se solicita movimiento reducido.

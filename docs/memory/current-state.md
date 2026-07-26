@@ -14,6 +14,8 @@
 - El favicon y el logotipo externo usan assets existentes.
 - El recorrido incluye un índice lateral de capítulos, progreso activo y
   cursor contextual en escritorio.
+- El hero editorial combina título escalonado, señal orbital de marca,
+  coordenadas patagónicas, CTA reactivo y ticker continuo.
 - Q&A utiliza una composición fotográfica con profundidad; servicios y ensayo
   incorporan textura y movimiento editorial.
 - El canvas deja de renderizar cuando la apertura ya no es visible y la

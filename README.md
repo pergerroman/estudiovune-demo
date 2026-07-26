@@ -66,6 +66,11 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-26
 
+- Se rediseñó el hero marrón como una composición tipográfica de gran escala
+  con señal orbital Vuné, coordenadas patagónicas, profundidad por puntero,
+  CTA animado y ticker editorial.
+- Se definió una adaptación específica del hero para mobile y movimiento
+  reducido, manteniendo el contenido principal legible y estable.
 - Se convirtió el recorrido posterior al canvas en una experiencia editorial
   continua: índice lateral de cinco capítulos, progreso activo y cursor
   contextual de observación.
