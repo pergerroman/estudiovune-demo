@@ -1,7 +1,7 @@
 # Vuné — Estudio creativo patagónico
 
-Landing interactiva de una página para presentar el estudio Vuné, sus servicios,
-su archivo y sus canales de contacto.
+Landing interactiva de una página para presentar el estudio Vuné, sus servicios
+y sus canales de contacto.
 
 El proyecto combina una experiencia inicial WebGL con un recorrido editorial
 long-scroll. Está construido como un sitio estático, sin proceso de compilación
@@ -66,6 +66,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-26
 
+- Se retiró la sección Registros/Archivo de esta versión, junto con sus enlaces
+  de navegación y estilos exclusivos.
 - Se reemplazó el fondo de `section.essay` por
   `src/img/bg/_DSC5866 1.jpg`.
 - Se configuró `section.essay` con una altura mínima de pantalla completa.

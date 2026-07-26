@@ -15,7 +15,8 @@
 - Fecha: anterior a 2026-07-26.
 - Estado: aceptada en la implementación.
 - Decisión: mantener un recorrido long-scroll con navegación por anclas.
-- Consecuencia: Archivo y Servicios son secciones, no páginas independientes.
+- Consecuencia: Servicios funciona como sección; Archivo queda fuera de esta
+  versión.
 
 ## Apertura WebGL
 
@@ -71,3 +72,11 @@
   `50:16` y `58:17`.
 - Actualización: el nodo integral `140:1291` pasa a ser la referencia vigente e
   incorpora título, iconos sociales y franja inferior de copyright.
+
+## Archivo fuera de esta versión
+
+- Fecha: 2026-07-26.
+- Estado: aceptada.
+- Decisión: retirar la sección Registros/Archivo y sus accesos de navegación.
+- Consecuencia: se eliminan `#registros`, `.archive`, `.window` y sus estilos
+  asociados.

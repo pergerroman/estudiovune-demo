@@ -63,6 +63,11 @@ body, html {
     filter: invert(1);
 }
 
+.ui.header.header--hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 .intro__inner h1 {
     font-family: 'Averia Gruesa Libre', cursive;
 }

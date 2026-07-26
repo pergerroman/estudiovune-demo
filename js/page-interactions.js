@@ -39,19 +39,25 @@ if (notes) {
 
 const header = document.querySelector('.ui.header');
 const aboutSection = document.querySelector('#nosotros');
+const essaySection = document.querySelector('.essay');
 
 if (header && aboutSection) {
-    const updateHeaderTheme = () => {
+    const updateHeaderState = () => {
         const headerRect = header.getBoundingClientRect();
         const aboutRect = aboutSection.getBoundingClientRect();
         const headerCenter = headerRect.top + (headerRect.height / 2);
         const isOverAbout = headerCenter >= aboutRect.top
             && headerCenter <= aboutRect.bottom;
+        const essayRect = essaySection?.getBoundingClientRect();
+        const isOverEssay = essayRect
+            ? headerCenter >= essayRect.top && headerCenter <= essayRect.bottom
+            : false;
 
-        header.classList.toggle('header--light', isOverAbout);
+        header.classList.toggle('header--light', isOverAbout && !isOverEssay);
+        header.classList.toggle('header--hidden', isOverEssay);
     };
 
-    window.addEventListener('scroll', updateHeaderTheme, { passive: true });
-    window.addEventListener('resize', updateHeaderTheme);
-    updateHeaderTheme();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('resize', updateHeaderState);
+    updateHeaderState();
 }

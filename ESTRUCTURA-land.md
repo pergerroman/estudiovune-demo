@@ -14,9 +14,8 @@ una apertura WebGL con el contenido editorial de la landing.
 | 2 | Presentación | `.intro`, `#intro` | Declaración de identidad y CTA |
 | 3 | Nosotros | `.about`, `#nosotros` | Q&A y composición visual |
 | 4 | Servicios | `.services`, `#servicios` | Cinco tarjetas interactivas |
-| 5 | Archivo | `.archive`, `#registros` | Ventana visual de registros |
-| 6 | CTA y pie | `.foot`, `#contacto` | Pantalla completa, contacto y navegación |
-| 7 | Glosario | `.essay` | Cierre final sobre mirar y co-diseñar |
+| 5 | CTA y pie | `.foot`, `#contacto` | Pantalla completa, contacto y navegación |
+| 6 | Glosario | `.essay` | Cierre final sobre mirar y co-diseñar |
 
 La navegación es interna mediante anclas. No existen rutas de contenido ni
 páginas interiores verificadas.
@@ -66,12 +65,7 @@ dispositivos táctiles el enlace permanece visible; con
 Los cinco pines se cargan desde `src/misc/Card1.png` a
 `src/misc/Card5.png`.
 
-### 3.4 Archivo
-
-La sección representa un archivo mediante una ventana visual con categorías.
-Los enlaces con `href="#"` son provisionales.
-
-### 3.5 Glosario, contacto y cierre
+### 3.4 Glosario, contacto y cierre
 
 El CTA está integrado en `.foot`, que ocupa como mínimo una pantalla completa, tiene
 esquinas superiores redondeadas y reúne invitación, contacto, logotipo,
@@ -83,7 +77,7 @@ deben validarse antes de publicar.
 
 ## 4. Navegación e interacción
 
-- La cabecera enlaza a Inicio, Archivo, Nosotros y Contacto.
+- La cabecera enlaza a Inicio, Nosotros y Contacto.
 - El logotipo enlaza a `index.html`.
 - `js/page-interactions.js` controla reveal y cards.
 - El scroll suave se define en CSS.
@@ -98,7 +92,6 @@ deben validarse antes de publicar.
 ## 6. Pendientes
 
 - Validar textos y datos de contacto.
-- Reemplazar enlaces provisionales del archivo.
 - Confirmar imágenes finales.
 - Confirmar si `css/style.css` puede eliminarse.
 - Revisar Safari, Chrome y Firefox.

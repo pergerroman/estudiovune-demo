@@ -27,10 +27,9 @@ La revisión visual automatizada no estuvo disponible en la sesión.
 ## Pendientes
 
 1. Validar textos y datos de contacto, incluido el teléfono tomado de Figma.
-2. Reemplazar los enlaces `href="#"` del archivo.
-3. Confirmar imágenes definitivas para los placeholders.
-4. Revisar manualmente Safari, Chrome y Firefox.
-5. Confirmar si `css/style.css` puede eliminarse.
+2. Confirmar imágenes definitivas para los placeholders.
+3. Revisar manualmente Safari, Chrome y Firefox.
+4. Confirmar si `css/style.css` puede eliminarse.
 
 ## Deuda técnica
 

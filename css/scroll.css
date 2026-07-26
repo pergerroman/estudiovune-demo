@@ -205,41 +205,7 @@ a { color: inherit; text-decoration: none; }
 .note__logo { position: absolute; top: 16px; right: 16px; width: 34px; opacity: .9; }
 
 /* ===================================================================
-   5 · VENTANA REGISTROS
-   =================================================================== */
-.archive {
-    position: relative; padding: clamp(90px, 13vw, 160px) 0;
-    background-image: url('../src/img/Collage fondo.png');
-    background-size: cover; background-position: center; background-attachment: fixed;
-}
-.archive::before { content: ""; position: absolute; inset: 0; background: rgba(15,16,20,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.window {
-    position: relative; max-width: 760px; margin: 0 auto;
-    background: rgba(28,30,34,.92); border: 1px solid rgba(255,255,255,.1);
-    border-radius: 16px; overflow: hidden;
-    box-shadow: 0 40px 90px -30px rgba(0,0,0,.75);
-    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-}
-.window__bar {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.dots { display: flex; gap: 8px; }
-.dots i { width: 12px; height: 12px; border-radius: 50%; display: block; }
-.dots i:nth-child(1) { background: #ff5f57; }
-.dots i:nth-child(2) { background: #febc2e; }
-.dots i:nth-child(3) { background: #28c840; }
-.window__label { color: rgba(255,255,255,.45); font-size: 13px; letter-spacing: .02em; }
-.window__body { display: grid; grid-template-columns: 1fr auto; gap: 20px; padding: 30px 34px 40px; color: #fff; }
-.window__body h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); align-self: end; }
-.window__menu { display: grid; gap: 12px; text-align: right; }
-.window__menu a { font-size: 15px; color: rgba(255,255,255,.7); transition: color .2s; }
-.window__menu a:first-child { color: #fff; font-weight: 600; }
-.window__menu a:hover { color: var(--cyan); }
-.window__more { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,.45); }
-
-/* ===================================================================
-   6 · CTA + FOOTER
+   5 · CTA + FOOTER
    =================================================================== */
 .foot {
     --foot-corner: clamp(36px, 5vw, 60px);
@@ -267,7 +233,6 @@ a { color: inherit; text-decoration: none; }
     margin-bottom: clamp(22px, 3vw, 30px);
     color: var(--cream);
     font-size: clamp(2.8rem, 5.5vw, 4rem);
-    font-style: italic;
     font-weight: 400;
     line-height: 1.04;
     letter-spacing: -.02em;
@@ -367,7 +332,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ===================================================================
-   7 · MIRAR / CO-DISEÑO
+   6 · MIRAR / CO-DISEÑO
    =================================================================== */
 .essay {
     position: relative;
@@ -383,7 +348,7 @@ a { color: inherit; text-decoration: none; }
 .essay::before { content: ""; position: absolute; inset: 0; background: rgba(91, 51, 33, .2); }
 .essay__inner { position: relative; display: grid; gap: clamp(50px, 8vw, 90px); max-width: 720px; }
 .essay__block h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 16px; }
-.essay__block p { color: rgba(255,255,255,.6); font-size: 1rem; max-width: 60ch; }
+.essay__block p { color: rgba(255,255,255,.6); font-size: 1rem; font-weight: 500; max-width: 60ch; }
 
 /* ===== Reveal ===== */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
@@ -392,7 +357,6 @@ a { color: inherit; text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .archive { background-attachment: scroll; }
 }
 
 /* ===================================================================
@@ -413,8 +377,6 @@ a { color: inherit; text-decoration: none; }
     }
     body.nav-open .nav__links { transform: translateX(0); }
     .notes { grid-template-columns: 1fr; }
-    .window__body { grid-template-columns: 1fr; }
-    .window__menu { text-align: left; }
     .foot__inner {
         min-height: auto;
         padding-top: clamp(80px, 16vw, 110px);

@@ -61,7 +61,7 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 | Favicon | `src/logos/v-fav.svg` | Activo |
 | Collage | `src/img/Collage fondo.png` | Activo en apertura y placeholders |
 | Fondo de Essay | `src/img/bg/_DSC5866 1.jpg` | Activo |
-| Fotografía 2 | `src/img/bg/_DSC5885 1.jpg` | Disponible, no vinculada |
+| Fondo registros | `src/img/bg/_DSC5885 1.jpg` | Disponible, no vinculada |
 | Instagram | `src/icons/instagram.svg` | Activo en el footer |
 | LinkedIn | `src/icons/linkedin.svg` | Activo en el footer |
 | WhatsApp | `src/icons/whatsapp.svg` | Activo en el footer |
