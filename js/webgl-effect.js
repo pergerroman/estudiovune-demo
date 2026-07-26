@@ -342,10 +342,20 @@ function updateScroll() {
         const zoomFinished = progress >= 1;
         header.style.opacity = zoomFinished ? '1' : '0';
         header.style.pointerEvents = zoomFinished ? 'auto' : 'none';
+        document.body.classList.toggle('experience-ready', zoomFinished);
     }
 }
 
-window.addEventListener('scroll', updateScroll);
+let scrollFrameRequested = false;
+window.addEventListener('scroll', () => {
+    if (!scrollFrameRequested) {
+        scrollFrameRequested = true;
+        requestAnimationFrame(() => {
+            updateScroll();
+            scrollFrameRequested = false;
+        });
+    }
+}, { passive: true });
 updateScroll(); 
 
 // Manejo del ratón (sigue funcionando porque los eventos se leen del window global)
@@ -376,9 +386,17 @@ window.addEventListener('resize', () => {
 });
 
 const clock = new THREE.Clock();
+let animationFrame = 0;
+let isDocumentVisible = !document.hidden;
 
 function animate() {
-    requestAnimationFrame(animate);
+    if (!isDocumentVisible) return;
+    animationFrame = requestAnimationFrame(animate);
+
+    // Una vez consumida la apertura, el canvas es transparente. Evitamos
+    // seguir actualizando textura y GPU hasta que el usuario vuelva al inicio.
+    if (document.body.classList.contains('experience-ready')) return;
+
     mouseTrail.update();
     material.uniforms.uTime.value = clock.getElapsedTime();
     renderer.render(scene, camera);
@@ -386,3 +404,15 @@ function animate() {
 
 animate();
 
+document.addEventListener('visibilitychange', () => {
+    isDocumentVisible = !document.hidden;
+
+    if (isDocumentVisible) {
+        clock.start();
+        cancelAnimationFrame(animationFrame);
+        animate();
+    } else {
+        cancelAnimationFrame(animationFrame);
+        clock.stop();
+    }
+});

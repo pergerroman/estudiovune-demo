@@ -66,6 +66,19 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-26
 
+- Se convirtió el recorrido posterior al canvas en una experiencia editorial
+  continua: índice lateral de cinco capítulos, progreso activo y cursor
+  contextual de observación.
+- Se rediseñó la composición visual de Q&A con fotografía, collage superpuesto
+  y profundidad sutil ligada al scroll.
+- Se incorporaron textura propia en servicios, grano en el ensayo y tipografía
+  ambiental para reforzar el carácter experimental sin sumar dependencias.
+- Se agregó enlace para saltar la apertura, foco visible, navegación semántica,
+  fallback sin WebGL y variantes para movimiento reducido y puntero táctil.
+- Se agruparon los cálculos frecuentes con `requestAnimationFrame`; el canvas
+  pausa su trabajo cuando termina la apertura o la pestaña queda oculta.
+- Se eliminaron reglas históricas no referenciadas de navegación, collage y
+  cards que competían con la implementación vigente.
 - Se dividió `src/misc/` en `cards/` para los pines y `blob/` para la figura
   orgánica del hero.
 - Se convirtió el hero de presentación en una pantalla completa marrón, se

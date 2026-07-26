@@ -23,8 +23,10 @@ de validación.
 - Landing long-scroll de una sola página.
 - Apertura WebGL interactiva.
 - Navegación fija por anclas.
+- Índice lateral de cinco capítulos con progreso y sección activa.
 - Presentación, nosotros, servicios, footer con CTA y glosario final.
 - Reveal progresivo de contenido.
+- Cursor contextual y profundidad editorial en dispositivos compatibles.
 - Cards accesibles mediante puntero y teclado.
 
 ## Fuera de alcance comprobado

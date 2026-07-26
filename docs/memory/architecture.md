@@ -20,7 +20,8 @@ estilos, scripts, tipografías y Three.js mediante rutas relativas o CDN.
 ### Comportamiento
 
 - `js/webgl-effect.js`: Three.js, shaders, máscara, estela y zoom.
-- `js/page-interactions.js`: reveal y estados interactivos de las tarjetas.
+- `js/page-interactions.js`: reveal, índice de recorrido, tema de navegación,
+  cursor contextual, progreso de sección y estados de las tarjetas.
 
 ### Recursos
 
@@ -43,7 +44,19 @@ No existe gestor de paquetes ni proceso de compilación.
 2. Se construye la apertura y el contenido editorial.
 3. Three.js queda disponible globalmente.
 4. `webgl-effect.js` inicializa el canvas.
-5. `page-interactions.js` inicializa reveal y cards.
+5. `page-interactions.js` inicializa reveal, navegación contextual, progreso,
+   respuesta al puntero y cards.
+
+## Rendimiento y resiliencia
+
+- Los eventos continuos de scroll y puntero se agrupan con
+  `requestAnimationFrame`.
+- El canvas deja de actualizar textura y GPU una vez finalizada la apertura.
+- El render WebGL se pausa cuando el documento no está visible.
+- Si Three.js o WebGL no inicializan, el contenido y la cabecera siguen
+  disponibles.
+- La capa ornamental se reduce o elimina con `prefers-reduced-motion` y en
+  dispositivos de puntero táctil.
 
 ## Restricciones
 

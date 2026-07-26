@@ -12,19 +12,34 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+    <a class="skip-link" href="#intro">Saltar a la experiencia</a>
 
     <!-- 1. Interfaz Fija -->
-    <div class="ui header">
+    <header class="ui header">
         <div class="logo">
             <a href="./index.html" aria-label="Volver al inicio">
                 <img src="./src/logos/vuné-logo.svg" alt="Vuné">
             </a>
         </div>
-        <div class="menu">
+        <nav class="menu" aria-label="Navegación principal">
             <a href="#intro">HOME</a>
             <a href="#nosotros">NOSOTROS</a>
             <a href="#contacto">CONTACTO</a>
-        </div>
+        </nav>
+    </header>
+
+    <nav class="journey" aria-label="Índice de la experiencia">
+        <span class="journey__line" aria-hidden="true"><i></i></span>
+        <a href="#intro" data-section="intro"><b>01</b><span>Manifiesto</span></a>
+        <a href="#nosotros" data-section="nosotros"><b>02</b><span>Estudio</span></a>
+        <a href="#servicios" data-section="servicios"><b>03</b><span>Servicios</span></a>
+        <a href="#contacto" data-section="contacto"><b>04</b><span>Contacto</span></a>
+        <a href="#mirar" data-section="mirar"><b>05</b><span>Mirar</span></a>
+    </nav>
+
+    <div class="cursor-lens" aria-hidden="true">
+        <span class="cursor-lens__dot"></span>
+        <span class="cursor-lens__label">MIRAR</span>
     </div>
 
     <!-- 2. Máscara WebGL Fija (Overlay interactivo) -->
@@ -38,9 +53,10 @@
     <!-- 4. Contenido -->
     <main>
         <!-- 2 · HERO NARANJA -->
-        <section class="intro" id="intro">
+        <section class="intro" id="intro" data-chapter="Manifiesto">
             <div class="wrap">
                 <div class="intro__inner reveal">
+                    <p class="section-kicker">Estudio creativo · Patagonia</p>
                     <h1>Experimentales,<br>versátiles y locales.</h1>
                     <p>
                         Somos Vuné, un estudio creativo patagónico. Desde la comunicación
@@ -53,8 +69,9 @@
         </section>
 
         <!-- 3 · SECCIÓN OSCURA · Q&A -->
-        <section class="about" id="nosotros">
+        <section class="about" id="nosotros" data-chapter="Estudio">
             <div class="wrap">
+                <p class="section-kicker section-kicker--light reveal">Una práctica basada en observar</p>
                 <div class="about__grid">
                     <div class="qa reveal">
                         <div class="qa__block">
@@ -97,8 +114,9 @@
         </section>
 
         <!-- 4 · LLAMANOS SI NECESITÁS -->
-        <section class="services" id="servicios">
+        <section class="services" id="servicios" data-chapter="Servicios">
             <div class="wrap">
+                <p class="section-kicker section-kicker--center reveal">Lo que podemos hacer juntos</p>
                 <h2 class="services__title reveal">Llamanos si necesitás</h2>
                 <div class="notes">
                     <article class="note note--1 reveal">
@@ -164,7 +182,7 @@
         </section>
 
         <!-- 5 · CTA + FOOTER -->
-        <footer class="foot" id="contacto">
+        <footer class="foot" id="contacto" data-chapter="Contacto">
             <div class="wrap foot__inner">
                 <div class="foot__cta reveal">
                     <h2>Miremos tu proyecto</h2>
@@ -212,8 +230,9 @@
         </footer>
 
         <!-- 6 · MIRAR / CO-DISEÑO -->
-        <section class="essay">
+        <section class="essay" id="mirar" data-chapter="Mirar">
             <div class="wrap">
+                <p class="essay__signal" aria-hidden="true">MIRAR / HACER / COMPARTIR</p>
                 <div class="essay__inner">
                     <div class="essay__block reveal">
                         <h2>Mirar</h2>

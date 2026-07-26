@@ -80,3 +80,25 @@
 - Decisión: retirar la sección Registros/Archivo y sus accesos de navegación.
 - Consecuencia: se eliminan `#registros`, `.archive`, `.window` y sus estilos
   asociados.
+
+## Recorrido editorial inmersivo
+
+- Fecha: 2026-07-26.
+- Estado: aceptada.
+- Decisión: extender el lenguaje de la apertura WebGL al resto de la landing
+  mediante un índice de capítulos, progreso contextual, cursor de observación,
+  profundidad fotográfica y movimiento sutil ligado a la posición.
+- Consecuencia: la interacción vive en `js/page-interactions.js`, no modifica
+  el contenido institucional y se desactiva o simplifica en táctil y con
+  `prefers-reduced-motion`.
+- Criterio: la inmersión debe reforzar la idea de mirar y co-diseñar sin
+  dificultar la lectura, el foco por teclado ni la navegación por anclas.
+
+## Pausa del canvas fuera de la apertura
+
+- Fecha: 2026-07-26.
+- Estado: aceptada.
+- Decisión: detener las actualizaciones de textura y render del canvas cuando
+  termina el zoom, y pausarlas cuando la pestaña pierde visibilidad.
+- Consecuencia: se conserva el efecto aprobado al volver al inicio con menor
+  consumo sostenido de CPU y GPU durante el contenido editorial.
