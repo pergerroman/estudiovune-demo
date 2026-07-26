@@ -1,0 +1,319 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f4; 
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+}
+
+#webgl-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.ui.header {
+    position: fixed; 
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    z-index: 11;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: color .3s ease, opacity .3s ease;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+    transition: filter .3s ease;
+}
+
+.logo a {
+    display: inline-flex;
+}
+
+.ui.header .menu {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    gap: 2rem;
+}
+
+.ui.header .menu a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.ui.header.header--light {
+    color: #fff;
+}
+
+.ui.header.header--light .logo img {
+    filter: invert(1);
+}
+
+.ui.header.header--hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.intro__inner h1 {
+    font-family: 'Averia Gruesa Libre', cursive;
+}
+
+.services .notes {
+    position: relative;
+    display: block;
+    min-height: 620px;
+    max-width: 1160px;
+    margin-inline: auto;
+}
+
+.services .note {
+    --note-x: 0px;
+    --note-y: 0px;
+    --note-rotation: 0deg;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    width: 299px;
+    height: 386px;
+    min-height: 0;
+    padding: 45px 25px 28px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: #fff;
+    box-shadow: none;
+    transform: translate3d(var(--note-x), var(--note-y), 0) rotate(var(--note-rotation));
+    transform-origin: 50% 50%;
+    transition:
+        transform 300ms cubic-bezier(.42, 0, .58, 1),
+        box-shadow 300ms cubic-bezier(.42, 0, .58, 1);
+}
+
+.services .note::before {
+    display: none;
+}
+
+.services .notes[data-active] .note {
+    will-change: transform;
+}
+
+.services .notes[data-active="1"] .note--1,
+.services .notes[data-active="2"] .note--2,
+.services .notes[data-active="3"] .note--3,
+.services .notes[data-active="4"] .note--4,
+.services .notes[data-active="5"] .note--5 {
+    --note-y: -39px;
+    box-shadow: 0 22px 40px -22px rgba(0, 0, 0, .5);
+    z-index: 10;
+}
+
+.services .notes[data-active="1"] .note--1 { --note-x: 31px; --note-rotation: 5.6deg; }
+.services .notes[data-active="2"] .note--2 { --note-x: 29px; --note-rotation: -15.13deg; }
+.services .notes[data-active="3"] .note--3 { --note-x: 37px; --note-y: 41px; --note-rotation: -1.47deg; }
+.services .notes[data-active="4"] .note--4 { --note-x: -41px; --note-y: 0px; --note-rotation: 7deg; }
+.services .notes[data-active="5"] .note--5 { --note-x: -43px; --note-y: -50px; --note-rotation: 38.76deg; }
+
+.services .note h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.15;
+}
+
+.services .note p,
+.services .note li {
+    color: inherit;
+    font-size: 20px;
+    line-height: 1.18;
+}
+
+.services .note p {
+    margin: 0;
+}
+
+.services .note ul {
+    flex: 1;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.services .note__more {
+    margin-top: auto;
+    color: inherit;
+    font-size: 15px;
+    opacity: 0;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 300ms cubic-bezier(0, 0, .58, 1);
+}
+
+.services .notes[data-active="1"] .note--1 .note__more,
+.services .notes[data-active="2"] .note--2 .note__more,
+.services .notes[data-active="3"] .note--3 .note__more,
+.services .notes[data-active="4"] .note--4 .note__more,
+.services .notes[data-active="5"] .note--5 .note__more {
+    opacity: 1;
+}
+
+.services .note__pin {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.services .note__pin img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .25));
+}
+
+.services .note--1 {
+    left: 0;
+    top: 70px;
+    z-index: 1;
+    background: #979e6c;
+    --note-rotation: 4deg;
+}
+
+.services .note--1 .note__pin {
+    top: -64px;
+    left: 82px;
+    width: 96px;
+    height: 96px;
+}
+
+.services .note--2 {
+    left: 18%;
+    top: 135px;
+    z-index: 2;
+    background: #a1315b;
+    --note-rotation: -7deg;
+}
+
+.services .note--2 .note__pin {
+    top: -40px;
+    left: 121px;
+    width: 66px;
+    height: 71px;
+}
+
+.services .note--3 {
+    left: 40%;
+    top: 5px;
+    z-index: 3;
+    background: #32c8e1;
+    --note-rotation: 6deg;
+}
+
+.services .note--3 .note__pin {
+    top: -70px;
+    left: 96px;
+    width: 105px;
+    height: 91px;
+}
+
+.services .note--4 {
+    left: 58%;
+    top: 185px;
+    z-index: 4;
+    background: #5b3321;
+    --note-rotation: -2deg;
+}
+
+.services .note--4 .note__pin {
+    top: -59px;
+    left: 126px;
+    width: 72px;
+    height: 72px;
+    transform: rotate(-90deg);
+}
+
+.services .note--5 {
+    right: 0;
+    top: 125px;
+    z-index: 5;
+    background: #efbdf9;
+    color: #5b3321;
+    --note-rotation: 11deg;
+}
+
+.services .note--5 .note__pin {
+    top: -72px;
+    left: 98px;
+    width: 105px;
+    height: 105px;
+}
+
+@media (max-width: 1050px) {
+    .services .notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 299px));
+        justify-content: center;
+        gap: 78px 42px;
+        min-height: 0;
+    }
+
+    .services .note {
+        position: relative;
+        inset: auto;
+    }
+}
+
+@media (max-width: 680px) {
+    .services .notes {
+        grid-template-columns: minmax(0, 299px);
+    }
+
+    .services .note {
+        --note-rotation: 0deg;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .services .note__more {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services .note,
+    .services .note__more {
+        transition: none;
+    }
+
+    .services .notes[data-active] .note {
+        will-change: auto;
+    }
+
+    .services .note__more {
+        opacity: 1;
+    }
+}
+
+.hero-stage {
+    background: linear-gradient(135deg, #e0f8f8, #fce4e4);
+    background-attachment: fixed;
+}
+
+.zoom-spacer {
+    height: 120vh;
+    width: 100%;
+    background-image: url('../src/img/Collage fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

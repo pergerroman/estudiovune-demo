@@ -1,0 +1,9 @@
+{
+  "liveServer.settings.ignoreFiles": [
+    "**/.DS_Store",
+    "**/*.md",
+    ".vscode/**",
+    ".git/**"
+  ],
+  "liveServer.settings.wait": 500
+}
