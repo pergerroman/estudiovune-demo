@@ -1,6 +1,6 @@
 # Estado actual
 
-Última revisión: 2026-07-26.
+Última revisión: 2026-07-27.
 
 ## Implementación vigente
 
@@ -8,9 +8,26 @@
 - La apertura WebGL y la landing editorial están integradas.
 - CSS y JavaScript propios están separados por responsabilidad.
 - La cabecera aparece cuando finaliza el zoom.
-- Las cards de servicios incluyen estilos, pines e interacción de Figma.
+- La navegación superior ofrece Inicio y Contacto; Nosotros se accede desde el
+  índice lateral.
+- Las imágenes de la sección Q&A se muestran sin texto superpuesto.
+- Un índice lateral fijo permite navegar las seis etapas y marca en tiempo real
+  la sección visible; permanece oculto durante la apertura y en mobile adopta
+  una variante compacta. En Contacto se muestra en blanco puro.
+- En mobile, el fondo del contenedor del canvas WebGL ocupa el 110% de la altura
+  de la pantalla y completa el tramo inferior con blanco cálido para Safari.
+- Las cards de servicios incluyen estilos, pines e interacción de Figma sobre
+  un fondo crema micropunteado en marrón al 15% de opacidad.
+- En mobile, las cards de servicios forman un recorrido horizontal táctil con
+  encastre entre tarjetas.
+- Los cinco enlaces “Saber más” de las cards abren el contacto de WhatsApp en
+  una pestaña nueva con un mensaje de consulta predefinido.
 - El CTA está integrado en un footer verde de pantalla completa con radios
   superiores, contacto, marca y navegación.
+- El footer conserva correo, WhatsApp y ubicación, sin iconos de Instagram o
+  LinkedIn ni usuario social.
+- El botón principal del footer abre el contacto de WhatsApp con el mensaje de
+  consulta indicado por el estudio.
 - El favicon y el logotipo externo usan assets existentes.
 - La documentación general está consolidada en `README.md`.
 

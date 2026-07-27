@@ -87,7 +87,7 @@ a { color: inherit; text-decoration: none; }
    =================================================================== */
 .collage {
     height: 100vh; min-height: 620px;
-    background-image: url('../src/img/Collage fondo.png');
+    background-image: url('../src/img/bg/Collage.jpg');
     background-size: cover; background-position: center;
     position: relative;
     overflow: hidden;
@@ -164,23 +164,23 @@ a { color: inherit; text-decoration: none; }
 .about__media { display: grid; gap: 16px; }
 .shot {
     border-radius: 16px; overflow: hidden; position: relative;
-    background-image: url('../src/img/Collage fondo.png');
+    background-image: url('../src/img/bg/Collage.jpg');
     background-size: 320% auto; box-shadow: var(--shadow);
 }
 .shot--a { height: 210px; background-position: 20% 30%; }
 .shot--b { height: 190px; background-position: 70% 60%; }
-.shot--c { height: 260px; background-position: 40% 80%; display: flex; align-items: flex-end; padding: 24px; }
-.shot--c::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.6)); }
-.shot--c span {
-    position: relative; z-index: 1; color: #fff;
-    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; font-style: italic; letter-spacing: -.02em;
-}
-.shot--c span b { font-weight: 400; font-style: normal; }
+.shot--c { height: 260px; background-position: 40% 80%; }
 
 /* ===================================================================
    4 · LLAMANOS SI NECESITÁS · tarjetas post-it
    =================================================================== */
-.services { background: var(--cream); color: var(--ink); padding: clamp(70px, 10vw, 120px) 0; }
+.services {
+    background-color: var(--cream);
+    background-image: radial-gradient(circle, rgb(91 51 33 / 15%) 1px, transparent 1.2px);
+    background-size: 10px 10px;
+    color: var(--ink);
+    padding: clamp(70px, 10vw, 120px) 0;
+}
 .services__title {
     text-align: center; color: var(--coral);
     font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: clamp(46px, 6vw, 70px);
@@ -297,13 +297,11 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: -.022em;
 }
 .foot__contact a { text-decoration: underline; text-underline-position: from-font; }
-.foot__socials,
 .foot__whatsapp {
     display: flex;
     align-items: center;
     gap: 4px;
 }
-.foot__socials img,
 .foot__whatsapp img {
     width: 16px;
     height: 16px;

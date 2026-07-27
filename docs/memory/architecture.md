@@ -20,12 +20,14 @@ estilos, scripts, tipografías y Three.js mediante rutas relativas o CDN.
 ### Comportamiento
 
 - `js/webgl-effect.js`: Three.js, shaders, máscara, estela y zoom.
-- `js/page-interactions.js`: reveal y estados interactivos de las tarjetas.
+- `js/page-interactions.js`: reveal, estados interactivos de las tarjetas e
+  índice lateral sincronizado con el scroll.
 
 ### Recursos
 
-- `src/img/`: collage, fotografías y fondos.
-- `src/icons/`: iconos sociales exportados desde Figma.
+- `src/img/bg/`: collage, fotografías y fondos activos.
+- `src/icons/`: iconos de contacto y redes exportados desde Figma; solo
+  WhatsApp está vinculado en la implementación vigente.
 - `src/logos/`: logotipo principal y favicon.
 - `src/misc/cards/`: imágenes independientes de los pines de las tarjetas.
 - `src/misc/blob/`: figuras orgánicas utilizadas como fondo.

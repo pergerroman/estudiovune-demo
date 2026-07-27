@@ -11,6 +11,52 @@ document.querySelectorAll('.reveal').forEach((element) => {
     revealObserver.observe(element);
 });
 
+const sectionIndex = document.querySelector('.section-index');
+
+if (sectionIndex) {
+    const indexLinks = [...sectionIndex.querySelectorAll('.section-index__link')];
+    const indexedSections = indexLinks
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+    let sectionIndexFrame = null;
+
+    const updateSectionIndex = () => {
+        const viewportMarker = window.innerHeight * 0.45;
+        let activeSection = indexedSections[0];
+
+        indexedSections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= viewportMarker) {
+                activeSection = section;
+            }
+        });
+
+        indexLinks.forEach((link) => {
+            const isActive = link.getAttribute('href') === `#${activeSection.id}`;
+            link.classList.toggle('is-active', isActive);
+
+            if (isActive) {
+                link.setAttribute('aria-current', 'location');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+
+        sectionIndex.classList.toggle('is-visible', activeSection.id !== 'apertura');
+        sectionIndex.classList.toggle('is-on-contact', activeSection.id === 'contacto');
+        sectionIndexFrame = null;
+    };
+
+    const requestSectionIndexUpdate = () => {
+        if (sectionIndexFrame === null) {
+            sectionIndexFrame = window.requestAnimationFrame(updateSectionIndex);
+        }
+    };
+
+    window.addEventListener('scroll', requestSectionIndexUpdate, { passive: true });
+    window.addEventListener('resize', requestSectionIndexUpdate);
+    updateSectionIndex();
+}
+
 const notes = document.querySelector('.services .notes');
 
 if (notes) {

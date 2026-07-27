@@ -68,6 +68,112 @@ body, html {
     pointer-events: none !important;
 }
 
+.section-index {
+    position: fixed;
+    top: 50%;
+    right: clamp(16px, 2vw, 32px);
+    z-index: 12;
+    display: grid;
+    gap: 4px;
+    color: #fff;
+    mix-blend-mode: difference;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+    visibility: hidden;
+    transition: opacity 250ms ease, visibility 250ms ease;
+}
+
+.section-index.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.section-index.is-on-contact {
+    color: #fff;
+    mix-blend-mode: normal;
+}
+
+.section-index::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    right: 4px;
+    bottom: 14px;
+    width: 1px;
+    background: currentColor;
+    opacity: .2;
+}
+
+.section-index__link {
+    display: grid;
+    grid-template-columns: 18px minmax(0, auto) 9px;
+    align-items: center;
+    justify-content: end;
+    min-height: 28px;
+    color: inherit;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1;
+    opacity: .32;
+    text-transform: uppercase;
+    transition: opacity 200ms ease;
+}
+
+.section-index__link::after {
+    content: "";
+    grid-column: 3;
+    width: 5px;
+    height: 5px;
+    margin-left: 4px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+    box-sizing: border-box;
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.section-index__number {
+    grid-column: 1;
+}
+
+.section-index__label {
+    grid-column: 2;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    transition: max-width 250ms ease, opacity 200ms ease, margin 250ms ease;
+}
+
+.section-index__link:hover,
+.section-index__link:focus-visible,
+.section-index__link.is-active {
+    opacity: 1;
+}
+
+.section-index__link:hover .section-index__label,
+.section-index__link:focus-visible .section-index__label,
+.section-index__link.is-active .section-index__label {
+    max-width: 110px;
+    margin-right: 8px;
+    opacity: 1;
+}
+
+.section-index__link:hover::after,
+.section-index__link:focus-visible::after,
+.section-index__link.is-active::after {
+    background: currentColor;
+    transform: scale(1.35);
+}
+
+.section-index__link:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+}
+
 .intro__inner h1 {
     font-family: 'Averia Gruesa Libre', cursive;
 }
@@ -190,10 +296,10 @@ body, html {
 }
 
 .services .note--1 .note__pin {
-    top: -64px;
+    top: -61px;
     left: 82px;
-    width: 96px;
-    height: 96px;
+    width: 91px;
+    height: 91px;
 }
 
 .services .note--2 {
@@ -205,7 +311,7 @@ body, html {
 }
 
 .services .note--2 .note__pin {
-    top: -40px;
+    top: -24px;
     left: 121px;
     width: 66px;
     height: 71px;
@@ -220,10 +326,10 @@ body, html {
 }
 
 .services .note--3 .note__pin {
-    top: -70px;
-    left: 96px;
-    width: 105px;
-    height: 91px;
+    top: -64px;
+    left: 91px;
+    width: 115px;
+    height: 100px;
 }
 
 .services .note--4 {
@@ -235,10 +341,10 @@ body, html {
 }
 
 .services .note--4 .note__pin {
-    top: -59px;
-    left: 126px;
-    width: 72px;
-    height: 72px;
+    top: -38px;
+    left: 117px;
+    width: 90px;
+    height: 90px;
     transform: rotate(-90deg);
 }
 
@@ -252,10 +358,10 @@ body, html {
 }
 
 .services .note--5 .note__pin {
-    top: -72px;
-    left: 98px;
-    width: 105px;
-    height: 105px;
+    top: -77px;
+    left: 93px;
+    width: 115px;
+    height: 115px;
 }
 
 @media (max-width: 1050px) {
@@ -274,12 +380,57 @@ body, html {
 }
 
 @media (max-width: 680px) {
+    #webgl-container {
+        height: 110vh;
+    }
+
+    #webgl-container::after {
+        content: "";
+        position: absolute;
+        inset: 100vh 0 0;
+        background: #f7f7f4;
+    }
+
+    .section-index {
+        right: 8px;
+        gap: 2px;
+    }
+
+    .section-index__link {
+        grid-template-columns: 14px 9px;
+        min-height: 26px;
+        font-size: 8px;
+    }
+
+    .section-index__label {
+        display: none;
+    }
+
+    .section-index__link::after {
+        grid-column: 2;
+    }
+
     .services .notes {
-        grid-template-columns: minmax(0, 299px);
+        display: flex;
+        justify-content: flex-start;
+        gap: 24px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        padding: 75px 0 18px;
+        scroll-padding-inline: 0;
+        scroll-snap-type: inline mandatory;
+        scrollbar-width: none;
     }
 
     .services .note {
         --note-rotation: 0deg;
+        flex: 0 0 min(299px, calc(100vw - 72px));
+        width: min(299px, calc(100vw - 72px));
+        scroll-snap-align: start;
+    }
+
+    .services .notes::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -290,6 +441,10 @@ body, html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .section-index,
+    .section-index__link,
+    .section-index__link::after,
+    .section-index__label,
     .services .note,
     .services .note__more {
         transition: none;
@@ -312,7 +467,7 @@ body, html {
 .zoom-spacer {
     height: 120vh;
     width: 100%;
-    background-image: url('../src/img/Collage fondo.png');
+    background-image: url('../src/img/bg/Collage.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
