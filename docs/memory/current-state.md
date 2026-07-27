@@ -10,6 +10,7 @@
 - La cabecera aparece cuando finaliza el zoom.
 - La navegación superior ofrece Inicio y Contacto; Nosotros se accede desde el
   índice lateral.
+- Las imágenes de la sección Q&A se muestran sin texto superpuesto.
 - Un índice lateral fijo permite navegar las seis etapas y marca en tiempo real
   la sección visible; permanece oculto durante la apertura y en mobile adopta
   una variante compacta. En Contacto se muestra en blanco puro.

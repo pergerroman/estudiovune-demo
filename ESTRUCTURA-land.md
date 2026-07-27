@@ -56,7 +56,8 @@ interfaz usa Inter.
 ### 3.2 Nosotros
 
 La sección responde qué es Vuné, quiénes integran el estudio y qué hace. La
-columna visual todavía utiliza recortes del collage como placeholders.
+columna visual todavía utiliza recortes del collage como placeholders, sin
+texto superpuesto.
 
 ### 3.3 Servicios
 

@@ -169,13 +169,7 @@ a { color: inherit; text-decoration: none; }
 }
 .shot--a { height: 210px; background-position: 20% 30%; }
 .shot--b { height: 190px; background-position: 70% 60%; }
-.shot--c { height: 260px; background-position: 40% 80%; display: flex; align-items: flex-end; padding: 24px; }
-.shot--c::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.6)); }
-.shot--c span {
-    position: relative; z-index: 1; color: #fff;
-    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; font-style: italic; letter-spacing: -.02em;
-}
-.shot--c span b { font-weight: 400; font-style: normal; }
+.shot--c { height: 260px; background-position: 40% 80%; }
 
 /* ===================================================================
    4 · LLAMANOS SI NECESITÁS · tarjetas post-it

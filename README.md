@@ -66,6 +66,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-27
 
+- Se retiró el texto superpuesto “Coffee days” de la imagen en la sección Q&A,
+  junto con el degradado y los estilos usados exclusivamente para sostenerlo.
 - Se actualizaron todos los fondos activos para usar la versión JPG ubicada en
   `src/img/bg/Collage.jpg`; la variante PNG queda disponible sin vincular.
 - Se retiró el enlace “Nosotros” de la navegación superior; la sección conserva
