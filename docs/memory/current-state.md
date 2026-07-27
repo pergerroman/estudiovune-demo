@@ -8,6 +8,8 @@
 - La apertura WebGL y la landing editorial están integradas.
 - CSS y JavaScript propios están separados por responsabilidad.
 - La cabecera aparece cuando finaliza el zoom.
+- La navegación superior ofrece Inicio y Contacto; Nosotros se accede desde el
+  índice lateral.
 - Un índice lateral fijo permite navegar las seis etapas y marca en tiempo real
   la sección visible; permanece oculto durante la apertura y en mobile adopta
   una variante compacta. En Contacto se muestra en blanco puro.

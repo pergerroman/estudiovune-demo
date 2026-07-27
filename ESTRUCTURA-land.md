@@ -106,7 +106,8 @@ fueron indicados por el estudio.
 
 ## 4. Navegación e interacción
 
-- La cabecera enlaza a Inicio, Nosotros y Contacto.
+- La cabecera enlaza a Inicio y Contacto; Nosotros permanece accesible desde el
+  índice lateral.
 - El logotipo enlaza a `index.html`.
 - `js/page-interactions.js` controla reveal y cards.
 - `js/page-interactions.js` actualiza el estado activo del índice lateral.

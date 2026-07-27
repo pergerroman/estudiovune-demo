@@ -467,7 +467,7 @@ body, html {
 .zoom-spacer {
     height: 120vh;
     width: 100%;
-    background-image: url('../src/img/Collage fondo.png');
+    background-image: url('../src/img/bg/Collage.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

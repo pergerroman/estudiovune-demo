@@ -25,7 +25,7 @@ estilos, scripts, tipografías y Three.js mediante rutas relativas o CDN.
 
 ### Recursos
 
-- `src/img/`: collage, fotografías y fondos.
+- `src/img/bg/`: collage, fotografías y fondos activos.
 - `src/icons/`: iconos de contacto y redes exportados desde Figma; solo
   WhatsApp está vinculado en la implementación vigente.
 - `src/logos/`: logotipo principal y favicon.

@@ -59,7 +59,7 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 | --- | --- | --- |
 | Logotipo principal | `src/logos/vuné-logo.svg` | Activo en cabecera y footer |
 | Favicon | `src/logos/v-fav.svg` | Activo |
-| Collage | `src/img/Collage fondo.png` | Activo en apertura y placeholders |
+| Collage | `src/img/bg/Collage.png` | Activo en apertura y placeholders |
 | Fondo de Essay | `src/img/bg/_DSC5866 1.jpg` | Activo |
 | Fondo registros | `src/img/bg/_DSC5885 1.jpg` | Disponible, no vinculada |
 | Instagram | `src/icons/instagram.svg` | Disponible, no vinculado |

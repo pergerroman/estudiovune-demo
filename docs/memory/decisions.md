@@ -32,6 +32,8 @@
 - Actualización: en mobile, el 10% inferior extendido del contenedor WebGL usa
   un respaldo blanco cálido y el documento declara el mismo `theme-color` para
   armonizar la interfaz translúcida de Safari.
+- Actualización: `src/img/bg/Collage.png` es el único collage vinculado en los
+  fondos activos, después de mover el asset a `bg/`.
 
 ## Desenfoque de la estela
 
