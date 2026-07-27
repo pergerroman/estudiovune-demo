@@ -66,9 +66,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-27
 
-- Se actualizaron todos los fondos activos para usar
-  `src/img/bg/Collage.png` después de mover el asset a `bg/` y eliminar su
-  versión anterior.
+- Se actualizaron todos los fondos activos para usar la versión JPG ubicada en
+  `src/img/bg/Collage.jpg`; la variante PNG queda disponible sin vincular.
 - Se retiró el enlace “Nosotros” de la navegación superior; la sección conserva
   su acceso desde el índice lateral.
 - Se agregó un respaldo blanco cálido en el 10% inferior del contenedor WebGL
