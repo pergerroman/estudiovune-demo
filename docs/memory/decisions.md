@@ -17,6 +17,10 @@
 - Decisión: mantener un recorrido long-scroll con navegación por anclas.
 - Consecuencia: Servicios funciona como sección; Archivo queda fuera de esta
   versión.
+- Actualización: se incorpora un índice lateral fijo con accesos a las seis
+  etapas y estado activo sincronizado con el scroll; en mobile se compacta.
+- Actualización: el índice permanece oculto durante la apertura WebGL y aparece
+  cuando el recorrido ingresa en Presentación.
 
 ## Apertura WebGL
 
@@ -50,6 +54,12 @@
 - Decisión: implementar la composición y el movimiento entregados desde Figma.
 - Consecuencia: cinco cards con paleta extendida, pines, transiciones de 300 ms,
   disolución del enlace y soporte de foco y movimiento reducido.
+- Actualización: la sección utiliza un micropunteado marrón institucional sobre
+  base crema, generado mediante un gradiente radial CSS al 15% de opacidad.
+- Actualización: en pantallas de hasta 680 px, las cards se recorren mediante
+  scroll horizontal con encastre, en lugar de apilarse verticalmente.
+- Actualización: los cinco enlaces “Saber más” abren el contacto de WhatsApp en
+  una pestaña nueva con el mensaje de consulta indicado por el estudio.
 
 ## Assets de las tarjetas
 
@@ -59,6 +69,16 @@
   `src/misc/cards/Card5.png`.
 - Consecuencia: `index.html` ya no contiene las imágenes de las tarjetas como
   data URI.
+- Actualización: la imagen de la Card 1 adopta la escala y posición superior
+  definidas por la referencia visual vigente.
+- Actualización: la imagen de la Card 2 se desplaza hacia abajo para coincidir
+  con la referencia visual vigente.
+- Actualización: la imagen de la Card 3 aumenta su escala, conserva el centrado
+  y se desplaza ligeramente hacia abajo según la referencia visual vigente.
+- Actualización: la imagen de la Card 4 aumenta su escala y se desplaza hacia
+  abajo, conservando su orientación vertical.
+- Actualización: la imagen de la Card 5 aumenta su escala y conserva su centro
+  visual.
 
 ## CTA integrado en el footer
 
@@ -72,6 +92,8 @@
   `50:16` y `58:17`.
 - Actualización: el nodo integral `140:1291` pasa a ser la referencia vigente e
   incorpora título, iconos sociales y franja inferior de copyright.
+- Actualización: se retiran de la implementación los iconos de Instagram y
+  LinkedIn junto con `@vune.estudio`; los assets permanecen disponibles.
 
 ## Archivo fuera de esta versión
 

@@ -62,8 +62,8 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 | Collage | `src/img/Collage fondo.png` | Activo en apertura y placeholders |
 | Fondo de Essay | `src/img/bg/_DSC5866 1.jpg` | Activo |
 | Fondo registros | `src/img/bg/_DSC5885 1.jpg` | Disponible, no vinculada |
-| Instagram | `src/icons/instagram.svg` | Activo en el footer |
-| LinkedIn | `src/icons/linkedin.svg` | Activo en el footer |
+| Instagram | `src/icons/instagram.svg` | Disponible, no vinculado |
+| LinkedIn | `src/icons/linkedin.svg` | Disponible, no vinculado |
 | WhatsApp | `src/icons/whatsapp.svg` | Activo en el footer |
 | Pines de cards | `src/misc/cards/Card1.png` a `Card5.png` | Activos |
 | Figura desenfocada del hero | `src/misc/blob/hero-orange-blur.svg` | Activa |

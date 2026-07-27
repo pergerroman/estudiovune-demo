@@ -20,6 +20,12 @@ una apertura WebGL con el contenido editorial de la landing.
 La navegación es interna mediante anclas. No existen rutas de contenido ni
 páginas interiores verificadas.
 
+Un índice fijo en el lateral derecho representa las seis etapas del recorrido,
+destaca en tiempo real la sección visible y permite navegar directamente a cada
+una. Permanece oculto durante la apertura WebGL y aparece al ingresar en
+Presentación. Sobre la sección Contacto cambia a blanco puro. En mobile conserva
+números y marcadores en una variante compacta.
+
 ## 2. Apertura WebGL
 
 `#webgl-container` permanece fijo sobre `.hero-stage` durante el primer tramo
@@ -34,6 +40,8 @@ del scroll. `js/webgl-effect.js` contiene:
 
 El desenfoque afecta a `tTrail`, no al SVG. La cabecera se muestra y habilita
 cuando termina el zoom. Three.js r128 se carga desde CDN antes del script.
+En mobile, el contenedor fijo del canvas se extiende al 110% de la altura de la
+pantalla.
 
 ## 3. Contenido editorial
 
@@ -63,9 +71,23 @@ Cada tarjeta posee color, rotación y pin propios. Las interacciones duran
 300 ms, responden al puntero y al foco de teclado y revelan “Saber más”. En
 dispositivos táctiles el enlace permanece visible; con
 `prefers-reduced-motion` se eliminan las transiciones.
+Los cinco enlaces “Saber más” abren en una pestaña nueva el contacto de
+WhatsApp con el mensaje de consulta de servicios indicado por el estudio.
+
+En pantallas de hasta 680 px, las tarjetas se presentan en un recorrido
+horizontal táctil con encastre entre elementos.
 
 Los cinco pines se cargan desde `src/misc/cards/Card1.png` a
-`src/misc/cards/Card5.png`.
+`src/misc/cards/Card5.png`. La imagen de la Card 1 se ubica ligeramente a la
+izquierda del centro y apoyada sobre el borde superior según la referencia
+visual vigente.
+La imagen de la Card 2 conserva su alineación horizontal y se apoya más abajo
+sobre el borde superior según su referencia visual.
+La imagen de la Card 3 se presenta centrada, con una escala mayor y ligeramente
+más abajo sobre el borde superior según su referencia visual.
+La imagen de la Card 4 se presenta en vertical, con una escala mayor y más abajo
+sobre el borde superior según su referencia visual.
+La imagen de la Card 5 utiliza una escala mayor y conserva su centro visual.
 
 ### 3.4 Glosario, contacto y cierre
 
@@ -73,15 +95,20 @@ El CTA está integrado en `.foot`, que ocupa como mínimo una pantalla completa,
 esquinas superiores redondeadas y reúne invitación, contacto, logotipo,
 navegación y copyright. `.essay` aparece a continuación y cierra el documento
 con los conceptos “Mirar” y “Co-diseño”.
+El contacto visible conserva correo, WhatsApp y ubicación; no incluye iconos de
+Instagram o LinkedIn ni el usuario social.
 
 El teléfono y su destino de WhatsApp proceden del diseño de Figma. Los datos
 deben validarse antes de publicar.
+El destino y el mensaje predefinido del botón principal “Agendemos una charla”
+fueron indicados por el estudio.
 
 ## 4. Navegación e interacción
 
 - La cabecera enlaza a Inicio, Nosotros y Contacto.
 - El logotipo enlaza a `index.html`.
 - `js/page-interactions.js` controla reveal y cards.
+- `js/page-interactions.js` actualiza el estado activo del índice lateral.
 - El scroll suave se define en CSS.
 - No hay menú burger implementado en el HTML vigente.
 

@@ -64,8 +64,41 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ## Registro de trabajo
 
+### 2026-07-27
+
+- Se amplió aproximadamente un 10% la imagen de la Card 5, conservando su
+  centro visual.
+- Se amplió la imagen del clip de la Card 4 y se desplazó hacia abajo sobre el
+  borde superior, manteniendo su eje horizontal.
+- Se amplió aproximadamente un 10% la imagen de la Card 3 y se desplazó
+  ligeramente hacia abajo, conservando su alineación central.
+- Se bajó nuevamente la imagen del pin de la Card 2 para igualar la posición de
+  la referencia visual entregada.
+- Se ajustó la escala y la posición de la imagen de la Card 1 para apoyarla
+  sobre el borde superior según la referencia visual entregada.
+- Se retiraron del footer los iconos de Instagram y LinkedIn junto con el
+  usuario `@vune.estudio`.
+- Se agregó un índice interactivo fijo en el lateral derecho, con seis accesos
+  al recorrido y actualización en tiempo real de la sección visible.
+- Se incorporó una variante compacta del índice para pantallas mobile y se
+  respetó `prefers-reduced-motion`.
+- Se ocultó el índice durante la apertura WebGL para que aparezca recién al
+  ingresar en la sección Presentación.
+- Se configuró el índice lateral en blanco puro mientras la sección Contacto
+  está activa.
+- Se vincularon los cinco enlaces “Saber más” de las cards de servicios al
+  contacto de WhatsApp indicado, con apertura en una pestaña nueva.
+
 ### 2026-07-26
 
+- Se incorporó un fondo micropunteado marrón sobre base crema en la sección de
+  servicios, generado con CSS y ajustado al 15% de opacidad.
+- Se reemplazó el apilado vertical de las cards de servicios en mobile por un
+  recorrido horizontal táctil con encastre entre tarjetas.
+- Se extendió al 110% de la altura de la pantalla el fondo del contenedor del
+  canvas WebGL en la versión mobile.
+- Se vinculó el botón “Agendemos una charla” del footer al contacto de WhatsApp
+  con el mensaje de consulta indicado y validado por el estudio.
 - Se dividió `src/misc/` en `cards/` para los pines y `blob/` para la figura
   orgánica del hero.
 - Se convirtió el hero de presentación en una pantalla completa marrón, se
