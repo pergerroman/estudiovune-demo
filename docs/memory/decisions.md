@@ -107,3 +107,15 @@
 - Decisión: retirar la sección Registros/Archivo y sus accesos de navegación.
 - Consecuencia: se eliminan `#registros`, `.archive`, `.window` y sus estilos
   asociados.
+
+## SEO local y rastreo
+
+- Fecha: 2026-07-27.
+- Estado: aceptada.
+- Decisión: posicionar Vuné como estudio de diseño patagónico con sede en
+  Cipolletti mediante metadatos descriptivos, contenido visible y datos
+  estructurados de `ProfessionalService`.
+- Consecuencia: el documento usa `es-AR`, explicita Patagonia Argentina,
+  Cipolletti y Río Negro, y declara las principales áreas de servicio.
+- Restricción: no se publican `canonical`, `og:url` ni `sitemap.xml` hasta
+  confirmar el dominio definitivo.

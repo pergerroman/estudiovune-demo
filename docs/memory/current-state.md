@@ -29,6 +29,10 @@
 - El botón principal del footer abre el contacto de WhatsApp con el mensaje de
   consulta indicado por el estudio.
 - El favicon y el logotipo externo usan assets existentes.
+- El documento incluye metadatos SEO y sociales, datos estructurados de
+  servicio profesional y señales de relevancia local para Cipolletti, Río Negro
+  y Patagonia Argentina.
+- `robots.txt` permite el rastreo del sitio.
 - La documentación general está consolidada en `README.md`.
 
 ## Validaciones realizadas
@@ -47,6 +51,8 @@ La revisión visual automatizada no estuvo disponible en la sesión.
 2. Confirmar imágenes definitivas para los placeholders.
 3. Revisar manualmente Safari, Chrome y Firefox.
 4. Confirmar si `css/style.css` puede eliminarse.
+5. Confirmar el dominio público para agregar URL canónica, `og:url`, URLs
+   absolutas en datos sociales y `sitemap.xml`.
 
 ## Deuda técnica
 

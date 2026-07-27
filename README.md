@@ -66,6 +66,13 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-27
 
+- Se separó “Estudio de diseño patagónico” del título principal y se presentó
+  como una cintilla superior en Inter dentro del hero de presentación.
+- Se realizó una primera optimización SEO local: título y descripción,
+  metadatos Open Graph/Twitter, datos estructurados de `ProfessionalService`,
+  señales geográficas visibles y permiso de rastreo mediante `robots.txt`.
+- Se dejó pendiente la configuración de URL canónica y sitemap hasta confirmar
+  el dominio definitivo del sitio.
 - Se retiró el texto superpuesto “Coffee days” de la imagen en la sección Q&A,
   junto con el degradado y los estilos usados exclusivamente para sostenerlo.
 - Se actualizaron todos los fondos activos para usar la versión JPG ubicada en
