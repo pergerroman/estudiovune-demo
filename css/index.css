@@ -384,6 +384,13 @@ body, html {
         height: 110vh;
     }
 
+    #webgl-container::after {
+        content: "";
+        position: absolute;
+        inset: 100vh 0 0;
+        background: #f7f7f4;
+    }
+
     .section-index {
         right: 8px;
         gap: 2px;

@@ -29,6 +29,9 @@
 - Decisión: usar el collage como fondo y una máscara WebGL del logotipo con
   estela de puntero y zoom por scroll.
 - Consecuencia: Three.js r128 es una dependencia de ejecución.
+- Actualización: en mobile, el 10% inferior extendido del contenedor WebGL usa
+  un respaldo blanco cálido y el documento declara el mismo `theme-color` para
+  armonizar la interfaz translúcida de Safari.
 
 ## Desenfoque de la estela
 

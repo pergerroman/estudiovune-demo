@@ -66,6 +66,9 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-07-27
 
+- Se agregó un respaldo blanco cálido en el 10% inferior del contenedor WebGL
+  mobile y se declaró `theme-color` para evitar que la barra translúcida de
+  Safari muestre el collage durante la apertura.
 - Se amplió aproximadamente un 10% la imagen de la Card 5, conservando su
   centro visual.
 - Se amplió la imagen del clip de la Card 4 y se desplazó hacia abajo sobre el

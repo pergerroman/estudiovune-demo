@@ -12,7 +12,7 @@
   la sección visible; permanece oculto durante la apertura y en mobile adopta
   una variante compacta. En Contacto se muestra en blanco puro.
 - En mobile, el fondo del contenedor del canvas WebGL ocupa el 110% de la altura
-  de la pantalla.
+  de la pantalla y completa el tramo inferior con blanco cálido para Safari.
 - Las cards de servicios incluyen estilos, pines e interacción de Figma sobre
   un fondo crema micropunteado en marrón al 15% de opacidad.
 - En mobile, las cards de servicios forman un recorrido horizontal táctil con

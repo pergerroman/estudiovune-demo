@@ -41,7 +41,8 @@ del scroll. `js/webgl-effect.js` contiene:
 El desenfoque afecta a `tTrail`, no al SVG. La cabecera se muestra y habilita
 cuando termina el zoom. Three.js r128 se carga desde CDN antes del script.
 En mobile, el contenedor fijo del canvas se extiende al 110% de la altura de la
-pantalla.
+pantalla. El 10% inferior utiliza un respaldo blanco cálido para que la interfaz
+translúcida de Safari no revele el collage detrás de la barra del navegador.
 
 ## 3. Contenido editorial
 
