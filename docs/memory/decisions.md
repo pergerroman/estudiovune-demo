@@ -34,6 +34,9 @@
   armonizar la interfaz translúcida de Safari.
 - Actualización: `src/img/bg/Collage.jpg` es la variante vinculada en todos los
   fondos activos; la versión PNG permanece disponible sin vincular.
+- Actualización: el viewport se extiende hasta los bordes seguros mediante
+  `viewport-fit=cover`; `theme-color` y el fondo raíz comparten el blanco cálido
+  `#f7f7f4` para colorear la interfaz y el overscroll de Safari móvil.
 
 ## Desenfoque de la estela
 
@@ -107,3 +110,15 @@
 - Decisión: retirar la sección Registros/Archivo y sus accesos de navegación.
 - Consecuencia: se eliminan `#registros`, `.archive`, `.window` y sus estilos
   asociados.
+
+## SEO local y rastreo
+
+- Fecha: 2026-07-27.
+- Estado: aceptada.
+- Decisión: posicionar Vuné como estudio de diseño patagónico con sede en
+  Cipolletti mediante metadatos descriptivos, contenido visible y datos
+  estructurados de `ProfessionalService`.
+- Consecuencia: el documento usa `es-AR`, explicita Patagonia Argentina,
+  Cipolletti y Río Negro, y declara las principales áreas de servicio.
+- Restricción: no se publican `canonical`, `og:url` ni `sitemap.xml` hasta
+  confirmar el dominio definitivo.
