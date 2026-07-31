@@ -64,6 +64,13 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ## Registro de trabajo
 
+### 2026-07-31
+
+- Se agregó el indicador sutil “↓ Scroll” en el borde inferior de la apertura
+  WebGL, con desaparición al comenzar el desplazamiento.
+- Se extendió el viewport a los bordes seguros y se unificó en `#f7f7f4` el
+  color de tema, del canvas y del fondo raíz para las barras de Safari móvil.
+
 ### 2026-07-27
 
 - Se separó “Estudio de diseño patagónico” del título principal y se presentó

@@ -34,6 +34,9 @@
   armonizar la interfaz translúcida de Safari.
 - Actualización: `src/img/bg/Collage.jpg` es la variante vinculada en todos los
   fondos activos; la versión PNG permanece disponible sin vincular.
+- Actualización: el viewport se extiende hasta los bordes seguros mediante
+  `viewport-fit=cover`; `theme-color` y el fondo raíz comparten el blanco cálido
+  `#f7f7f4` para colorear la interfaz y el overscroll de Safari móvil.
 
 ## Desenfoque de la estela
 

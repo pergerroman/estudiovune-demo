@@ -1,6 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
+    min-height: 100%;
     background-color: #f7f7f4; 
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -15,6 +16,26 @@ body, html {
     height: 100vh;
     z-index: 10;
     pointer-events: none;
+}
+
+.scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(20px, 3vh, 32px);
+    z-index: 1;
+    margin: 0;
+    color: rgba(30, 30, 30, .5);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    line-height: 1;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    transition: opacity 250ms ease;
+}
+
+#webgl-container.has-scrolled .scroll-cue {
+    opacity: 0;
 }
 
 .ui.header {
@@ -384,6 +405,19 @@ body, html {
         height: 110vh;
     }
 
+    .scroll-cue {
+        top: calc(100vh - 20px);
+        top: calc(100dvh - 20px);
+        bottom: auto;
+        transform: translate(-50%, -100%);
+    }
+
+    .ui.header {
+        top: calc(2rem + env(safe-area-inset-top));
+        left: calc(2rem + env(safe-area-inset-left));
+        right: calc(2rem + env(safe-area-inset-right));
+    }
+
     #webgl-container::after {
         content: "";
         position: absolute;
@@ -441,6 +475,7 @@ body, html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .scroll-cue,
     .section-index,
     .section-index__link,
     .section-index__link::after,

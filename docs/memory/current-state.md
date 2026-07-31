@@ -6,6 +6,8 @@
 
 - `index.html` es la entrada única.
 - La apertura WebGL y la landing editorial están integradas.
+- La apertura incluye un indicador sutil “↓ Scroll” que desaparece al iniciar
+  el desplazamiento.
 - CSS y JavaScript propios están separados por responsabilidad.
 - La cabecera aparece cuando finaliza el zoom.
 - La navegación superior ofrece Inicio y Contacto; Nosotros se accede desde el
@@ -16,6 +18,8 @@
   una variante compacta. En Contacto se muestra en blanco puro.
 - En mobile, el fondo del contenedor del canvas WebGL ocupa el 110% de la altura
   de la pantalla y completa el tramo inferior con blanco cálido para Safari.
+- El viewport cubre las áreas seguras del dispositivo y mantiene `#f7f7f4`
+  como color de tema y fondo raíz para la interfaz de Safari móvil.
 - Las cards de servicios incluyen estilos, pines e interacción de Figma sobre
   un fondo crema micropunteado en marrón al 15% de opacidad.
 - En mobile, las cards de servicios forman un recorrido horizontal táctil con

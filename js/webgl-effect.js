@@ -320,6 +320,8 @@ scene.add(mesh);
 // Zoom vinculado al scroll.
 function updateScroll() {
     const scrollY = window.scrollY;
+
+    container.classList.toggle('has-scrolled', scrollY > 12);
     
     // La zona de zoom coincide con la altura de .zoom-spacer.
     const zoomZone = window.innerHeight * 1.2; 
@@ -385,4 +387,3 @@ function animate() {
 }
 
 animate();
-

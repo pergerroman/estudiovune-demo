@@ -38,6 +38,9 @@ del scroll. `js/webgl-effect.js` contiene:
 - El ajuste de escala al redimensionar la ventana.
 - Ajustes de radio y desenfoque específicos para Chrome.
 
+En el borde inferior del canvas se muestra el indicador sutil “↓ Scroll”, que
+se desvanece apenas comienza el desplazamiento.
+
 El desenfoque afecta a `tTrail`, no al SVG. La cabecera se muestra y habilita
 cuando termina el zoom. Three.js r128 se carga desde CDN antes del script.
 En mobile, el contenedor fijo del canvas se extiende al 110% de la altura de la
