@@ -70,6 +70,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   WebGL, con desaparición al comenzar el desplazamiento.
 - Se extendió el viewport a los bordes seguros y se unificó en `#f7f7f4` el
   color de tema, del canvas y del fondo raíz para las barras de Safari móvil.
+- Se elevó el respaldo blanco inferior por encima del canvas WebGL en mobile
+  para impedir que el collage se vea detrás de la barra translúcida de Safari.
 
 ### 2026-07-27
 
