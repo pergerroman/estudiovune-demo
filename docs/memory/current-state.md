@@ -20,6 +20,8 @@
   de la pantalla y completa el tramo inferior con blanco cálido para Safari.
 - El viewport cubre las áreas seguras del dispositivo y mantiene `#f7f7f4`
   como color de tema y fondo raíz para la interfaz de Safari móvil.
+- El respaldo blanco del tramo inferior mobile se renderiza por encima del
+  canvas para que el collage no aparezca detrás de la barra de Safari.
 - Las cards de servicios incluyen estilos, pines e interacción de Figma sobre
   un fondo crema micropunteado en marrón al 15% de opacidad.
 - En mobile, las cards de servicios forman un recorrido horizontal táctil con

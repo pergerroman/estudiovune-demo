@@ -22,7 +22,7 @@ body, html {
     position: absolute;
     left: 50%;
     bottom: clamp(20px, 3vh, 32px);
-    z-index: 1;
+    z-index: 3;
     margin: 0;
     color: rgba(30, 30, 30, .5);
     font-size: 11px;
@@ -421,7 +421,12 @@ body, html {
     #webgl-container::after {
         content: "";
         position: absolute;
-        inset: 100vh 0 0;
+        top: 100vh;
+        top: 100dvh;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
         background: #f7f7f4;
     }
 
