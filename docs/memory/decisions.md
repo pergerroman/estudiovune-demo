@@ -88,6 +88,9 @@
 - Actualización 2026-08-15: GA4 se inicializa directamente con
   `G-Y0DP1ZTWEZ`; GTM se reserva para eventos y no debe repetir la etiqueta
   base con activación en todas las páginas.
+- Actualización 2026-08-15: los eventos principales se envían directamente
+  desde `google-analytics.js`, sin incluir el correo ni los parámetros con
+  mensajes de WhatsApp; GTM queda disponible para ampliaciones futuras.
 - Decisión: no incorporar `@vercel/analytics/next`, porque el sitio es HTML
   estático y no utiliza Next.js ni un proceso de build.
 - Restricción: la actualización de Three.js y la migración del WebGL requieren

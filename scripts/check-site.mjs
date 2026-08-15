@@ -139,6 +139,9 @@ assert(read('js/google-tag-manager.js').includes('GTM-MQQSHQZM'), 'Google Tag Ma
 assert(indexHtml.includes('https://www.googletagmanager.com/gtag/js?id=G-Y0DP1ZTWEZ'), 'Google Analytics carga gtag.js con el ID confirmado');
 assert(indexHtml.includes('<script src="./js/google-analytics.js"></script>'), 'Google Analytics carga su configuración local');
 assert(read('js/google-analytics.js').includes("gtag('config', 'G-Y0DP1ZTWEZ')"), 'Google Analytics usa el ID de medición confirmado');
+for (const eventName of ['hero_cta_click', 'service_click', 'whatsapp_click', 'email_click']) {
+    assert(read('js/google-analytics.js').includes(`gtag('event', '${eventName}'`), `Google Analytics registra ${eventName}`);
+}
 assert(!indexHtml.includes('cdnjs.cloudflare.com/ajax/libs/three.js'), 'Three.js no depende de CDN');
 assert(!exists('css/style.css'), 'La hoja histórica fue eliminada');
 

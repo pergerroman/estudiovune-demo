@@ -73,12 +73,14 @@
   bloquea los assets activos.
 - Vercel es el hosting confirmado y BlueHosting mantiene dominio y correo.
 - `vercel.json` configura seguridad, caché, redirección e indexación.
-- Web Analytics y Speed Insights están integrados para producción; requieren
-  activación en el panel de Vercel.
+- Web Analytics y Speed Insights están activos en producción.
 - Google Tag Manager usa el contenedor confirmado `GTM-MQQSHQZM`, con cargador
   en `head`, fallback `noscript` y permisos explícitos en la CSP.
 - Google Analytics 4 usa directamente el ID confirmado `G-Y0DP1ZTWEZ`; GTM
   queda disponible para eventos sin duplicar la etiqueta base de todas las páginas.
+- GA4 registra directamente `hero_cta_click`, `service_click`,
+  `whatsapp_click` y `email_click` sin enviar correos ni mensajes predefinidos
+  de WhatsApp como parámetros.
 - `npm run check:production` y el workflow horario verifican el sitio publicado.
 
 ## Validaciones realizadas
@@ -96,8 +98,8 @@
 - Consola del navegador sin errores en las auditorías mobile y desktop.
 - Métricas mobile: FCP 3,1 s, LCP 6,1 s, Speed Index 8,0 s, TBT 40 ms y CLS 0.
 - Métricas desktop: FCP 0,9 s, LCP 1,3 s, Speed Index 1,4 s, TBT 0 ms y CLS 0.
-- Publicación verificada: 22 de 23 controles de producción correctos; el único
-  error fue la caché de Three.js, ya corregida localmente para el próximo deploy.
+- Publicación verificada: 23 de 23 controles de producción correctos, incluida
+  la caché larga e inmutable de Three.js.
 - Lighthouse publicado: mobile 55 y desktop 82 en rendimiento; accesibilidad y
   SEO 100 en ambos. Los errores de consola provienen de Web Analytics todavía
   inactivo; Speed Insights sí responde correctamente.
@@ -110,20 +112,18 @@ con compresión, caché y red de producción activas.
 
 ## Pendientes
 
-1. Habilitar Web Analytics en el panel de Vercel y volver a desplegar; el
-   endpoint `/_vercel/insights/script.js` responde 404 mientras esté inactivo.
-2. Publicar GA4 y Google Tag Manager, comprobar el contenedor en Vista previa
-   y validar `G-Y0DP1ZTWEZ` en el informe Tiempo real, sin crear otra etiqueta
-   Google tag de todas las páginas dentro de GTM.
-3. Publicar la corrección de caché de Three.js y repetir
-   `npm run check:production`.
-4. Revisar manualmente Safari, Chrome y Firefox, incluida la selección de
+1. Desplegar el commit vigente con GA4 y sus eventos directos.
+2. Validar `G-Y0DP1ZTWEZ` y sus cuatro eventos en Tiempo real o
+   DebugView. El contenedor GTM puede quedar disponible para futuras etiquetas,
+   sin repetir la medición base ni estos eventos.
+3. Revisar manualmente Safari, Chrome y Firefox, incluida la selección de
    formatos, el fallback estático y la pausa del canvas.
-5. Activar en GitHub la variable de repositorio
+4. Activar en GitHub la variable de repositorio
    `PRODUCTION_MONITORING_ENABLED=true` y confirmar la primera ejecución.
-6. Aplicar `noindex` en cada proyecto que responda desde un subdominio ajeno a
+5. Aplicar `noindex` en cada proyecto que responda desde un subdominio ajeno a
    esta landing; el dominio principal no puede imponer headers a otros hosts.
-7. Repetir Lighthouse en producción y decidir el alcance de la optimización
+6. Repetir `npm run check:production` y Lighthouse después del deploy, y
+   decidir el alcance de la optimización
    WebGL mobile.
 
 Los recortes actuales del collage fueron confirmados como imágenes definitivas.

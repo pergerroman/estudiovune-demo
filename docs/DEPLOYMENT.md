@@ -199,6 +199,10 @@ La etiqueta base de GA4 se carga directamente con `G-Y0DP1ZTWEZ`. No crear
 otra etiqueta Google tag con activación en todas las páginas dentro de GTM;
 eso duplicaría las páginas vistas. Usar el contenedor para eventos específicos.
 
+`google-analytics.js` envía directamente `hero_cta_click`, `service_click`,
+`whatsapp_click` y `email_click`. No recrear esos mismos eventos en GTM. La
+instrumentación evita enviar direcciones de correo o mensajes de WhatsApp.
+
 No se agregan eventos personalizados porque requieren decidir plan, retención
 y responsables de acceso. Si luego se habilitan, medir únicamente eventos
 accionables:

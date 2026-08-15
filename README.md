@@ -88,6 +88,11 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   externo en el `head`, fallback `noscript` y CSP compatible con GA4.
 - Se incorporó GA4 directamente con `G-Y0DP1ZTWEZ`; la configuración vive en
   un script local y GTM queda reservado para eventos sin duplicar pageviews.
+- Se instrumentaron directamente los eventos `hero_cta_click`,
+  `service_click`, `whatsapp_click` y `email_click`, sin transmitir datos de
+  contacto ni mensajes predefinidos como parámetros.
+- Se confirmó Web Analytics y Speed Insights activos y la publicación pasó los
+  23 controles de producción, incluida la caché inmutable de Three.js.
 - Se verificó la publicación: 22 de 23 controles correctos, 404 personalizado,
   redirección a `www`, sitemap, seguridad e indexación funcionando. Web
   Analytics continúa pendiente de activación y la caché de Three.js quedó
