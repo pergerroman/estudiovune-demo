@@ -44,6 +44,7 @@ const requiredFiles = [
     'css/index.css',
     'js/webgl-effect.js',
     'js/page-interactions.js',
+    'js/google-tag-manager.js',
     'js/vercel-observability.js',
     'js/vendor/three-r128.min.js',
     'src/img/optimized/collage-768.avif',
@@ -98,6 +99,7 @@ for (const cssFile of ['css/scroll.css', 'css/index.css']) {
 for (const script of [
     'js/webgl-effect.js',
     'js/page-interactions.js',
+    'js/google-tag-manager.js',
     'js/vercel-observability.js',
     'js/vendor/three-r128.min.js',
     'scripts/check-production.mjs'
@@ -129,6 +131,9 @@ assert(indexHtml.includes('href="mailto:hola@estudiovune.com"'), 'Enlace de corr
 assert(indexHtml.includes('>+54 299 421 5193</a>'), 'Teléfono visible confirmado');
 assert(/<meta property="og:image" content="https:\/\//.test(indexHtml), 'og:image absoluta');
 assert(/<meta name="twitter:image" content="https:\/\//.test(indexHtml), 'twitter:image absoluta');
+assert(indexHtml.includes('<script src="./js/google-tag-manager.js"></script>'), 'Google Tag Manager se carga en head');
+assert(indexHtml.includes('https://www.googletagmanager.com/ns.html?id=GTM-MQQSHQZM'), 'Google Tag Manager incluye fallback noscript');
+assert(read('js/google-tag-manager.js').includes('GTM-MQQSHQZM'), 'Google Tag Manager usa el contenedor confirmado');
 assert(!indexHtml.includes('cdnjs.cloudflare.com/ajax/libs/three.js'), 'Three.js no depende de CDN');
 assert(!exists('css/style.css'), 'La hoja histórica fue eliminada');
 
@@ -145,8 +150,13 @@ const vercelHeadersText = JSON.stringify(vercelConfig.headers);
 assert(vercelHeadersText.includes('Content-Security-Policy'), 'Vercel configura CSP');
 assert(vercelHeadersText.includes('X-Content-Type-Options'), 'Vercel configura headers de seguridad');
 assert(vercelHeadersText.includes('X-Robots-Tag'), 'Vercel traduce la política noindex');
+assert(vercelHeadersText.includes('https://www.googletagmanager.com'), 'La CSP permite Google Tag Manager');
+assert(vercelHeadersText.includes('https://www.google-analytics.com'), 'La CSP permite Google Analytics');
 assert(vercelHeadersText.includes('max-age=31536000, immutable'), 'Vercel aplica caché larga al vendor versionado');
 assert(vercelHeadersText.includes('max-age=2592000'), 'Vercel aplica caché a imágenes optimizadas');
+const genericJsHeaderIndex = vercelConfig.headers.findIndex((rule) => rule.source === '/js/(.*)');
+const threeHeaderIndex = vercelConfig.headers.findIndex((rule) => rule.source === '/js/vendor/three-r128.min.js');
+assert(threeHeaderIndex > genericJsHeaderIndex, 'La caché específica de Three.js prevalece sobre la regla general de JS');
 
 assert(!robots.includes('Disallow:'), 'robots.txt permite leer los headers noindex');
 
@@ -187,6 +197,7 @@ const initialAssets = [
     'css/index.css',
     'js/webgl-effect.js',
     'js/page-interactions.js',
+    'js/google-tag-manager.js',
     'js/vercel-observability.js',
     'js/vendor/three-r128.min.js',
     'src/img/optimized/collage-1440.avif'

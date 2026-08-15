@@ -74,6 +74,22 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-08-15
 
+- Se confirmaron como definitivos los recortes actuales del collage usados en
+  Nosotros.
+- Se documentó que la verificación DNS de Google no equivale a Google
+  Analytics y que GA4 queda pendiente del ID `G-…` o `GTM-…`.
+- Se descartó `@vercel/analytics/next` porque el proyecto es HTML estático; Web
+  Analytics debe habilitarse desde Vercel y desplegarse nuevamente.
+- Se corrigió la precedencia de caché para que Three.js pueda recibir un año e
+  `immutable` en el próximo despliegue.
+- Se documentó que cada subdominio externo a esta landing necesita su propia
+  política `noindex`.
+- Se incorporó Google Tag Manager con el contenedor `GTM-MQQSHQZM`: cargador
+  externo en el `head`, fallback `noscript` y CSP compatible con GA4.
+- Se verificó la publicación: 22 de 23 controles correctos, 404 personalizado,
+  redirección a `www`, sitemap, seguridad e indexación funcionando. Web
+  Analytics continúa pendiente de activación y la caché de Three.js quedó
+  corregida localmente para el próximo deploy.
 - Se confirmaron el teléfono `+54 299 421 5193`, el destino y los mensajes de
   WhatsApp, la ubicación en Cipolletti, Río Negro, y la definición “Estudio
   creativo patagónico”. Teléfono, dirección y punto de contacto se incorporaron

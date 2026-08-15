@@ -62,8 +62,8 @@ interfaz usa Inter.
 ### 3.2 Nosotros
 
 La sección responde qué es Vuné, quiénes integran el estudio y qué hace. La
-columna visual todavía utiliza recortes del collage como placeholders, sin
-texto superpuesto.
+columna visual utiliza como imágenes definitivas los recortes actuales del
+collage, sin texto superpuesto.
 El collage se sirve mediante variantes responsive AVIF, WebP y JPG.
 
 ### 3.3 Servicios
@@ -136,8 +136,8 @@ y selecciona una variante AVIF, WebP o JPG según soporte y ancho de pantalla.
 
 ## 6. Pendientes
 
-- Validar textos y datos de contacto.
-- Confirmar imágenes finales.
-- Elegir proveedor de hosting y aplicar la configuración documentada en
-  `docs/DEPLOYMENT.md`.
-- Revisar Safari, Chrome y Firefox.
+- Habilitar Vercel Web Analytics desde el panel y volver a desplegar.
+- Publicar y validar el contenedor Google Tag Manager `GTM-MQQSHQZM` y sus
+  etiquetas desde Vista previa y Tiempo real.
+- Revisar Safari, Chrome, Firefox y dispositivos móviles reales.
+- Repetir Lighthouse y los controles de producción después del próximo deploy.
