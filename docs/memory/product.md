@@ -38,8 +38,6 @@ de validación.
 
 ## Contenido pendiente de validación
 
-- Dirección institucional definitiva.
-- Correo, teléfono, usuario social y ubicación.
 - Imágenes finales para los placeholders.
 
 ## Criterios de aceptación vigentes
@@ -50,3 +48,5 @@ de validación.
 - El contenido debe ser legible en escritorio y móvil.
 - Las cards deben responder a puntero y foco.
 - La experiencia debe respetar `prefers-reduced-motion`.
+- La apertura debe poder omitirse mediante teclado.
+- Ningún enlace visualmente oculto debe permanecer en el orden de tabulación.

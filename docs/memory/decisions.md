@@ -37,6 +37,68 @@
 - Actualización: el viewport se extiende hasta los bordes seguros mediante
   `viewport-fit=cover`; `theme-color` y el fondo raíz comparten el blanco cálido
   `#f7f7f4` para colorear la interfaz y el overscroll de Safari móvil.
+- Actualización 2026-08-15: la apertura usa variantes responsive AVIF, WebP y
+  JPG; limita el pixel ratio según dispositivo y ahorro de datos; pausa el loop
+  fuera de la apertura o con la pestaña oculta; y ofrece una versión estática
+  ante movimiento reducido o fallos de WebGL.
+- Actualización 2026-08-15: Three.js r128 se sirve desde una copia local para
+  evitar que la apertura dependa de la disponibilidad de un CDN.
+
+## Imágenes responsive y carga diferida
+
+- Fecha: 2026-08-15.
+- Estado: aceptada.
+- Decisión: preservar los originales como fuentes y servir derivados AVIF,
+  WebP o JPG según soporte y ancho de pantalla.
+- Consecuencia: el collage inicial conserva carga prioritaria, mientras el
+  fondo de la sección Mirada se solicita al aproximarse al viewport.
+
+## Accesibilidad de la apertura y contraste
+
+- Fecha: 2026-08-15.
+- Estado: aceptada.
+- Decisión: ofrecer un enlace de salto al contenido, retirar la cabecera del
+  orden de tabulación mientras esté oculta y declarar el canvas como
+  decorativo.
+- Decisión: completar la jerarquía de Nosotros con un encabezado accesible,
+  usar texto oscuro sobre el CTA celeste y reforzar la legibilidad del cierre
+  fotográfico mediante overlay y mayor opacidad de texto.
+
+## Publicación en Vercel
+
+- Fecha: 2026-08-15.
+- Estado: aceptada.
+- Decisión: mantener el sitio sin build y agregar comprobaciones Node.js sin
+  dependencias mediante `npm run check`.
+- Consecuencia: GitHub Actions ejecuta los mismos controles en pushes y pull
+  requests, sin desplegar ni escribir en servicios externos.
+- Decisión: publicar en Vercel, mantener DNS y correo en BlueHosting y usar
+  `https://www.estudiovune.com/` como URL primaria.
+- Consecuencia: `vercel.json` define redirecciones, CSP, headers de seguridad,
+  caché e indexación; `404.html` usa rutas absolutas desde la raíz.
+- Decisión: integrar Vercel Web Analytics y Speed Insights, más un smoke test
+  horario optativo desde GitHub Actions.
+- Restricción: la actualización de Three.js y la migración del WebGL requieren
+  copia previa y trabajo separado.
+
+## Limpieza de recursos históricos
+
+- Fecha: 2026-08-15.
+- Estado: aceptada.
+- Decisión: eliminar la hoja histórica `css/style.css`, los iconos no usados de
+  Instagram y LinkedIn, la fotografía retirada de Registros y los metadatos de
+  Finder.
+- Consecuencia: se conservan `Collage.jpg` y `_DSC5866 1.jpg` como fuentes
+  maestras necesarias para regenerar los derivados optimizados.
+
+## Indexación limitada a contenido público
+
+- Fecha: 2026-08-15.
+- Estado: aceptada.
+- Decisión: permitir el rastreo de la portada, sitemap y assets activos, y
+  excluir documentación, configuración, controles internos y fuentes maestras.
+- Consecuencia: `_headers` conserva la política portable y `vercel.json` la
+  aplica en Vercel; `robots.txt` permite que el crawler lea la respuesta.
 
 ## Desenfoque de la estela
 
@@ -120,5 +182,12 @@
   estructurados de `ProfessionalService`.
 - Consecuencia: el documento usa `es-AR`, explicita Patagonia Argentina,
   Cipolletti y Río Negro, y declara las principales áreas de servicio.
-- Restricción: no se publican `canonical`, `og:url` ni `sitemap.xml` hasta
-  confirmar el dominio definitivo.
+- Actualización 2026-08-15: se confirma `https://www.estudiovune.com/` como URL
+  pública y se incorporan canonical, `og:url`, sitemap, URLs sociales absolutas
+  y una imagen social JPG de 1200 × 630 px.
+- Actualización 2026-08-15: se confirma `hola@estudiovune.com` como correo
+  institucional y se incorpora al footer y al JSON-LD.
+- Actualización 2026-08-15: se confirman el teléfono `+54 299 421 5193`, el
+  destino y los mensajes de WhatsApp, la ubicación en Cipolletti, Río Negro, y
+  la definición “Estudio creativo patagónico”. El JSON-LD incorpora teléfono,
+  dirección y punto de contacto.

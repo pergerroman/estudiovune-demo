@@ -11,6 +11,23 @@ document.querySelectorAll('.reveal').forEach((element) => {
     revealObserver.observe(element);
 });
 
+const deferredBackgrounds = document.querySelectorAll('.essay');
+
+if ('IntersectionObserver' in window) {
+    const backgroundObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-background-loaded');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '600px 0px' });
+
+    deferredBackgrounds.forEach((element) => backgroundObserver.observe(element));
+} else {
+    deferredBackgrounds.forEach((element) => element.classList.add('is-background-loaded'));
+}
+
 const sectionIndex = document.querySelector('.section-index');
 
 if (sectionIndex) {
@@ -101,6 +118,12 @@ if (header && aboutSection) {
 
         header.classList.toggle('header--light', isOverAbout && !isOverEssay);
         header.classList.toggle('header--hidden', isOverEssay);
+
+        const navigationReady = header.dataset.navigationReady === 'true';
+        const available = navigationReady && !isOverEssay;
+        header.toggleAttribute('inert', !available);
+        header.setAttribute('aria-hidden', String(!available));
+        header.style.visibility = available ? 'visible' : 'hidden';
     };
 
     window.addEventListener('scroll', updateHeaderState, { passive: true });

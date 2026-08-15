@@ -42,7 +42,10 @@ En el borde inferior del canvas se muestra el indicador sutil “↓ Scroll”, 
 se desvanece apenas comienza el desplazamiento.
 
 El desenfoque afecta a `tTrail`, no al SVG. La cabecera se muestra y habilita
-cuando termina el zoom. Three.js r128 se carga desde CDN antes del script.
+cuando termina el zoom. Three.js r128 se carga desde `js/vendor/` antes del
+script del efecto. El renderer limita el pixel ratio según dispositivo y
+ahorro de datos, se pausa fuera de la apertura o con la pestaña oculta y ofrece
+una apertura estática cuando se solicita movimiento reducido o WebGL falla.
 En mobile, el contenedor fijo del canvas se extiende al 110% de la altura de la
 pantalla. El 10% inferior utiliza un respaldo blanco cálido para que la interfaz
 translúcida de Safari no revele el collage detrás de la barra del navegador.
@@ -61,6 +64,7 @@ interfaz usa Inter.
 La sección responde qué es Vuné, quiénes integran el estudio y qué hace. La
 columna visual todavía utiliza recortes del collage como placeholders, sin
 texto superpuesto.
+El collage se sirve mediante variantes responsive AVIF, WebP y JPG.
 
 ### 3.3 Servicios
 
@@ -103,15 +107,22 @@ con los conceptos “Mirar” y “Co-diseño”.
 El contacto visible conserva correo, WhatsApp y ubicación; no incluye iconos de
 Instagram o LinkedIn ni el usuario social.
 
-El teléfono y su destino de WhatsApp proceden del diseño de Figma. Los datos
-deben validarse antes de publicar.
+El teléfono, su destino de WhatsApp, los mensajes predefinidos, la ubicación y
+la definición institucional fueron confirmados por el estudio.
 El destino y el mensaje predefinido del botón principal “Agendemos una charla”
 fueron indicados por el estudio.
+La fotografía del glosario se carga de forma diferida al acercarse al viewport
+y selecciona una variante AVIF, WebP o JPG según soporte y ancho de pantalla.
 
 ## 4. Navegación e interacción
 
+- Un enlace visible al recibir foco permite omitir la apertura y mover el foco
+  al contenido principal.
 - La cabecera enlaza a Inicio y Contacto; Nosotros permanece accesible desde el
   índice lateral.
+- Mientras la cabecera está oculta queda fuera del orden de tabulación y del
+  árbol accesible; movimiento reducido y fallback estático la habilitan desde
+  el inicio.
 - El logotipo enlaza a `index.html`.
 - `js/page-interactions.js` controla reveal y cards.
 - `js/page-interactions.js` actualiza el estado activo del índice lateral.
@@ -122,11 +133,11 @@ fueron indicados por el estudio.
 
 - `css/scroll.css`: sistema visual y estilos generales.
 - `css/index.css`: cabecera vigente, WebGL y tarjetas.
-- `css/style.css`: implementación histórica no vinculada.
 
 ## 6. Pendientes
 
 - Validar textos y datos de contacto.
 - Confirmar imágenes finales.
-- Confirmar si `css/style.css` puede eliminarse.
+- Elegir proveedor de hosting y aplicar la configuración documentada en
+  `docs/DEPLOYMENT.md`.
 - Revisar Safari, Chrome y Firefox.

@@ -1,3 +1,50 @@
+(() => {
+const container = document.getElementById('webgl-container');
+const header = document.querySelector('.header');
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function setHeaderAvailability(available) {
+    if (!header) return;
+
+    header.dataset.navigationReady = String(available);
+    header.style.opacity = available ? '1' : '0';
+    header.style.pointerEvents = available ? 'auto' : 'none';
+    header.style.visibility = available ? 'visible' : 'hidden';
+    header.toggleAttribute('inert', !available);
+    header.setAttribute('aria-hidden', String(!available));
+}
+
+function updateStaticFallback() {
+    const zoomZone = window.innerHeight * 1.2;
+    const finished = window.scrollY >= zoomZone;
+    container?.classList.toggle('has-scrolled', window.scrollY > 12);
+    container?.classList.toggle('is-finished', finished);
+
+    setHeaderAvailability(finished || reducedMotionQuery.matches);
+}
+
+function enableStaticFallback(error) {
+    if (!container) return;
+
+    container.querySelectorAll('canvas').forEach((canvas) => canvas.remove());
+    container.classList.add('is-static-fallback');
+    updateStaticFallback();
+
+    if (error) {
+        console.warn('Vuné: se activó la apertura estática.', error);
+    }
+}
+
+if (!container) return;
+
+if (reducedMotionQuery.matches || !window.THREE) {
+    enableStaticFallback(!window.THREE ? new Error('Three.js no está disponible.') : null);
+    window.addEventListener('scroll', updateStaticFallback, { passive: true });
+    window.addEventListener('resize', updateStaticFallback);
+    return;
+}
+
+try {
 // 1. Textura del rastro
 class MouseTrail {
     constructor() {
@@ -205,14 +252,21 @@ const fragmentShader = `
 `;
 
 // 3. Escena Three.js
-const container = document.getElementById('webgl-container');
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
 camera.position.z = 1;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+function getPixelRatio() {
+    const isMobile = window.matchMedia('(max-width: 680px)').matches;
+    const saveData = navigator.connection?.saveData === true;
+    const limit = saveData ? 1 : (isMobile ? 1.25 : 1.5);
+    return Math.min(window.devicePixelRatio || 1, limit);
+}
+
+renderer.setPixelRatio(getPixelRatio());
 renderer.setClearColor(0x000000, 0); // Background transparente
 container.appendChild(renderer.domElement);
 
@@ -258,6 +312,13 @@ maskImg.onload = () => {
     
     maskCtx.drawImage(maskImg, dx, dy, w, h);
     maskTexture.needsUpdate = true;
+    URL.revokeObjectURL(svgUrl);
+    renderer.render(scene, camera);
+};
+maskImg.onerror = () => {
+    URL.revokeObjectURL(svgUrl);
+    stopAnimation();
+    enableStaticFallback(new Error('No se pudo cargar la máscara SVG.'));
 };
 maskImg.src = svgUrl;
 
@@ -317,6 +378,10 @@ const geometry = new THREE.PlaneGeometry(2, 2);
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
+let animationFrame = null;
+let heroActive = true;
+let pageVisible = !document.hidden;
+
 // Zoom vinculado al scroll.
 function updateScroll() {
     const scrollY = window.scrollY;
@@ -339,16 +404,15 @@ function updateScroll() {
     material.uniforms.uZoom.value = Math.max(0.00001, zoom);
 
     // Mostramos el header únicamente cuando el zoom terminó.
-    const header = document.querySelector('.header');
-    if(header) {
-        const zoomFinished = progress >= 1;
-        header.style.opacity = zoomFinished ? '1' : '0';
-        header.style.pointerEvents = zoomFinished ? 'auto' : 'none';
-    }
+    const zoomFinished = progress >= 1;
+    setHeaderAvailability(zoomFinished);
+
+    heroActive = progress < 1;
+    renderer.render(scene, camera);
+    syncAnimation();
 }
 
-window.addEventListener('scroll', updateScroll);
-updateScroll(); 
+window.addEventListener('scroll', updateScroll, { passive: true });
 
 // Manejo del ratón (sigue funcionando porque los eventos se leen del window global)
 let currentMouse = { x: 0.5, y: 0.5 };
@@ -372,6 +436,7 @@ window.addEventListener('touchmove', (e) => {
 });
 
 window.addEventListener('resize', () => {
+    renderer.setPixelRatio(getPixelRatio());
     renderer.setSize(window.innerWidth, window.innerHeight);
     updateMaskScale(); 
     updateScroll(); 
@@ -380,10 +445,64 @@ window.addEventListener('resize', () => {
 const clock = new THREE.Clock();
 
 function animate() {
-    requestAnimationFrame(animate);
+    if (!heroActive || !pageVisible || reducedMotionQuery.matches) {
+        animationFrame = null;
+        return;
+    }
+
     mouseTrail.update();
     material.uniforms.uTime.value = clock.getElapsedTime();
     renderer.render(scene, camera);
+    animationFrame = window.requestAnimationFrame(animate);
 }
 
-animate();
+function startAnimation() {
+    if (animationFrame === null && heroActive && pageVisible && !reducedMotionQuery.matches) {
+        clock.start();
+        animationFrame = window.requestAnimationFrame(animate);
+    }
+}
+
+function stopAnimation() {
+    if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+    }
+    clock.stop();
+}
+
+function syncAnimation() {
+    if (heroActive && pageVisible && !reducedMotionQuery.matches) {
+        startAnimation();
+    } else {
+        stopAnimation();
+    }
+}
+
+document.addEventListener('visibilitychange', () => {
+    pageVisible = !document.hidden;
+    syncAnimation();
+});
+
+const handleReducedMotionChange = (event) => {
+    if (event.matches) {
+        stopAnimation();
+        enableStaticFallback();
+        updateStaticFallback();
+    }
+};
+
+if (typeof reducedMotionQuery.addEventListener === 'function') {
+    reducedMotionQuery.addEventListener('change', handleReducedMotionChange);
+} else {
+    reducedMotionQuery.addListener(handleReducedMotionChange);
+}
+
+updateScroll();
+syncAnimation();
+} catch (error) {
+    enableStaticFallback(error);
+    window.addEventListener('scroll', updateStaticFallback, { passive: true });
+    window.addEventListener('resize', updateStaticFallback);
+}
+})();

@@ -8,6 +8,77 @@ body, html {
     cursor: crosshair;
 }
 
+.skip-link {
+    position: fixed;
+    top: max(12px, env(safe-area-inset-top));
+    left: max(12px, env(safe-area-inset-left));
+    z-index: 1000;
+    padding: 12px 18px;
+    border-radius: 999px;
+    color: #fff;
+    background: #16171b;
+    font-size: 14px;
+    font-weight: 700;
+    transform: translateY(calc(-100% - 24px));
+    transition: transform 180ms ease;
+}
+
+.skip-link:focus-visible {
+    outline: 3px solid #32c8e1;
+    outline-offset: 3px;
+    transform: translateY(0);
+}
+
+#contenido:focus {
+    outline: none;
+}
+
+.not-found-page {
+    min-height: 100svh;
+    color: #fff;
+    background: #5b3321;
+}
+
+.not-found {
+    width: min(100% - 40px, 1180px);
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: max(28px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+}
+
+.not-found__logo {
+    width: 96px;
+    filter: invert(1);
+}
+
+.not-found__content {
+    width: min(100%, 680px);
+    margin: auto 0;
+}
+
+.not-found__code {
+    margin-bottom: 12px;
+    color: #32c8e1;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+.not-found h1 {
+    margin-bottom: 24px;
+    font-family: 'Averia Gruesa Libre', cursive;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+}
+
+.not-found__content > p:not(.not-found__code) {
+    max-width: 42ch;
+    margin-bottom: 34px;
+    color: rgba(255, 255, 255, .82);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
 #webgl-container {
     position: fixed;
     top: 0;
@@ -16,6 +87,27 @@ body, html {
     height: 100vh;
     z-index: 10;
     pointer-events: none;
+}
+
+#webgl-container.is-static-fallback {
+    background: #f7f7f4;
+    transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+#webgl-container.is-static-fallback::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(85vw, 720px);
+    aspect-ratio: 1138 / 474;
+    background: url('../src/logos/vuné-logo.svg') center / contain no-repeat;
+    transform: translate(-50%, -50%);
+}
+
+#webgl-container.is-static-fallback.is-finished {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .scroll-cue {
@@ -50,6 +142,7 @@ body, html {
     align-items: center;
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
     transition: color .3s ease, opacity .3s ease;
 }
 
@@ -507,7 +600,8 @@ body, html {
 .zoom-spacer {
     height: 120vh;
     width: 100%;
-    background-image: url('../src/img/bg/Collage.jpg');
+    background-image: url('../src/img/optimized/collage-1440.jpg');
+    background-image: var(--collage-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

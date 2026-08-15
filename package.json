@@ -1,0 +1,14 @@
+{
+  "name": "estudiovune-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing estática del estudio Vuné",
+  "scripts": {
+    "check": "node scripts/check-site.mjs",
+    "check:production": "node scripts/check-production.mjs",
+    "test": "npm run check"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

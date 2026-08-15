@@ -8,37 +8,57 @@
     <meta name="description" content="Vuné es un estudio creativo y de diseño en Cipolletti, Patagonia Argentina. Branding, diseño web, UX/UI, contenido y producción audiovisual.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Estudio Vuné">
+    <link rel="canonical" href="https://www.estudiovune.com/">
     <meta property="og:locale" content="es_AR">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vuné">
+    <meta property="og:url" content="https://www.estudiovune.com/">
     <meta property="og:title" content="Vuné | Estudio de diseño en la Patagonia">
     <meta property="og:description" content="Estudio creativo patagónico en Cipolletti. Identidad visual, diseño web, UX/UI, estrategia, contenido y producción audiovisual.">
-    <meta property="og:image" content="./src/img/bg/Collage.jpg">
+    <meta property="og:image" content="https://www.estudiovune.com/src/img/optimized/vune-social-1200x630.jpg">
+    <meta property="og:image:secure_url" content="https://www.estudiovune.com/src/img/optimized/vune-social-1200x630.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Collage visual del estudio creativo patagónico Vuné">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Vuné | Estudio de diseño en la Patagonia">
     <meta name="twitter:description" content="Identidad visual, diseño web, UX/UI, estrategia, contenido y producción audiovisual desde Cipolletti.">
-    <meta name="twitter:image" content="./src/img/bg/Collage.jpg">
+    <meta name="twitter:image" content="https://www.estudiovune.com/src/img/optimized/vune-social-1200x630.jpg">
+    <meta name="twitter:image:alt" content="Collage visual del estudio creativo patagónico Vuné">
     <link rel="icon" type="image/svg+xml" href="./src/logos/v-fav.svg">
-    <link rel="preload" as="image" href="./src/img/bg/Collage.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="./src/img/optimized/collage-1440.avif" type="image/avif" media="(min-width: 769px) and (max-width: 1799px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./src/img/optimized/collage-768.avif" type="image/avif" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./src/img/optimized/collage-2560.avif" type="image/avif" media="(min-width: 1800px)" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&family=Inter:opsz,wght@14..32,300..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&amp;family=Inter:opsz,wght@14..32,300..900&amp;display=swap">
     <link rel="stylesheet" href="./css/scroll.css">
     <link rel="stylesheet" href="./css/index.css">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
+            "@id": "https://www.estudiovune.com/#estudio",
             "name": "Vuné",
-            "description": "Estudio creativo y de diseño patagónico especializado en identidad visual, diseño web, UX/UI, estrategia, contenido y producción audiovisual.",
-            "email": "hola@vune.com",
+            "url": "https://www.estudiovune.com/",
+            "logo": "https://www.estudiovune.com/src/logos/vuné-logo.svg",
+            "image": "https://www.estudiovune.com/src/img/optimized/vune-social-1200x630.jpg",
+            "email": "hola@estudiovune.com",
             "telephone": "+54 299 421-5193",
+            "description": "Estudio creativo y de diseño patagónico especializado en identidad visual, diseño web, UX/UI, estrategia, contenido y producción audiovisual.",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Cipolletti",
                 "addressRegion": "Río Negro",
                 "addressCountry": "AR"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "telephone": "+54 299 421-5193",
+                "url": "https://wa.me/542994215193",
+                "availableLanguage": "es"
             },
             "areaServed": [
                 {
@@ -63,9 +83,10 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#contenido">Saltar la apertura e ir al contenido</a>
 
     <!-- 1. Interfaz Fija -->
-    <div class="ui header">
+    <header class="ui header" aria-hidden="true" inert>
         <div class="logo">
             <a href="./index.html" aria-label="Volver al inicio">
                 <img src="./src/logos/vuné-logo.svg" alt="Vuné">
@@ -75,7 +96,7 @@
             <a href="#intro">HOME</a>
             <a href="#contacto">CONTACTO</a>
         </div>
-    </div>
+    </header>
 
     <nav class="section-index" aria-label="Índice de secciones">
         <a class="section-index__link is-active" href="#apertura" aria-current="location">
@@ -105,7 +126,7 @@
     </nav>
 
     <!-- 2. Máscara WebGL Fija (Overlay interactivo) -->
-    <div id="webgl-container">
+    <div id="webgl-container" aria-hidden="true">
         <p class="scroll-cue" aria-hidden="true">↓ Scroll</p>
     </div>
 
@@ -115,7 +136,7 @@
     </section>
 
     <!-- 4. Contenido -->
-    <main>
+    <main id="contenido" tabindex="-1">
         <!-- 2 · HERO NARANJA -->
         <section class="intro" id="intro">
             <div class="wrap">
@@ -136,6 +157,7 @@
         <!-- 3 · SECCIÓN OSCURA · Q&A -->
         <section class="about" id="nosotros">
             <div class="wrap">
+                <h2 class="visually-hidden">Sobre Vuné</h2>
                 <div class="about__grid">
                     <div class="qa reveal">
                         <div class="qa__block">
@@ -263,7 +285,7 @@
 
                 <div class="foot__grid">
                     <address class="foot__contact">
-                        <a href="mailto:hola@vune.com">hola@vune.com</a>
+                        <a href="mailto:hola@estudiovune.com">hola@estudiovune.com</a>
                         <div class="foot__whatsapp">
                             <img src="./src/icons/whatsapp.svg" alt="">
                             <a
@@ -319,8 +341,9 @@
     </main>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="./js/vendor/three-r128.min.js"></script>
     <script src="./js/webgl-effect.js"></script>
     <script src="./js/page-interactions.js"></script>
+    <script src="./js/vercel-observability.js"></script>
 </body>
 </html>

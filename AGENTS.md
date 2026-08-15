@@ -9,6 +9,7 @@ Antes de trabajar, consultar:
 - `docs/memory/architecture.md`
 - `docs/memory/decisions.md`
 - `docs/memory/current-state.md`
+- `docs/memory/master-assets.md`
 
 Reglas:
 
@@ -19,6 +20,7 @@ Reglas:
   `css/scroll.css`, `css/index.css` y `js/`.
 - Mantener `index.html` como entrada única del sitio.
 - Mantener los estilos propios en `css/` y los scripts propios en `js/`.
-- No hay comandos de build, lint o tests documentados.
+- No hay proceso de build; ejecutar `npm run check` después de cambios en el
+  sitio, assets, metadatos o rutas.
 - Actualizar `docs/memory/` cuando cambie una decisión duradera.
 - Registrar los cambios relevantes en `README.md`.

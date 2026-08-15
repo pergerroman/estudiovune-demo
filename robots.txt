@@ -1,2 +1,7 @@
 User-agent: *
 Allow: /
+
+# Los archivos internos usan X-Robots-Tag en `_headers`. No se bloquean acá
+# porque el crawler debe poder leer la respuesta HTTP para aplicar `noindex`.
+
+Sitemap: https://www.estudiovune.com/sitemap.xml
