@@ -75,6 +75,8 @@
 - `vercel.json` configura seguridad, caché, redirección e indexación.
 - Web Analytics y Speed Insights están integrados para producción; requieren
   activación en el panel de Vercel.
+- Google Tag Manager usa el contenedor confirmado `GTM-MQQSHQZM`, con cargador
+  en `head`, fallback `noscript` y permisos explícitos en la CSP.
 - `npm run check:production` y el workflow horario verifican el sitio publicado.
 
 ## Validaciones realizadas
@@ -92,21 +94,36 @@
 - Consola del navegador sin errores en las auditorías mobile y desktop.
 - Métricas mobile: FCP 3,1 s, LCP 6,1 s, Speed Index 8,0 s, TBT 40 ms y CLS 0.
 - Métricas desktop: FCP 0,9 s, LCP 1,3 s, Speed Index 1,4 s, TBT 0 ms y CLS 0.
+- Publicación verificada: 22 de 23 controles de producción correctos; el único
+  error fue la caché de Three.js, ya corregida localmente para el próximo deploy.
+- Lighthouse publicado: mobile 55 y desktop 82 en rendimiento; accesibilidad y
+  SEO 100 en ambos. Los errores de consola provienen de Web Analytics todavía
+  inactivo; Speed Insights sí responde correctamente.
+- No se encontraron resultados indexados para los subdominios revisados, pero
+  `pgm`, `muy-mucho`, `mis-xv-sofia` y `fpg2026` responden públicamente sin
+  `X-Robots-Tag`; `demo` está protegido por Vercel y `tizval` responde 404.
 
 Lighthouse y la consola deben volver a medirse después del deploy definitivo,
 con compresión, caché y red de producción activas.
 
 ## Pendientes
 
-1. Confirmar imágenes definitivas para los placeholders.
-2. Revisar manualmente Safari, Chrome y Firefox, incluida la selección de
+1. Habilitar Web Analytics en el panel de Vercel y volver a desplegar; el
+   endpoint `/_vercel/insights/script.js` responde 404 mientras esté inactivo.
+2. Publicar la integración de Google Tag Manager `GTM-MQQSHQZM`, comprobar el
+   contenedor en Vista previa y validar GA4 en el informe Tiempo real.
+3. Publicar la corrección de caché de Three.js y repetir
+   `npm run check:production`.
+4. Revisar manualmente Safari, Chrome y Firefox, incluida la selección de
    formatos, el fallback estático y la pausa del canvas.
-3. Vincular el repositorio a Vercel, agregar raíz y `www`, y copiar en
-   BlueHosting los registros DNS exactos indicados por Vercel.
-4. Activar Web Analytics y Speed Insights en Vercel, desplegar y ejecutar la
-   comprobación manual de producción.
-5. Habilitar `PRODUCTION_MONITORING_ENABLED=true` después de que el dominio
-   responda correctamente.
+5. Activar en GitHub la variable de repositorio
+   `PRODUCTION_MONITORING_ENABLED=true` y confirmar la primera ejecución.
+6. Aplicar `noindex` en cada proyecto que responda desde un subdominio ajeno a
+   esta landing; el dominio principal no puede imponer headers a otros hosts.
+7. Repetir Lighthouse en producción y decidir el alcance de la optimización
+   WebGL mobile.
+
+Los recortes actuales del collage fueron confirmados como imágenes definitivas.
 
 ## Deuda técnica
 

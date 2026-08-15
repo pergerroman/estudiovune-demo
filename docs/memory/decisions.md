@@ -52,6 +52,8 @@
   WebP o JPG según soporte y ancho de pantalla.
 - Consecuencia: el collage inicial conserva carga prioritaria, mientras el
   fondo de la sección Mirada se solicita al aproximarse al viewport.
+- Actualización 2026-08-15: los recortes actuales del collage en Nosotros se
+  confirman como imágenes definitivas y dejan de considerarse placeholders.
 
 ## Accesibilidad de la apertura y contraste
 
@@ -78,6 +80,13 @@
   caché e indexación; `404.html` usa rutas absolutas desde la raíz.
 - Decisión: integrar Vercel Web Analytics y Speed Insights, más un smoke test
   horario optativo desde GitHub Actions.
+- Decisión: usar también Google Analytics mediante el contenedor confirmado
+  `GTM-MQQSHQZM`; la verificación DNS de Google no sustituye la etiqueta.
+- Consecuencia: el cargador se mantiene en un archivo local para evitar
+  `unsafe-inline`, el fallback `noscript` queda al inicio del body y la CSP
+  permite únicamente los hosts necesarios de Tag Manager y Analytics.
+- Decisión: no incorporar `@vercel/analytics/next`, porque el sitio es HTML
+  estático y no utiliza Next.js ni un proceso de build.
 - Restricción: la actualización de Three.js y la migración del WebGL requieren
   copia previa y trabajo separado.
 
@@ -99,6 +108,8 @@
   excluir documentación, configuración, controles internos y fuentes maestras.
 - Consecuencia: `_headers` conserva la política portable y `vercel.json` la
   aplica en Vercel; `robots.txt` permite que el crawler lea la respuesta.
+- Alcance: estas reglas sólo controlan `estudiovune.com` y `www`; cada proyecto
+  servido desde otro subdominio debe declarar su propio `noindex`.
 
 ## Desenfoque de la estela
 

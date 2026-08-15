@@ -184,6 +184,17 @@ El sitio carga Vercel Web Analytics y Speed Insights únicamente en producción
 y previews de Vercel. Para completar la integración hay que habilitar ambos
 productos en el panel del proyecto y volver a desplegar.
 
+Este repositorio es HTML estático: no usar
+`import { Analytics } from "@vercel/analytics/next"`, que corresponde a
+Next.js. La ruta de Analytics sólo existe después de habilitar el producto en
+Vercel y realizar un nuevo deploy.
+
+Google Analytics se integra mediante el contenedor confirmado
+`GTM-MQQSHQZM`. Los registros DNS de verificación de Google no recopilan
+actividad. Después de desplegar, abrir Vista previa de Tag Manager, confirmar
+que el contenedor no tenga etiquetas duplicadas y validar la recepción de GA4
+en Tiempo real.
+
 No se agregan eventos personalizados porque requieren decidir plan, retención
 y responsables de acceso. Si luego se habilitan, medir únicamente eventos
 accionables:
@@ -195,6 +206,19 @@ accionables:
 - llegada a Servicios y Contacto.
 
 No capturar texto introducido, parámetros de WhatsApp ni información personal.
+
+## Subdominios fuera de esta landing
+
+`robots.txt`, `_headers` y `vercel.json` no pueden controlar otros hosts. Todo
+subdominio que no deba aparecer en buscadores debe responder desde su propio
+proyecto con `X-Robots-Tag: noindex, nofollow, nosnippet` o una meta robots
+equivalente. No bloquearlo en `robots.txt` antes de que el crawler pueda leer
+el `noindex`.
+
+Esto debe revisarse individualmente para `demo`, `pgm`, `muy-mucho`, `tizval`,
+`mis-xv-sofia`, `fpg2026` y cualquier subdominio futuro. Los hosts técnicos de
+correo y cPanel no forman parte de esta landing y deben administrarse desde
+BlueHosting.
 
 ## Trabajo deliberadamente separado
 

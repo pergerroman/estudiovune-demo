@@ -36,9 +36,9 @@ de validación.
 - Analítica.
 - Build y pipeline de despliegue.
 
-## Contenido pendiente de validación
+## Contenido validado
 
-- Imágenes finales para los placeholders.
+- Los recortes actuales del collage en Nosotros son las imágenes definitivas.
 
 ## Criterios de aceptación vigentes
 

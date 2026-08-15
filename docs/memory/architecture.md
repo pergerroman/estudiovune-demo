@@ -23,6 +23,8 @@ locales, salvo las tipografías de Google Fonts.
 - `js/webgl-effect.js`: Three.js, shaders, máscara, estela y zoom.
 - `js/page-interactions.js`: reveal, estados interactivos de las tarjetas e
   índice lateral sincronizado con el scroll.
+- `js/google-tag-manager.js`: carga el contenedor `GTM-MQQSHQZM` sin requerir
+  JavaScript inline ni relajar la CSP.
 - `js/vercel-observability.js`: carga Web Analytics y Speed Insights solamente
   en el dominio público o previews de Vercel.
 
