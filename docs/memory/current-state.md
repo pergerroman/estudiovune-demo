@@ -77,6 +77,8 @@
   activación en el panel de Vercel.
 - Google Tag Manager usa el contenedor confirmado `GTM-MQQSHQZM`, con cargador
   en `head`, fallback `noscript` y permisos explícitos en la CSP.
+- Google Analytics 4 usa directamente el ID confirmado `G-Y0DP1ZTWEZ`; GTM
+  queda disponible para eventos sin duplicar la etiqueta base de todas las páginas.
 - `npm run check:production` y el workflow horario verifican el sitio publicado.
 
 ## Validaciones realizadas
@@ -110,8 +112,9 @@ con compresión, caché y red de producción activas.
 
 1. Habilitar Web Analytics en el panel de Vercel y volver a desplegar; el
    endpoint `/_vercel/insights/script.js` responde 404 mientras esté inactivo.
-2. Publicar la integración de Google Tag Manager `GTM-MQQSHQZM`, comprobar el
-   contenedor en Vista previa y validar GA4 en el informe Tiempo real.
+2. Publicar GA4 y Google Tag Manager, comprobar el contenedor en Vista previa
+   y validar `G-Y0DP1ZTWEZ` en el informe Tiempo real, sin crear otra etiqueta
+   Google tag de todas las páginas dentro de GTM.
 3. Publicar la corrección de caché de Three.js y repetir
    `npm run check:production`.
 4. Revisar manualmente Safari, Chrome y Firefox, incluida la selección de

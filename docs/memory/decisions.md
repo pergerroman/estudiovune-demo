@@ -85,6 +85,9 @@
 - Consecuencia: el cargador se mantiene en un archivo local para evitar
   `unsafe-inline`, el fallback `noscript` queda al inicio del body y la CSP
   permite únicamente los hosts necesarios de Tag Manager y Analytics.
+- Actualización 2026-08-15: GA4 se inicializa directamente con
+  `G-Y0DP1ZTWEZ`; GTM se reserva para eventos y no debe repetir la etiqueta
+  base con activación en todas las páginas.
 - Decisión: no incorporar `@vercel/analytics/next`, porque el sitio es HTML
   estático y no utiliza Next.js ni un proceso de build.
 - Restricción: la actualización de Three.js y la migración del WebGL requieren

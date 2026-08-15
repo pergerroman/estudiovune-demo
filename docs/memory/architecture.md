@@ -25,6 +25,8 @@ locales, salvo las tipografías de Google Fonts.
   índice lateral sincronizado con el scroll.
 - `js/google-tag-manager.js`: carga el contenedor `GTM-MQQSHQZM` sin requerir
   JavaScript inline ni relajar la CSP.
+- `js/google-analytics.js`: inicializa GA4 directamente con el flujo web
+  `G-Y0DP1ZTWEZ`; la etiqueta base no debe duplicarse dentro de GTM.
 - `js/vercel-observability.js`: carga Web Analytics y Speed Insights solamente
   en el dominio público o previews de Vercel.
 

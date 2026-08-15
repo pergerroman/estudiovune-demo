@@ -195,6 +195,10 @@ actividad. Después de desplegar, abrir Vista previa de Tag Manager, confirmar
 que el contenedor no tenga etiquetas duplicadas y validar la recepción de GA4
 en Tiempo real.
 
+La etiqueta base de GA4 se carga directamente con `G-Y0DP1ZTWEZ`. No crear
+otra etiqueta Google tag con activación en todas las páginas dentro de GTM;
+eso duplicaría las páginas vistas. Usar el contenedor para eventos específicos.
+
 No se agregan eventos personalizados porque requieren decidir plan, retención
 y responsables de acceso. Si luego se habilitan, medir únicamente eventos
 accionables:

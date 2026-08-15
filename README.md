@@ -86,6 +86,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   política `noindex`.
 - Se incorporó Google Tag Manager con el contenedor `GTM-MQQSHQZM`: cargador
   externo en el `head`, fallback `noscript` y CSP compatible con GA4.
+- Se incorporó GA4 directamente con `G-Y0DP1ZTWEZ`; la configuración vive en
+  un script local y GTM queda reservado para eventos sin duplicar pageviews.
 - Se verificó la publicación: 22 de 23 controles correctos, 404 personalizado,
   redirección a `www`, sitemap, seguridad e indexación funcionando. Web
   Analytics continúa pendiente de activación y la caché de Three.js quedó
