@@ -1,6 +1,6 @@
 # Estado actual
 
-Última revisión: 2026-07-27.
+Última revisión: 2026-08-15.
 
 ## Implementación vigente
 
@@ -39,7 +39,43 @@
   servicio profesional y señales de relevancia local para Cipolletti, Río Negro
   y Patagonia Argentina.
 - `robots.txt` permite el rastreo del sitio.
+- El collage y el fondo final se sirven mediante variantes responsive AVIF,
+  WebP y JPG; el fondo final utiliza carga diferida.
+- El WebGL adapta su resolución, se pausa fuera de la apertura o en segundo
+  plano y dispone de una apertura estática para movimiento reducido y fallos.
+- Three.js r128 se sirve localmente desde `js/vendor/`.
+- `https://www.estudiovune.com/` es la URL canónica confirmada; Open Graph,
+  Twitter y `sitemap.xml` utilizan URLs absolutas de ese dominio.
+- La imagen social es `src/img/optimized/vune-social-1200x630.jpg`.
+- `hola@estudiovune.com` es el correo institucional confirmado y se declara en
+  el footer y el JSON-LD.
+- El teléfono `+54 299 421 5193`, el destino y los mensajes de WhatsApp, la
+  ubicación en Cipolletti, Río Negro, y la definición “Estudio creativo
+  patagónico” están confirmados.
+- El JSON-LD declara correo, teléfono, dirección y punto de contacto de
+  WhatsApp.
+- La apertura ofrece un enlace de salto al contenido y la cabecera queda fuera
+  del árbol accesible y del orden de tabulación mientras está oculta.
+- La sección Nosotros posee un encabezado de segundo nivel accesible; el canvas
+  se declara decorativo y los contrastes del CTA celeste y del cierre fueron
+  reforzados.
 - La documentación general está consolidada en `README.md`.
+- `404.html` ofrece una respuesta de error liviana con rutas seguras desde
+  cualquier URL; Vercel deberá confirmarse con una prueba posterior al deploy.
+- `npm run check` valida estructura, rutas, scripts, SEO y presupuestos de peso;
+  GitHub Actions ejecuta el mismo control sin desplegar.
+- `docs/DEPLOYMENT.md` documenta la configuración esperada de dominio, HTTPS,
+  caché, compresión, publicación, monitoreo y rollback.
+- `docs/memory/master-assets.md` es lectura obligatoria y documenta fuentes
+  maestras, derivados, regeneración y presupuestos de imágenes.
+- `_headers` excluye de indexación documentación, configuración, scripts
+  internos y fuentes maestras; `robots.txt` permite leer esos headers y no
+  bloquea los assets activos.
+- Vercel es el hosting confirmado y BlueHosting mantiene dominio y correo.
+- `vercel.json` configura seguridad, caché, redirección e indexación.
+- Web Analytics y Speed Insights están integrados para producción; requieren
+  activación en el panel de Vercel.
+- `npm run check:production` y el workflow horario verifican el sitio publicado.
 
 ## Validaciones realizadas
 
@@ -47,24 +83,41 @@
 - Sintaxis de `js/page-interactions.js`.
 - Ausencia de CSS y JavaScript propios inline.
 - Existencia de los recursos locales vinculados.
+- Sintaxis de la copia local de Three.js.
+- Generación y tamaño de las variantes AVIF, WebP y JPG.
 - Ausencia de referencias documentales a `effect.html` como archivo activo.
+- Ausencia de referencias a los recursos históricos eliminados.
+- Lighthouse local con Chrome y WebGL por software: mobile 65 rendimiento,
+  desktop 94; accesibilidad, buenas prácticas y SEO 100 en ambos perfiles.
+- Consola del navegador sin errores en las auditorías mobile y desktop.
+- Métricas mobile: FCP 3,1 s, LCP 6,1 s, Speed Index 8,0 s, TBT 40 ms y CLS 0.
+- Métricas desktop: FCP 0,9 s, LCP 1,3 s, Speed Index 1,4 s, TBT 0 ms y CLS 0.
 
-La revisión visual automatizada no estuvo disponible en la sesión.
+Lighthouse y la consola deben volver a medirse después del deploy definitivo,
+con compresión, caché y red de producción activas.
 
 ## Pendientes
 
-1. Validar textos y datos de contacto, incluido el teléfono tomado de Figma.
-2. Confirmar imágenes definitivas para los placeholders.
-3. Revisar manualmente Safari, Chrome y Firefox.
-4. Confirmar si `css/style.css` puede eliminarse.
-5. Confirmar el dominio público para agregar URL canónica, `og:url`, URLs
-   absolutas en datos sociales y `sitemap.xml`.
+1. Confirmar imágenes definitivas para los placeholders.
+2. Revisar manualmente Safari, Chrome y Firefox, incluida la selección de
+   formatos, el fallback estático y la pausa del canvas.
+3. Vincular el repositorio a Vercel, agregar raíz y `www`, y copiar en
+   BlueHosting los registros DNS exactos indicados por Vercel.
+4. Activar Web Analytics y Speed Insights en Vercel, desplegar y ejecutar la
+   comprobación manual de producción.
+5. Habilitar `PRODUCTION_MONITORING_ENABLED=true` después de que el dominio
+   responda correctamente.
 
 ## Deuda técnica
 
-- `css/style.css` no está vinculada y conserva una implementación histórica.
-- No existen build, lint ni tests automatizados.
-- Three.js depende de un CDN externo.
+- No existe build; las comprobaciones automatizadas no incluyen todavía una
+  regresión visual con navegador.
+- Three.js permanece en r128 y requiere una actualización futura con regresión
+  visual controlada.
+- La apertura WebGL limita el rendimiento mobile sintético: Three.js aporta
+  aproximadamente 589 KiB sin compresión en el servidor local y el LCP medido
+  fue 6,1 s. Resolverlo requiere optimizar o reemplazar la dependencia con una
+  regresión visual separada.
 
 ## Cambios externos preservados
 

@@ -1,0 +1,41 @@
+/404.html
+  X-Robots-Tag: noindex, follow, nosnippet
+
+/docs/*
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/scripts/*
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/.github/*
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/.vscode/*
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/.gitattributes
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/.gitignore
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/src/img/bg/*
+  X-Robots-Tag: noindex, noimageindex, nosnippet
+
+/AGENTS.md
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/CLAUDE.md
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/ESTRUCTURA-land.md
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/README.md
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/package.json
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
+/_headers
+  X-Robots-Tag: noindex, nofollow, nosnippet

@@ -2,8 +2,8 @@
 
 ## Definición
 
-Vuné es un estudio creativo patagónico con base declarada en Cipolletti, Río
-Negro. La definición institucional definitiva requiere validación.
+Vuné es un estudio creativo patagónico con base confirmada en Cipolletti, Río
+Negro.
 
 ## Voz y tono
 
@@ -59,12 +59,11 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 | --- | --- | --- |
 | Logotipo principal | `src/logos/vuné-logo.svg` | Activo en cabecera y footer |
 | Favicon | `src/logos/v-fav.svg` | Activo |
-| Collage JPG | `src/img/bg/Collage.jpg` | Activo en apertura y placeholders |
+| Collage JPG original | `src/img/bg/Collage.jpg` | Fuente preservada, no vinculada en la carga visual |
+| Collage optimizado | `src/img/optimized/collage-*` | Variantes AVIF, WebP y JPG activas |
 | Collage PNG | `src/img/bg/Collage.png` | Disponible, no vinculado |
-| Fondo de Essay | `src/img/bg/_DSC5866 1.jpg` | Activo |
-| Fondo registros | `src/img/bg/_DSC5885 1.jpg` | Disponible, no vinculada |
-| Instagram | `src/icons/instagram.svg` | Disponible, no vinculado |
-| LinkedIn | `src/icons/linkedin.svg` | Disponible, no vinculado |
+| Fondo de Essay original | `src/img/bg/_DSC5866 1.jpg` | Fuente preservada, no vinculada en la carga visual |
+| Fondo de Essay optimizado | `src/img/optimized/essay-*` | Variantes AVIF, WebP y JPG con carga diferida |
 | WhatsApp | `src/icons/whatsapp.svg` | Activo en el footer |
 | Pines de cards | `src/misc/cards/Card1.png` a `Card5.png` | Activos |
 | Figura desenfocada del hero | `src/misc/blob/hero-orange-blur.svg` | Activa |

@@ -12,7 +12,7 @@ ni dependencias locales.
 - HTML semántico.
 - CSS.
 - JavaScript.
-- WebGL mediante Three.js r128, cargado desde CDN.
+- WebGL mediante una copia local de Three.js r128.
 - Tipografías Inter y Averia Gruesa Libre, cargadas desde Google Fonts.
 
 ## Estructura
@@ -26,10 +26,16 @@ La responsabilidad de cada archivo y el orden de carga se documentan en
 la página se describen exclusivamente en
 [Estructura funcional](ESTRUCTURA-land.md).
 
-## Ejecución local
+## Ejecución y validación local
 
-No hay comandos de build, lint o tests configurados. Para servir el sitio
-localmente desde la raíz:
+No hay proceso de build ni dependencias de ejecución. Para comprobar estructura,
+rutas, scripts, metadatos y presupuestos de peso:
+
+```bash
+npm run check
+```
+
+Para servir el sitio localmente desde la raíz:
 
 ```bash
 python3 -m http.server 8000
@@ -48,7 +54,9 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 - [Arquitectura](docs/memory/architecture.md)
 - [Decisiones](docs/memory/decisions.md)
 - [Estado actual](docs/memory/current-state.md)
+- [Assets maestros](docs/memory/master-assets.md)
 - [Referencias](docs/memory/references.md)
+- [Publicación y operación](docs/DEPLOYMENT.md)
 
 ## Criterios de mantenimiento
 
@@ -63,6 +71,70 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   cuando cambie una decisión duradera.
 
 ## Registro de trabajo
+
+### 2026-08-15
+
+- Se confirmaron el teléfono `+54 299 421 5193`, el destino y los mensajes de
+  WhatsApp, la ubicación en Cipolletti, Río Negro, y la definición “Estudio
+  creativo patagónico”. Teléfono, dirección y punto de contacto se incorporaron
+  al JSON-LD.
+- Se confirmó `hola@estudiovune.com` como correo institucional y se actualizó
+  su presentación, enlace `mailto` y dato estructurado.
+- Se restringió la indexación de documentación, configuración, controles
+  internos y fuentes maestras mediante `X-Robots-Tag` en `_headers`; se mantuvo
+  el rastreo necesario para que los buscadores puedan leer ese `noindex`.
+- Se documentaron como fuentes maestras obligatorias `Collage.jpg` y
+  `_DSC5866 1.jpg`, junto con los procesos reproducibles de generación,
+  integración, presupuestos y validación de derivados.
+- Se agregó `docs/memory/master-assets.md` a la lectura obligatoria de
+  `AGENTS.md` para impedir que una limpieza elimine fuentes sin referencias de
+  ejecución.
+- Se agregó `404.html`, una página de error liviana y no indexable.
+- Se corrigieron sus rutas para que logos, estilos y enlaces funcionen también
+  cuando Vercel la sirve desde una URL inexistente.
+- Se confirmó Vercel como hosting y BlueHosting como gestor de dominio y
+  correo; `vercel.json` aplica redirección, seguridad, caché e indexación.
+- Se integraron Vercel Web Analytics y Speed Insights sólo en los dominios de
+  producción, sin afectar el desarrollo local.
+- Se agregó `npm run check:production` y un monitor horario optativo para
+  comprobar HTTPS, compresión, caché, tipos MIME, indexación y el 404 publicado.
+- Se ejecutó Lighthouse con Chrome y WebGL por software: mobile 65/100 en
+  rendimiento y desktop 94/100; accesibilidad, buenas prácticas y SEO dieron
+  100/100, sin errores de consola.
+- Se incorporó `npm run check` para validar rutas, anclas, JavaScript, JSON-LD,
+  sitemap, seguridad de enlaces y presupuestos de assets sin dependencias.
+- Se agregó un workflow de GitHub Actions que ejecuta las comprobaciones en
+  pushes y pull requests, sin publicar ni modificar entornos.
+- Se documentaron DNS, HTTPS, redirecciones, caché, compresión, headers,
+  publicación, verificación, monitoreo y rollback en `docs/DEPLOYMENT.md`.
+- Se eliminaron `css/style.css`, recursos históricos sin consumidores y
+  metadatos `.DS_Store`; las imágenes originales necesarias para regenerar los
+  derivados optimizados se conservaron como fuentes maestras.
+- Se agregó un enlace de salto accesible desde la apertura al contenido
+  principal y se sincronizaron `inert`, `aria-hidden` y visibilidad de la
+  cabecera para evitar focos sobre enlaces ocultos.
+- Se incorporó un `<h2>` accesible en la sección Nosotros y se declaró el
+  canvas WebGL como decorativo.
+- Se corrigió el contraste del CTA celeste con texto oscuro y se reforzaron el
+  overlay y el texto secundario de la sección Mirada.
+- Se confirmó `https://www.estudiovune.com/` como URL pública y se agregaron
+  canonical, `og:url`, sitemap y referencias sociales absolutas.
+- Se creó una imagen social JPG específica de 1200 × 630 px y se declararon sus
+  dimensiones y tipo en Open Graph.
+- Se limitó inicialmente el JSON-LD a datos respaldados por el contenido y el
+  dominio confirmado; los datos comerciales se completaron al ser validados.
+- Se corrigieron como entidades HTML los separadores de la URL de Google Fonts.
+- Se generaron variantes AVIF, WebP y JPG responsive del collage y del fondo de
+  cierre, preservando los originales como fuentes.
+- Se incorporó selección de imágenes por formato y ancho de pantalla, junto
+  con carga diferida del fondo de la sección Mirada.
+- Se redujo el pixel ratio máximo del WebGL según dispositivo y ahorro de
+  datos, y se detuvo su renderizado fuera de la apertura o con la pestaña
+  oculta.
+- Se agregó una apertura estática para movimiento reducido, ausencia de
+  Three.js o fallos de inicialización de WebGL.
+- Three.js r128 pasó a servirse desde una copia local para eliminar la
+  dependencia crítica del CDN durante la ejecución.
 
 ### 2026-07-31
 
