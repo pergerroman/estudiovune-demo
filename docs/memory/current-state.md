@@ -43,6 +43,8 @@
   WebP y JPG; el fondo final utiliza carga diferida.
 - El WebGL adapta su resolución, se pausa fuera de la apertura o en segundo
   plano y dispone de una apertura estática para movimiento reducido y fallos.
+- El renderer usa DPR máximo 2 en mobile y 2.5 en desktop; con ahorro de datos
+  mantiene DPR 1.
 - Three.js r128 se sirve localmente desde `js/vendor/`.
 - `https://www.estudiovune.com/` es la URL canónica confirmada; Open Graph,
   Twitter y `sitemap.xml` utilizan URLs absolutas de ese dominio.
@@ -54,8 +56,10 @@
   patagónico” están confirmados.
 - El JSON-LD declara correo, teléfono, dirección y punto de contacto de
   WhatsApp.
-- La apertura ofrece un enlace de salto al contenido y la cabecera queda fuera
-  del árbol accesible y del orden de tabulación mientras está oculta.
+- La cabecera queda fuera del árbol accesible y del orden de tabulación
+  mientras está oculta; el enlace de salto fue retirado por decisión visual.
+- El overscroll vertical está desactivado para evitar el rebote en los límites
+  del documento.
 - La sección Nosotros posee un encabezado de segundo nivel accesible; el canvas
   se declara decorativo y los contrastes del CTA celeste y del cierre fueron
   reforzados.
