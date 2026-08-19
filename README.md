@@ -165,6 +165,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   mejorar la definición inicial del logo; ahorro de datos conserva DPR 1.
 - Se desactivó el overscroll vertical para eliminar el rebote al desplazarse
   hacia arriba y se retiró el enlace “Saltar la apertura e ir al contenido”.
+- Se ajustó posteriormente a `overscroll-behavior-y: contain` sólo en `html`
+  para conservar el scroll normal en Chrome.
 
 ### 2026-07-31
 

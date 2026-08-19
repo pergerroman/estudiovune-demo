@@ -58,8 +58,8 @@
   WhatsApp.
 - La cabecera queda fuera del árbol accesible y del orden de tabulación
   mientras está oculta; el enlace de salto fue retirado por decisión visual.
-- El overscroll vertical está desactivado para evitar el rebote en los límites
-  del documento.
+- El overscroll vertical se contiene únicamente en la raíz para evitar el
+  rebote externo sin bloquear el desplazamiento normal en Chrome.
 - La sección Nosotros posee un encabezado de segundo nivel accesible; el canvas
   se declara decorativo y los contrastes del CTA celeste y del cierre fueron
   reforzados.

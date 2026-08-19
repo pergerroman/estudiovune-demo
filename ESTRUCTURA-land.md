@@ -126,8 +126,8 @@ y selecciona una variante AVIF, WebP o JPG según soporte y ancho de pantalla.
 - `js/page-interactions.js` controla reveal y cards.
 - `js/page-interactions.js` actualiza el estado activo del índice lateral.
 - El scroll suave se define en CSS.
-- El overscroll vertical se desactiva para evitar el rebote al alcanzar los
-  límites del documento.
+- El overscroll vertical se contiene en la raíz para evitar el rebote externo
+  sin interferir con el desplazamiento normal en Chrome.
 - No hay menú burger implementado en el HTML vigente.
 
 ## 5. Estilos

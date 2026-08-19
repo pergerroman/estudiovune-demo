@@ -69,8 +69,8 @@
   usar texto oscuro sobre el CTA celeste y reforzar la legibilidad del cierre
   fotográfico mediante overlay y mayor opacidad de texto.
 - Actualización 2026-08-19: se retira el enlace de salto por decisión visual y
-  se desactiva el overscroll vertical para evitar el rebote en los límites del
-  documento.
+  se contiene el overscroll vertical sólo en la raíz; aplicar `none` también al
+  body se descartó por interferir con el scroll en Chrome.
 
 ## Publicación en Vercel
 
