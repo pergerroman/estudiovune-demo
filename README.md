@@ -86,6 +86,13 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   política `noindex`.
 - Se incorporó Google Tag Manager con el contenedor `GTM-MQQSHQZM`: cargador
   externo en el `head`, fallback `noscript` y CSP compatible con GA4.
+- Se incorporó GA4 directamente con `G-Y0DP1ZTWEZ`; la configuración vive en
+  un script local y GTM queda reservado para eventos sin duplicar pageviews.
+- Se instrumentaron directamente los eventos `hero_cta_click`,
+  `service_click`, `whatsapp_click` y `email_click`, sin transmitir datos de
+  contacto ni mensajes predefinidos como parámetros.
+- Se confirmó Web Analytics y Speed Insights activos y la publicación pasó los
+  23 controles de producción, incluida la caché inmutable de Three.js.
 - Se verificó la publicación: 22 de 23 controles correctos, 404 personalizado,
   redirección a `www`, sitemap, seguridad e indexación funcionando. Web
   Analytics continúa pendiente de activación y la caché de Three.js quedó
@@ -151,6 +158,13 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   Three.js o fallos de inicialización de WebGL.
 - Three.js r128 pasó a servirse desde una copia local para eliminar la
   dependencia crítica del CDN durante la ejecución.
+
+### 2026-08-19
+
+- Se elevó el DPR máximo del canvas WebGL a 2 en mobile y 2.5 en desktop para
+  mejorar la definición inicial del logo; ahorro de datos conserva DPR 1.
+- Se desactivó el overscroll vertical para eliminar el rebote al desplazarse
+  hacia arriba y se retiró el enlace “Saltar la apertura e ir al contenido”.
 
 ### 2026-07-31
 

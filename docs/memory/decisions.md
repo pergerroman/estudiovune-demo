@@ -41,6 +41,9 @@
   JPG; limita el pixel ratio según dispositivo y ahorro de datos; pausa el loop
   fuera de la apertura o con la pestaña oculta; y ofrece una versión estática
   ante movimiento reducido o fallos de WebGL.
+- Actualización 2026-08-19: el límite de pixel ratio sube a 2 en mobile y 2.5
+  en desktop para mejorar la definición inicial del canvas; ahorro de datos
+  conserva el límite 1.
 - Actualización 2026-08-15: Three.js r128 se sirve desde una copia local para
   evitar que la apertura dependa de la disponibilidad de un CDN.
 
@@ -65,6 +68,9 @@
 - Decisión: completar la jerarquía de Nosotros con un encabezado accesible,
   usar texto oscuro sobre el CTA celeste y reforzar la legibilidad del cierre
   fotográfico mediante overlay y mayor opacidad de texto.
+- Actualización 2026-08-19: se retira el enlace de salto por decisión visual y
+  se desactiva el overscroll vertical para evitar el rebote en los límites del
+  documento.
 
 ## Publicación en Vercel
 
@@ -85,6 +91,12 @@
 - Consecuencia: el cargador se mantiene en un archivo local para evitar
   `unsafe-inline`, el fallback `noscript` queda al inicio del body y la CSP
   permite únicamente los hosts necesarios de Tag Manager y Analytics.
+- Actualización 2026-08-15: GA4 se inicializa directamente con
+  `G-Y0DP1ZTWEZ`; GTM se reserva para eventos y no debe repetir la etiqueta
+  base con activación en todas las páginas.
+- Actualización 2026-08-15: los eventos principales se envían directamente
+  desde `google-analytics.js`, sin incluir el correo ni los parámetros con
+  mensajes de WhatsApp; GTM queda disponible para ampliaciones futuras.
 - Decisión: no incorporar `@vercel/analytics/next`, porque el sitio es HTML
   estático y no utiliza Next.js ni un proceso de build.
 - Restricción: la actualización de Three.js y la migración del WebGL requieren

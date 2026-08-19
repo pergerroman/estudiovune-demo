@@ -45,6 +45,7 @@ const requiredFiles = [
     'js/webgl-effect.js',
     'js/page-interactions.js',
     'js/google-tag-manager.js',
+    'js/google-analytics.js',
     'js/vercel-observability.js',
     'js/vendor/three-r128.min.js',
     'src/img/optimized/collage-768.avif',
@@ -100,6 +101,7 @@ for (const script of [
     'js/webgl-effect.js',
     'js/page-interactions.js',
     'js/google-tag-manager.js',
+    'js/google-analytics.js',
     'js/vercel-observability.js',
     'js/vendor/three-r128.min.js',
     'scripts/check-production.mjs'
@@ -134,7 +136,16 @@ assert(/<meta name="twitter:image" content="https:\/\//.test(indexHtml), 'twitte
 assert(indexHtml.includes('<script src="./js/google-tag-manager.js"></script>'), 'Google Tag Manager se carga en head');
 assert(indexHtml.includes('https://www.googletagmanager.com/ns.html?id=GTM-MQQSHQZM'), 'Google Tag Manager incluye fallback noscript');
 assert(read('js/google-tag-manager.js').includes('GTM-MQQSHQZM'), 'Google Tag Manager usa el contenedor confirmado');
+assert(indexHtml.includes('https://www.googletagmanager.com/gtag/js?id=G-Y0DP1ZTWEZ'), 'Google Analytics carga gtag.js con el ID confirmado');
+assert(indexHtml.includes('<script src="./js/google-analytics.js"></script>'), 'Google Analytics carga su configuración local');
+assert(read('js/google-analytics.js').includes("gtag('config', 'G-Y0DP1ZTWEZ')"), 'Google Analytics usa el ID de medición confirmado');
+for (const eventName of ['hero_cta_click', 'service_click', 'whatsapp_click', 'email_click']) {
+    assert(read('js/google-analytics.js').includes(`gtag('event', '${eventName}'`), `Google Analytics registra ${eventName}`);
+}
 assert(!indexHtml.includes('cdnjs.cloudflare.com/ajax/libs/three.js'), 'Three.js no depende de CDN');
+const webglScript = read('js/webgl-effect.js');
+assert(webglScript.includes('isMobile ? 2 : 2.5'), 'WebGL limita DPR a 2 mobile y 2.5 desktop');
+assert(webglScript.includes('saveData ? 1'), 'WebGL conserva DPR 1 con ahorro de datos');
 assert(!exists('css/style.css'), 'La hoja histórica fue eliminada');
 
 const robots = read('robots.txt');
@@ -198,6 +209,7 @@ const initialAssets = [
     'js/webgl-effect.js',
     'js/page-interactions.js',
     'js/google-tag-manager.js',
+    'js/google-analytics.js',
     'js/vercel-observability.js',
     'js/vendor/three-r128.min.js',
     'src/img/optimized/collage-1440.avif'
