@@ -101,6 +101,11 @@
   estático y no utiliza Next.js ni un proceso de build.
 - Restricción: la actualización de Three.js y la migración del WebGL requieren
   copia previa y trabajo separado.
+- Actualización 2026-08-21: CSS y JavaScript propios sin hash se sirven con
+  `max-age=0, must-revalidate`; las referencias HTML incorporan la revisión
+  `20260821-1` para invalidar inmediatamente las copias previas que bloqueaban
+  el gesto de scroll en Chrome. Los archivos con nombre versionado pueden
+  conservar caché larga e inmutable.
 
 ## Limpieza de recursos históricos
 

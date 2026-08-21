@@ -74,6 +74,12 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ### 2026-08-21
 
+- Se corrigió de forma definitiva la mezcla de HTML nuevo con CSS o JavaScript
+  almacenado por Chrome: las referencias propias incorporan la revisión
+  `20260821-1` para invalidar el caché anterior y Vercel exige revalidación en
+  cada visita para los recursos sin hash.
+- Se amplió la validación local y de producción para impedir que CSS o
+  JavaScript propios vuelvan a publicarse con caché prolongada sin versionado.
 - Se agregaron `favicon.ico` con variantes de 16, 32 y 48 px y
   `apple-touch-icon.png` de 180 × 180 px, ambos derivados del favicon SVG
   oficial, para evitar las solicitudes 404 automáticas de Safari y otros

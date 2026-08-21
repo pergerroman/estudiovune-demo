@@ -79,6 +79,10 @@
   bloquea los assets activos.
 - Vercel es el hosting confirmado y BlueHosting mantiene dominio y correo.
 - `vercel.json` configura seguridad, caché, redirección e indexación.
+- CSS y JavaScript propios usan la revisión de URL `20260821-1` para invalidar
+  copias anteriores y se entregan con `max-age=0, must-revalidate`; sólo los
+  recursos con nombre versionado, como Three.js r128, conservan caché
+  inmutable.
 - Web Analytics y Speed Insights están activos en producción.
 - Google Tag Manager usa el contenedor confirmado `GTM-MQQSHQZM`, con cargador
   en `head`, fallback `noscript` y permisos explícitos en la CSP.
@@ -101,6 +105,8 @@
 - Ausencia de referencias a los recursos históricos eliminados.
 - Existencia, formato, dimensiones y declaraciones del favicon ICO y el Apple
   Touch Icon.
+- Versionado de las referencias CSS/JavaScript y revalidación obligatoria de
+  los recursos propios sin hash.
 - Lighthouse local con Chrome y WebGL por software: mobile 65 rendimiento,
   desktop 94; accesibilidad, buenas prácticas y SEO 100 en ambos perfiles.
 - Consola del navegador sin errores en las auditorías mobile y desktop.

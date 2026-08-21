@@ -61,6 +61,15 @@ requiredFiles.forEach((file) => assert(exists(file), `Existe ${file}`));
 const htmlFiles = ['index.html', '404.html'];
 const htmlByFile = Object.fromEntries(htmlFiles.map((file) => [file, read(file)]));
 const indexHtml = htmlByFile['index.html'];
+const assetRevision = '20260821-1';
+const scrollCss = read('css/scroll.css');
+const verticalOverscrollValues = [...scrollCss.matchAll(/overscroll-behavior-y\s*:\s*([^;]+);/g)]
+    .map((match) => match[1].trim());
+
+assert(
+    JSON.stringify(verticalOverscrollValues) === JSON.stringify(['contain']),
+    'El scroll vertical conserva una única regla overscroll segura en html'
+);
 
 function pngDimensions(relativePath) {
     const buffer = readFileSync(resolve(root, relativePath));
@@ -168,11 +177,24 @@ assert(indexHtml.includes('href="mailto:hola@estudiovune.com"'), 'Enlace de corr
 assert(indexHtml.includes('>+54 299 421 5193</a>'), 'Teléfono visible confirmado');
 assert(/<meta property="og:image" content="https:\/\//.test(indexHtml), 'og:image absoluta');
 assert(/<meta name="twitter:image" content="https:\/\//.test(indexHtml), 'twitter:image absoluta');
-assert(indexHtml.includes('<script src="./js/google-tag-manager.js"></script>'), 'Google Tag Manager se carga en head');
+for (const stylesheet of ['scroll.css', 'index.css']) {
+    assert(indexHtml.includes(`href="./css/${stylesheet}?v=${assetRevision}"`), `Portada versiona ${stylesheet}`);
+    assert(htmlByFile['404.html'].includes(`href="/css/${stylesheet}?v=${assetRevision}"`), `404 versiona ${stylesheet}`);
+}
+for (const script of [
+    'google-tag-manager.js',
+    'google-analytics.js',
+    'webgl-effect.js',
+    'page-interactions.js',
+    'vercel-observability.js'
+]) {
+    assert(indexHtml.includes(`src="./js/${script}?v=${assetRevision}"`), `Portada versiona ${script}`);
+}
+assert(indexHtml.includes(`<script src="./js/google-tag-manager.js?v=${assetRevision}"></script>`), 'Google Tag Manager se carga en head');
 assert(indexHtml.includes('https://www.googletagmanager.com/ns.html?id=GTM-MQQSHQZM'), 'Google Tag Manager incluye fallback noscript');
 assert(read('js/google-tag-manager.js').includes('GTM-MQQSHQZM'), 'Google Tag Manager usa el contenedor confirmado');
 assert(indexHtml.includes('https://www.googletagmanager.com/gtag/js?id=G-Y0DP1ZTWEZ'), 'Google Analytics carga gtag.js con el ID confirmado');
-assert(indexHtml.includes('<script src="./js/google-analytics.js"></script>'), 'Google Analytics carga su configuración local');
+assert(indexHtml.includes(`<script src="./js/google-analytics.js?v=${assetRevision}"></script>`), 'Google Analytics carga su configuración local');
 assert(read('js/google-analytics.js').includes("gtag('config', 'G-Y0DP1ZTWEZ')"), 'Google Analytics usa el ID de medición confirmado');
 for (const eventName of ['hero_cta_click', 'service_click', 'whatsapp_click', 'email_click']) {
     assert(read('js/google-analytics.js').includes(`gtag('event', '${eventName}'`), `Google Analytics registra ${eventName}`);
@@ -202,6 +224,12 @@ assert(vercelHeadersText.includes('max-age=31536000, immutable'), 'Vercel aplica
 assert(vercelHeadersText.includes('max-age=2592000'), 'Vercel aplica caché a imágenes optimizadas');
 const genericJsHeaderIndex = vercelConfig.headers.findIndex((rule) => rule.source === '/js/(.*)');
 const threeHeaderIndex = vercelConfig.headers.findIndex((rule) => rule.source === '/js/vendor/three-r128.min.js');
+const cssCacheHeader = vercelConfig.headers.find((rule) => rule.source === '/css/(.*)')?.headers
+    ?.find((header) => header.key === 'Cache-Control')?.value;
+const jsCacheHeader = vercelConfig.headers[genericJsHeaderIndex]?.headers
+    ?.find((header) => header.key === 'Cache-Control')?.value;
+assert(cssCacheHeader === 'public, max-age=0, must-revalidate', 'CSS propio siempre se revalida');
+assert(jsCacheHeader === 'public, max-age=0, must-revalidate', 'JavaScript propio siempre se revalida');
 assert(threeHeaderIndex > genericJsHeaderIndex, 'La caché específica de Three.js prevalece sobre la regla general de JS');
 
 assert(!robots.includes('Disallow:'), 'robots.txt permite leer los headers noindex');
