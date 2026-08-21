@@ -49,12 +49,11 @@
 
 html {
     scroll-behavior: smooth;
-    overscroll-behavior-y: none;
+    overscroll-behavior-y: contain;
 }
 
 body {
     margin: 0;
-    overscroll-behavior-y: none;
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 400;
     color: var(--ink);

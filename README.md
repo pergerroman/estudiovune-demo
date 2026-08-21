@@ -72,6 +72,15 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 
 ## Registro de trabajo
 
+### 2026-08-21
+
+- Se agregaron `favicon.ico` con variantes de 16, 32 y 48 px y
+  `apple-touch-icon.png` de 180 × 180 px, ambos derivados del favicon SVG
+  oficial, para evitar las solicitudes 404 automáticas de Safari y otros
+  navegadores.
+- Se declararon ambos recursos en la portada y la página 404, y se amplió
+  `npm run check` para verificar su existencia, formato, dimensiones y uso.
+
 ### 2026-08-15
 
 - Se confirmaron como definitivos los recortes actuales del collage usados en
@@ -165,6 +174,8 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
   mejorar la definición inicial del logo; ahorro de datos conserva DPR 1.
 - Se desactivó el overscroll vertical para eliminar el rebote al desplazarse
   hacia arriba y se retiró el enlace “Saltar la apertura e ir al contenido”.
+- Se ajustó posteriormente a `overscroll-behavior-y: contain` sólo en `html`
+  para conservar el scroll normal en Chrome.
 
 ### 2026-07-31
 

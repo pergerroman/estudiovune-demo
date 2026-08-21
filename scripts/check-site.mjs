@@ -40,6 +40,8 @@ const requiredFiles = [
     'robots.txt',
     'sitemap.xml',
     'vercel.json',
+    'favicon.ico',
+    'apple-touch-icon.png',
     'css/scroll.css',
     'css/index.css',
     'js/webgl-effect.js',
@@ -60,6 +62,29 @@ const htmlFiles = ['index.html', '404.html'];
 const htmlByFile = Object.fromEntries(htmlFiles.map((file) => [file, read(file)]));
 const indexHtml = htmlByFile['index.html'];
 
+function pngDimensions(relativePath) {
+    const buffer = readFileSync(resolve(root, relativePath));
+    const signature = buffer.subarray(0, 8).toString('hex');
+    if (signature !== '89504e470d0a1a0a' || buffer.subarray(12, 16).toString('ascii') !== 'IHDR') {
+        return null;
+    }
+    return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+}
+
+function icoSizes(relativePath) {
+    const buffer = readFileSync(resolve(root, relativePath));
+    if (buffer.length < 6 || buffer.readUInt16LE(0) !== 0 || buffer.readUInt16LE(2) !== 1) {
+        return [];
+    }
+    const count = buffer.readUInt16LE(4);
+    return Array.from({ length: count }, (_, index) => {
+        const offset = 6 + (index * 16);
+        const width = buffer[offset] || 256;
+        const height = buffer[offset + 1] || 256;
+        return `${width}x${height}`;
+    });
+}
+
 for (const [file, html] of Object.entries(htmlByFile)) {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
     const localAnchors = [...html.matchAll(/\bhref="#([^"]+)"/g)].map((match) => match[1]);
@@ -78,6 +103,16 @@ for (const [file, html] of Object.entries(htmlByFile)) {
         const rel = tag.match(/\brel="([^"]+)"/)?.[1]?.split(/\s+/) ?? [];
         assert(rel.includes('noopener') && rel.includes('noreferrer'), `${file}: enlace externo protegido`);
     });
+
+    assert(html.includes('<link rel="icon" href="/favicon.ico" sizes="any">'), `${file}: declara favicon.ico`);
+    assert(html.includes('<link rel="apple-touch-icon" href="/apple-touch-icon.png">'), `${file}: declara apple-touch-icon`);
+}
+
+const appleTouchDimensions = pngDimensions('apple-touch-icon.png');
+assert(appleTouchDimensions?.width === 180 && appleTouchDimensions?.height === 180, 'apple-touch-icon.png mide 180 × 180 px');
+const faviconSizes = icoSizes('favicon.ico');
+for (const size of ['16x16', '32x32', '48x48']) {
+    assert(faviconSizes.includes(size), `favicon.ico incluye ${size}`);
 }
 
 for (const cssFile of ['css/scroll.css', 'css/index.css']) {

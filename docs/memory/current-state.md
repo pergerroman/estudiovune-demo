@@ -1,6 +1,6 @@
 # Estado actual
 
-Última revisión: 2026-08-15.
+Última revisión: 2026-08-21.
 
 ## Implementación vigente
 
@@ -35,6 +35,8 @@
 - El botón principal del footer abre el contacto de WhatsApp con el mensaje de
   consulta indicado por el estudio.
 - El favicon y el logotipo externo usan assets existentes.
+- La portada y la página 404 declaran un favicon ICO con tamaños de 16, 32 y
+  48 px, el favicon SVG oficial y un Apple Touch Icon de 180 × 180 px.
 - El documento incluye metadatos SEO y sociales, datos estructurados de
   servicio profesional y señales de relevancia local para Cipolletti, Río Negro
   y Patagonia Argentina.
@@ -58,8 +60,8 @@
   WhatsApp.
 - La cabecera queda fuera del árbol accesible y del orden de tabulación
   mientras está oculta; el enlace de salto fue retirado por decisión visual.
-- El overscroll vertical está desactivado para evitar el rebote en los límites
-  del documento.
+- El overscroll vertical se contiene únicamente en la raíz para evitar el
+  rebote externo sin bloquear el desplazamiento normal en Chrome.
 - La sección Nosotros posee un encabezado de segundo nivel accesible; el canvas
   se declara decorativo y los contrastes del CTA celeste y del cierre fueron
   reforzados.
@@ -97,6 +99,8 @@
 - Generación y tamaño de las variantes AVIF, WebP y JPG.
 - Ausencia de referencias documentales a `effect.html` como archivo activo.
 - Ausencia de referencias a los recursos históricos eliminados.
+- Existencia, formato, dimensiones y declaraciones del favicon ICO y el Apple
+  Touch Icon.
 - Lighthouse local con Chrome y WebGL por software: mobile 65 rendimiento,
   desktop 94; accesibilidad, buenas prácticas y SEO 100 en ambos perfiles.
 - Consola del navegador sin errores en las auditorías mobile y desktop.
