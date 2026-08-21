@@ -42,13 +42,15 @@ registros MX, SPF, DKIM o DMARC usados por el correo.
 ## Caché recomendada
 
 Mientras CSS, JavaScript e imágenes no utilicen hash de contenido, no deben
-marcarse como inmutables.
+marcarse como inmutables. CSS y JavaScript propios deben revalidarse en cada
+visita; una revisión en la URL permite invalidar de inmediato copias anteriores
+cuando un despliegue corrige un comportamiento crítico.
 
 | Rutas | `Cache-Control` sugerido |
 | --- | --- |
 | `/`, `/index.html`, `/404.html` | `public, max-age=0, must-revalidate` |
 | `/robots.txt`, `/sitemap.xml` | `public, max-age=3600` |
-| `/css/*`, `/js/*.js` | `public, max-age=86400` |
+| `/css/*`, `/js/*.js` | `public, max-age=0, must-revalidate` |
 | `/js/vendor/three-r128.min.js` | `public, max-age=31536000, immutable` |
 | `/src/img/optimized/*` | `public, max-age=2592000` |
 | Logos, iconos y resto de assets | `public, max-age=604800` |

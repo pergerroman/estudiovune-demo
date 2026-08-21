@@ -39,8 +39,12 @@ try {
     expectHeader(home, '/', 'content-encoding', /^(br|gzip)$/i);
 
     const css = await request('/css/index.css');
-    expectHeader(css, 'CSS', 'cache-control', /max-age=86400/i);
+    expectHeader(css, 'CSS', 'cache-control', /max-age=0.*must-revalidate/i);
     expectHeader(css, 'CSS', 'content-encoding', /^(br|gzip)$/i);
+
+    const javascript = await request('/js/page-interactions.js');
+    expectHeader(javascript, 'JavaScript propio', 'cache-control', /max-age=0.*must-revalidate/i);
+    expectHeader(javascript, 'JavaScript propio', 'content-encoding', /^(br|gzip)$/i);
 
     const three = await request('/js/vendor/three-r128.min.js');
     expectHeader(three, 'Three.js', 'cache-control', /max-age=31536000.*immutable/i);
