@@ -262,7 +262,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 function getPixelRatio() {
     const isMobile = window.matchMedia('(max-width: 680px)').matches;
     const saveData = navigator.connection?.saveData === true;
-    const limit = saveData ? 1 : (isMobile ? 1.25 : 1.5);
+    const limit = saveData ? 1 : (isMobile ? 2 : 2.5);
     return Math.min(window.devicePixelRatio || 1, limit);
 }
 

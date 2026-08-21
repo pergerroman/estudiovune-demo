@@ -43,9 +43,10 @@ se desvanece apenas comienza el desplazamiento.
 
 El desenfoque afecta a `tTrail`, no al SVG. La cabecera se muestra y habilita
 cuando termina el zoom. Three.js r128 se carga desde `js/vendor/` antes del
-script del efecto. El renderer limita el pixel ratio según dispositivo y
-ahorro de datos, se pausa fuera de la apertura o con la pestaña oculta y ofrece
-una apertura estática cuando se solicita movimiento reducido o WebGL falla.
+script del efecto. El renderer limita el pixel ratio a 2 en mobile y 2.5 en
+desktop, o a 1 con ahorro de datos; se pausa fuera de la apertura o con la
+pestaña oculta y ofrece una apertura estática cuando se solicita movimiento
+reducido o WebGL falla.
 En mobile, el contenedor fijo del canvas se extiende al 110% de la altura de la
 pantalla. El 10% inferior utiliza un respaldo blanco cálido para que la interfaz
 translúcida de Safari no revele el collage detrás de la barra del navegador.
@@ -116,8 +117,6 @@ y selecciona una variante AVIF, WebP o JPG según soporte y ancho de pantalla.
 
 ## 4. Navegación e interacción
 
-- Un enlace visible al recibir foco permite omitir la apertura y mover el foco
-  al contenido principal.
 - La cabecera enlaza a Inicio y Contacto; Nosotros permanece accesible desde el
   índice lateral.
 - Mientras la cabecera está oculta queda fuera del orden de tabulación y del
@@ -127,6 +126,8 @@ y selecciona una variante AVIF, WebP o JPG según soporte y ancho de pantalla.
 - `js/page-interactions.js` controla reveal y cards.
 - `js/page-interactions.js` actualiza el estado activo del índice lateral.
 - El scroll suave se define en CSS.
+- El overscroll vertical se desactiva para evitar el rebote al alcanzar los
+  límites del documento.
 - No hay menú burger implementado en el HTML vigente.
 
 ## 5. Estilos

@@ -143,6 +143,9 @@ for (const eventName of ['hero_cta_click', 'service_click', 'whatsapp_click', 'e
     assert(read('js/google-analytics.js').includes(`gtag('event', '${eventName}'`), `Google Analytics registra ${eventName}`);
 }
 assert(!indexHtml.includes('cdnjs.cloudflare.com/ajax/libs/three.js'), 'Three.js no depende de CDN');
+const webglScript = read('js/webgl-effect.js');
+assert(webglScript.includes('isMobile ? 2 : 2.5'), 'WebGL limita DPR a 2 mobile y 2.5 desktop');
+assert(webglScript.includes('saveData ? 1'), 'WebGL conserva DPR 1 con ahorro de datos');
 assert(!exists('css/style.css'), 'La hoja histórica fue eliminada');
 
 const robots = read('robots.txt');

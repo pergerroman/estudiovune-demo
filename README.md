@@ -159,6 +159,13 @@ comportamiento de recursos y canvas puede diferir entre navegadores.
 - Three.js r128 pasó a servirse desde una copia local para eliminar la
   dependencia crítica del CDN durante la ejecución.
 
+### 2026-08-19
+
+- Se elevó el DPR máximo del canvas WebGL a 2 en mobile y 2.5 en desktop para
+  mejorar la definición inicial del logo; ahorro de datos conserva DPR 1.
+- Se desactivó el overscroll vertical para eliminar el rebote al desplazarse
+  hacia arriba y se retiró el enlace “Saltar la apertura e ir al contenido”.
+
 ### 2026-07-31
 
 - Se agregó el indicador sutil “↓ Scroll” en el borde inferior de la apertura
