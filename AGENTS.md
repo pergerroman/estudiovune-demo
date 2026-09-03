@@ -21,7 +21,7 @@ Reglas:
 - Mantener `index.html` como entrada única del sitio.
 - Mantener los estilos propios en `css/` y los scripts propios en `js/`.
 - Ejecutar `npm run check` antes de publicar o entregar cambios.
-- Trabajar únicamente sobre la rama `02.09.0---arreglando-cagadas`; no traer
-  cambios de otras ramas sin indicación explícita.
+- Trabajar sobre `main`; no traer cambios de ramas históricas sin indicación y
+  revisión explícitas.
 - Actualizar `docs/memory/` cuando cambie una decisión duradera.
 - Registrar los cambios relevantes en `docs/CHANGELOG.md`.

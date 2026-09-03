@@ -5,11 +5,11 @@ Procedimiento para publicar la landing estática de Vuné en
 
 ## Fuente de publicación
 
-- Rama autorizada: `02.09.0---arreglando-cagadas`.
+- Rama autorizada: `main`.
 - Entrada del sitio: `index.html`.
 - Página de error: `404.html`.
-- No se deben fusionar ni copiar cambios de otras ramas sin indicación
-  explícita.
+- Las ramas anteriores se conservan únicamente como historial; no se deben
+  fusionar ni copiar sus cambios sin indicación explícita.
 
 ## Requisitos previos
 
@@ -32,7 +32,7 @@ python3 -m http.server 8000
 ## Configuración de Vercel
 
 - Conectar el repositorio del proyecto.
-- Establecer `02.09.0---arreglando-cagadas` como rama de producción.
+- Establecer `main` como rama de producción.
 - Usar la raíz del repositorio como directorio del proyecto.
 - Seleccionar un proyecto estático sin framework.
 - No configurar comando de build ni directorio de salida personalizado.
@@ -56,7 +56,7 @@ La URL canónica es `https://www.estudiovune.com/`.
 
 1. Revisar `git diff --check` y `git status`.
 2. Crear un commit con todos los archivos de la versión.
-3. Subir la rama autorizada al remoto.
+3. Subir `main` al remoto.
 4. Revisar el preview de Vercel.
 5. Promover el despliegue aprobado a producción.
 6. Registrar el commit y la fecha de publicación en `docs/CHANGELOG.md`.
@@ -96,9 +96,8 @@ PRODUCTION_MONITORING_ENABLED=true
 ```
 
 Los workflows programados de GitHub se ejecutan desde la rama predeterminada.
-Para monitorear esta versión, `02.09.0---arreglando-cagadas` debe ser también la
-rama predeterminada del repositorio. Activar la variable únicamente después del
-primer despliegue correcto.
+`main` debe ser la rama predeterminada del repositorio. Activar la variable
+únicamente después del primer despliegue correcto.
 
 ## Rollback
 

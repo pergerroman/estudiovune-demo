@@ -61,6 +61,15 @@ vigente y los pendientes se documentan en
 - Se actualizaron el código, la documentación y los controles para utilizar
   exclusivamente las rutas vigentes.
 
+### Rama principal
+
+- Se adoptó `main` como única rama de producción y como fuente esperada para
+  Vercel y los workflows programados.
+- Las ramas anteriores quedaron reservadas como historial y no deben volver a
+  mezclarse sin una revisión explícita.
+- El commit aprobado `0a19be4` quedó documentado como fuente de recuperación de
+  la versión funcional.
+
 ## 2026-07-31
 
 ### Apertura WebGL y Safari móvil

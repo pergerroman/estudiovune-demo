@@ -63,7 +63,8 @@
   el sitio publicado.
 - GitHub Actions ejecuta las comprobaciones locales y permite monitorear
   producción cada hora.
-- `02.09.0---arreglando-cagadas` es la única rama autorizada para publicación.
+- `main` es la única rama autorizada para publicación; las ramas anteriores se
+  conservan únicamente como historial.
 - `README.md` funciona como índice documental y `docs/CHANGELOG.md` concentra
   el historial de cambios.
 - Los recursos activos están organizados por función en `src/images/`,

@@ -71,6 +71,19 @@ npm run check:production
 
 Los controles no requieren instalar paquetes.
 
+## Rama principal y publicación
+
+- `main` es la única rama destinada a producción.
+- Vercel debe utilizar `main` como **Production Branch**.
+- Las ramas anteriores se conservan solo como historial y no deben mezclarse
+  nuevamente con la versión vigente.
+- Antes de publicar, `main` debe contener el árbol aprobado del sitio y superar
+  `npm run check`.
+- Después del despliegue se debe ejecutar `npm run check:production`.
+
+El procedimiento completo, incluida la verificación del dominio y el rollback,
+está documentado en [Publicación](docs/DEPLOYMENT.md).
+
 ## Mantenimiento
 
 - Trabajar exclusivamente con el contexto e identidad de Vuné.
@@ -80,8 +93,8 @@ Los controles no requieren instalar paquetes.
 - Conservar rutas relativas correctas y respetar `prefers-reduced-motion`.
 - Actualizar `docs/memory/` cuando cambie una decisión o el estado vigente.
 - Registrar cambios relevantes en `docs/CHANGELOG.md`.
-- Trabajar únicamente sobre `02.09.0---arreglando-cagadas`, salvo indicación
-  explícita.
+- Trabajar sobre `main` y no reincorporar cambios de ramas históricas sin una
+  revisión explícita.
 - Preservar los cambios existentes del usuario.
 
 ## Estado del proyecto

@@ -151,11 +151,14 @@
 
 - Fecha: 2026-09-02.
 - Estado: aceptada.
-- Decisión: publicar `https://www.estudiovune.com/` desde la rama
-  `02.09.0---arreglando-cagadas` mediante Vercel.
+- Decisión: publicar `https://www.estudiovune.com/` exclusivamente desde
+  `main` mediante Vercel.
 - Consecuencia: `vercel.json` define redirecciones, seguridad y caché; la raíz
   incorpora sitemap, página 404, favicons y controles automatizados.
-- Restricción: no se integran cambios de otras ramas sin indicación explícita.
+- Actualización: la versión aprobada se recuperó desde el commit `0a19be4` para
+  convertirla en el contenido canónico de `main`.
+- Restricción: las ramas anteriores quedan como historial y no se integran sin
+  indicación y revisión explícitas.
 
 ## Organización de recursos
 
