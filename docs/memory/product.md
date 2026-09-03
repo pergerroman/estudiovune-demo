@@ -34,12 +34,12 @@ de validación.
 - Formularios.
 - Backend o CMS.
 - Analítica.
-- Build y pipeline de despliegue.
+- Aplicación, backend o pipeline de compilación.
 
 ## Contenido pendiente de validación
 
 - Dirección institucional definitiva.
-- Correo, teléfono, usuario social y ubicación.
+- Teléfono, usuario social y ubicación.
 - Imágenes finales para los placeholders.
 
 ## Criterios de aceptación vigentes

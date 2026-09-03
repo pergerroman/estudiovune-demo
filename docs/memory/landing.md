@@ -42,7 +42,8 @@ En el borde inferior del canvas se muestra el indicador sutil “↓ Scroll”, 
 se desvanece apenas comienza el desplazamiento.
 
 El desenfoque afecta a `tTrail`, no al SVG. La cabecera se muestra y habilita
-cuando termina el zoom. Three.js r128 se carga desde CDN antes del script.
+cuando termina el zoom. Three.js r128 se carga desde
+`js/vendor/three-r128.min.js` antes del script del efecto.
 En mobile, el contenedor fijo del canvas se extiende al 110% de la altura de la
 pantalla. El 10% inferior utiliza un respaldo blanco cálido para que la interfaz
 translúcida de Safari no revele el collage detrás de la barra del navegador.
@@ -52,7 +53,7 @@ translúcida de Safari no revele el collage detrás de la barra del navegador.
 ### 3.1 Presentación
 
 El hero ocupa una pantalla completa sobre fondo marrón. A la izquierda utiliza
-`src/misc/blob/hero-orange-blur.svg` como figura desenfocada. El título
+`src/graphics/hero/orange-blur.svg` como figura desenfocada. El título
 “Experimentales, versátiles y locales.” usa Averia Gruesa Libre; el resto de la
 interfaz usa Inter.
 
@@ -82,8 +83,8 @@ WhatsApp con el mensaje de consulta de servicios indicado por el estudio.
 En pantallas de hasta 680 px, las tarjetas se presentan en un recorrido
 horizontal táctil con encastre entre elementos.
 
-Los cinco pines se cargan desde `src/misc/cards/Card1.png` a
-`src/misc/cards/Card5.png`. La imagen de la Card 1 se ubica ligeramente a la
+Los cinco pines se cargan desde `src/graphics/cards/card-1.png` a
+`src/graphics/cards/card-5.png`. La imagen de la Card 1 se ubica ligeramente a la
 izquierda del centro y apoyada sobre el borde superior según la referencia
 visual vigente.
 La imagen de la Card 2 conserva su alineación horizontal y se apoya más abajo
@@ -103,8 +104,9 @@ con los conceptos “Mirar” y “Co-diseño”.
 El contacto visible conserva correo, WhatsApp y ubicación; no incluye iconos de
 Instagram o LinkedIn ni el usuario social.
 
-El teléfono y su destino de WhatsApp proceden del diseño de Figma. Los datos
-deben validarse antes de publicar.
+El correo institucional confirmado es `hola@estudiovune.com`. El teléfono y su
+destino de WhatsApp proceden del diseño de Figma y deben validarse antes de
+publicar.
 El destino y el mensaje predefinido del botón principal “Agendemos una charla”
 fueron indicados por el estudio.
 
@@ -122,11 +124,8 @@ fueron indicados por el estudio.
 
 - `css/scroll.css`: sistema visual y estilos generales.
 - `css/index.css`: cabecera vigente, WebGL y tarjetas.
-- `css/style.css`: implementación histórica no vinculada.
 
 ## 6. Pendientes
 
-- Validar textos y datos de contacto.
-- Confirmar imágenes finales.
-- Confirmar si `css/style.css` puede eliminarse.
-- Revisar Safari, Chrome y Firefox.
+Los pendientes y las validaciones se mantienen únicamente en
+[`current-state.md`](current-state.md).

@@ -3,12 +3,13 @@
 Antes de trabajar, consultar:
 
 - `README.md`
-- `ESTRUCTURA-land.md`
+- `docs/memory/landing.md`
 - `docs/memory/brand.md`
 - `docs/memory/product.md`
 - `docs/memory/architecture.md`
 - `docs/memory/decisions.md`
 - `docs/memory/current-state.md`
+- `docs/DEPLOYMENT.md`
 
 Reglas:
 
@@ -19,6 +20,8 @@ Reglas:
   `css/scroll.css`, `css/index.css` y `js/`.
 - Mantener `index.html` como entrada única del sitio.
 - Mantener los estilos propios en `css/` y los scripts propios en `js/`.
-- No hay comandos de build, lint o tests documentados.
+- Ejecutar `npm run check` antes de publicar o entregar cambios.
+- Trabajar únicamente sobre la rama `02.09.0---arreglando-cagadas`; no traer
+  cambios de otras ramas sin indicación explícita.
 - Actualizar `docs/memory/` cuando cambie una decisión duradera.
-- Registrar los cambios relevantes en `README.md`.
+- Registrar los cambios relevantes en `docs/CHANGELOG.md`.

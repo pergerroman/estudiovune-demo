@@ -2,8 +2,8 @@
 
 ## Fuente funcional
 
-`ESTRUCTURA-land.md` es la única descripción detallada del recorrido y
-funcionamiento de la landing.
+[`landing.md`](landing.md) es la única descripción detallada
+del recorrido y funcionamiento de la landing.
 
 ## Diseño
 

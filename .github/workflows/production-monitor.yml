@@ -1,0 +1,28 @@
+name: Production monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  monitor:
+    if: github.event_name == 'workflow_dispatch' || vars.PRODUCTION_MONITORING_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check production
+        env:
+          SITE_URL: https://www.estudiovune.com
+        run: npm run check:production

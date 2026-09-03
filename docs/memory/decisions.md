@@ -29,11 +29,14 @@
 - Decisión: usar el collage como fondo y una máscara WebGL del logotipo con
   estela de puntero y zoom por scroll.
 - Consecuencia: Three.js r128 es una dependencia de ejecución.
+- Actualización 2026-09-02: la dependencia se sirve desde
+  `js/vendor/three-r128.min.js`; se elimina la carga desde cdnjs y el permiso
+  correspondiente de la política de seguridad.
 - Actualización: en mobile, el 10% inferior extendido del contenedor WebGL usa
   un respaldo blanco cálido y el documento declara el mismo `theme-color` para
   armonizar la interfaz translúcida de Safari.
-- Actualización: `src/img/bg/Collage.jpg` es la variante vinculada en todos los
-  fondos activos; la versión PNG permanece disponible sin vincular.
+- Actualización: `src/images/backgrounds/collage.jpg` es la variante vinculada
+  en todos los fondos activos.
 - Actualización: el viewport se extiende hasta los bordes seguros mediante
   `viewport-fit=cover`; `theme-color` y el fondo raíz comparten el blanco cálido
   `#f7f7f4` para colorear la interfaz y el overscroll de Safari móvil.
@@ -73,8 +76,8 @@
 
 - Fecha: 2026-07-26.
 - Estado: aceptada.
-- Decisión: cargar los cinco pines desde `src/misc/cards/Card1.png` a
-  `src/misc/cards/Card5.png`.
+- Decisión: cargar los cinco pines desde `src/graphics/cards/card-1.png` a
+  `src/graphics/cards/card-5.png`.
 - Consecuencia: `index.html` ya no contiene las imágenes de las tarjetas como
   data URI.
 - Actualización: la imagen de la Card 1 adopta la escala y posición superior
@@ -101,7 +104,8 @@
 - Actualización: el nodo integral `140:1291` pasa a ser la referencia vigente e
   incorpora título, iconos sociales y franja inferior de copyright.
 - Actualización: se retiran de la implementación los iconos de Instagram y
-  LinkedIn junto con `@vune.estudio`; los assets permanecen disponibles.
+  LinkedIn junto con `@vune.estudio`; el SVG de Instagram se conserva como
+  recurso para una futura integración.
 
 ## Archivo fuera de esta versión
 
@@ -120,5 +124,61 @@
   estructurados de `ProfessionalService`.
 - Consecuencia: el documento usa `es-AR`, explicita Patagonia Argentina,
   Cipolletti y Río Negro, y declara las principales áreas de servicio.
-- Restricción: no se publican `canonical`, `og:url` ni `sitemap.xml` hasta
-  confirmar el dominio definitivo.
+- Restricción inicial: `canonical`, `og:url` y `sitemap.xml` quedaron pospuestos
+  hasta confirmar el dominio. La URL se confirmó el 2026-09-02; el sitemap
+  permanece pendiente.
+
+## Imagen social y URL canónica
+
+- Fecha: 2026-09-02.
+- Estado: aceptada.
+- Decisión: usar `src/images/social/og.png`, optimizada a 1200 × 630 px, como
+  imagen compartida por Open Graph y Twitter.
+- Consecuencia: la imagen social, `canonical` y `og:url` utilizan URLs absolutas
+  de `https://www.estudiovune.com/`; los metadatos declaran formato,
+  dimensiones y texto alternativo.
+
+## Correo institucional
+
+- Fecha: 2026-09-02.
+- Estado: confirmado.
+- Decisión: usar `hola@estudiovune.com` como correo institucional en todo el
+  sitio.
+- Consecuencia: el footer, el enlace `mailto:` y los datos estructurados deben
+  mantener esta dirección.
+
+## Publicación del dominio
+
+- Fecha: 2026-09-02.
+- Estado: aceptada.
+- Decisión: publicar `https://www.estudiovune.com/` desde la rama
+  `02.09.0---arreglando-cagadas` mediante Vercel.
+- Consecuencia: `vercel.json` define redirecciones, seguridad y caché; la raíz
+  incorpora sitemap, página 404, favicons y controles automatizados.
+- Restricción: no se integran cambios de otras ramas sin indicación explícita.
+
+## Organización de recursos
+
+- Fecha: 2026-09-02.
+- Estado: aceptada.
+- Decisión: organizar los recursos activos por función dentro de `src/` y usar
+  nombres ASCII en minúsculas y `kebab-case`.
+- Consecuencia: las imágenes editoriales viven en `src/images/`, las piezas
+  gráficas en `src/graphics/`, los iconos en `src/icons/` y las marcas en
+  `src/logos/`.
+- Consecuencia: se retiraron archivos históricos o sin referencias confirmadas
+  para evitar ambigüedad durante mantenimiento y publicación.
+- Excepción: `src/icons/instagram.svg` se conserva, todavía sin vincular, por
+  decisión del estudio para una futura integración.
+
+## Medición con Google Tag Manager
+
+- Fecha: 2026-09-02.
+- Estado: aceptada.
+- Decisión: cargar el contenedor `GTM-MQQSHQZM` desde
+  `js/google-tag-manager.js` al inicio del `<head>`.
+- Consecuencia: el script oficial se obtiene de `www.googletagmanager.com` de
+  forma asíncrona y la política de seguridad habilita únicamente los dominios
+  necesarios para Tag Manager y Analytics.
+- Restricción: mantener el código de inicialización fuera del HTML y revisar
+  las etiquetas y el consentimiento antes de publicar cambios del contenedor.

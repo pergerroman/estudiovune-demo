@@ -57,20 +57,17 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 
 | Recurso | Ruta | Estado |
 | --- | --- | --- |
-| Logotipo principal | `src/logos/vuné-logo.svg` | Activo en cabecera y footer |
-| Favicon | `src/logos/v-fav.svg` | Activo |
-| Collage JPG | `src/img/bg/Collage.jpg` | Activo en apertura y placeholders |
-| Collage PNG | `src/img/bg/Collage.png` | Disponible, no vinculado |
-| Fondo de Essay | `src/img/bg/_DSC5866 1.jpg` | Activo |
-| Fondo registros | `src/img/bg/_DSC5885 1.jpg` | Disponible, no vinculada |
-| Instagram | `src/icons/instagram.svg` | Disponible, no vinculado |
-| LinkedIn | `src/icons/linkedin.svg` | Disponible, no vinculado |
+| Logotipo principal | `src/logos/vune-logo.svg` | Activo en cabecera y footer |
+| Favicon SVG | `src/logos/favicon.svg` | Activo |
+| Favicon ICO | `favicon.ico` | Activo en 16, 32 y 48 px |
+| Apple Touch Icon | `apple-touch-icon.png` | Activo en 180 × 180 px |
+| Collage JPG | `src/images/backgrounds/collage.jpg` | Activo en apertura y placeholders |
+| Imagen social | `src/images/social/og.png` | Activa en Open Graph y Twitter |
+| Fondo de Essay | `src/images/backgrounds/essay.jpg` | Activo |
 | WhatsApp | `src/icons/whatsapp.svg` | Activo en el footer |
-| Pines de cards | `src/misc/cards/Card1.png` a `Card5.png` | Activos |
-| Figura desenfocada del hero | `src/misc/blob/hero-orange-blur.svg` | Activa |
-
-Los nombres con tilde usan la normalización Unicode del sistema de archivos.
-Deben copiarse desde el repositorio al crear una ruta.
+| Instagram | `src/icons/instagram.svg` | Disponible, todavía no vinculado |
+| Pines de cards | `src/graphics/cards/card-1.png` a `card-5.png` | Activos |
+| Figura desenfocada del hero | `src/graphics/hero/orange-blur.svg` | Activa |
 
 ## Restricciones
 
