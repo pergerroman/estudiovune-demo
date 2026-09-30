@@ -39,7 +39,7 @@ de validación.
 ## Contenido pendiente de validación
 
 - Dirección institucional definitiva.
-- Teléfono, usuario social y ubicación.
+- Teléfono y ubicación.
 - Imágenes finales para los placeholders.
 
 ## Criterios de aceptación vigentes

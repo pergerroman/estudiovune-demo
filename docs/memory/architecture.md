@@ -34,8 +34,8 @@ desde Google Fonts.
 - `src/images/social/`: imagen social para Open Graph y Twitter.
 - `src/graphics/cards/`: imágenes independientes de las tarjetas.
 - `src/graphics/hero/`: figuras orgánicas utilizadas como fondo.
-- `src/icons/`: iconos funcionales; WhatsApp está activo e Instagram queda
-  reservado para una futura integración.
+- `src/icons/`: iconos funcionales de WhatsApp e Instagram activos en el
+  footer.
 - `src/logos/`: logotipo principal y favicon.
 
 ### Documentación

@@ -1,6 +1,6 @@
 # Estado actual
 
-Última revisión: 2026-09-02.
+Última revisión: 2026-09-30.
 
 ## Implementación vigente
 
@@ -30,10 +30,9 @@
   una pestaña nueva con un mensaje de consulta predefinido.
 - El CTA está integrado en un footer verde de pantalla completa con radios
   superiores, contacto, marca y navegación.
-- El footer conserva correo, WhatsApp y ubicación, sin iconos de Instagram o
-  LinkedIn ni usuario social.
-- `src/icons/instagram.svg` queda disponible para una futura integración, pero
-  todavía no se muestra ni se enlaza en la interfaz.
+- El footer presenta Instagram, WhatsApp, correo, Cipolletti y “Estudio creativo
+  de la Patagonia argentina”, en ese orden. Instagram enlaza al perfil oficial
+  `@estudiovune` y utiliza el icono disponible en `src/icons/instagram.svg`.
 - `hola@estudiovune.com` es el correo institucional confirmado y se utiliza en
   el footer y los datos estructurados.
 - El botón principal del footer abre el contacto de WhatsApp con el mensaje de

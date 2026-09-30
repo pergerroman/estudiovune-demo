@@ -65,7 +65,7 @@ tipo post-it, rotaciones manuales y bloques de alto contraste.
 | Imagen social | `src/images/social/og.png` | Activa en Open Graph y Twitter |
 | Fondo de Essay | `src/images/backgrounds/essay.jpg` | Activo |
 | WhatsApp | `src/icons/whatsapp.svg` | Activo en el footer |
-| Instagram | `src/icons/instagram.svg` | Disponible, todavía no vinculado |
+| Instagram | `src/icons/instagram.svg` | Activo en el footer |
 | Pines de cards | `src/graphics/cards/card-1.png` a `card-5.png` | Activos |
 | Figura desenfocada del hero | `src/graphics/hero/orange-blur.svg` | Activa |
 

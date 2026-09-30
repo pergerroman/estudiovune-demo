@@ -101,8 +101,10 @@ El CTA está integrado en `.foot`, que ocupa como mínimo una pantalla completa,
 esquinas superiores redondeadas y reúne invitación, contacto, logotipo,
 navegación y copyright. `.essay` aparece a continuación y cierra el documento
 con los conceptos “Mirar” y “Co-diseño”.
-El contacto visible conserva correo, WhatsApp y ubicación; no incluye iconos de
-Instagram o LinkedIn ni el usuario social.
+El contacto visible presenta, en este orden, Instagram, WhatsApp, correo,
+Cipolletti y la leyenda “Estudio creativo de la Patagonia argentina”. Instagram
+y WhatsApp incluyen sus iconos y enlaces externos; el correo conserva su enlace
+`mailto:`.
 
 El correo institucional confirmado es `hola@estudiovune.com`. El teléfono y su
 destino de WhatsApp proceden del diseño de Figma y deben validarse antes de

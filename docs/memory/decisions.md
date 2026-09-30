@@ -106,6 +106,10 @@
 - Actualización: se retiran de la implementación los iconos de Instagram y
   LinkedIn junto con `@vune.estudio`; el SVG de Instagram se conserva como
   recurso para una futura integración.
+- Actualización 2026-09-30: se incorpora el Instagram oficial
+  `@estudiovune` al contacto del footer. La información se ordena como
+  Instagram, WhatsApp, correo, Cipolletti y la leyenda “Estudio creativo de la
+  Patagonia argentina”.
 
 ## Archivo fuera de esta versión
 
@@ -171,8 +175,8 @@
   `src/logos/`.
 - Consecuencia: se retiraron archivos históricos o sin referencias confirmadas
   para evitar ambigüedad durante mantenimiento y publicación.
-- Excepción: `src/icons/instagram.svg` se conserva, todavía sin vincular, por
-  decisión del estudio para una futura integración.
+- Actualización 2026-09-30: `src/icons/instagram.svg` pasa a estar vinculado en
+  el footer como acceso al perfil oficial del estudio.
 
 ## Medición con Google Tag Manager
 

@@ -4,6 +4,20 @@ Historial cronológico de cambios relevantes de la landing Vuné. El estado
 vigente y los pendientes se documentan en
 [`docs/memory/current-state.md`](memory/current-state.md).
 
+## 2026-09-30
+
+### Footer y contacto
+
+- Se incorporó el perfil oficial de Instagram `@estudiovune` con su icono y
+  enlace externo.
+- La información de contacto se ordenó como Instagram, WhatsApp, correo,
+  Cipolletti y “Estudio creativo de la Patagonia argentina”.
+
+### Página 404
+
+- Se retiró el salto de línea forzado del título y se amplió su contenedor para
+  mantener la frase en una línea cuando el ancho disponible lo permite.
+
 ## 2026-09-02
 
 ### Documentación

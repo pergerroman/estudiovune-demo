@@ -139,6 +139,7 @@ const requiredMarkup = [
     '<link rel="icon" href="./favicon.ico" sizes="any">',
     '<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">',
     '<script src="./js/google-tag-manager.js"></script>',
+    'href="https://www.instagram.com/estudiovune/"',
     'hola@estudiovune.com'
 ];
 
@@ -154,6 +155,26 @@ expect(!indexHtml.includes('&family='), 'La URL de Google Fonts contiene un ampe
 expect(!indexHtml.includes('&display='), 'La URL de Google Fonts contiene un ampersand sin escapar');
 expect(!indexHtml.includes('css/style.css'), 'index.html enlaza la hoja histórica css/style.css');
 expect(!/<style\b/i.test(indexHtml), 'index.html contiene CSS inline');
+
+const footerContactStart = indexHtml.indexOf('<address class="foot__contact">');
+const footerContactEnd = indexHtml.indexOf('</address>', footerContactStart);
+const footerContact = indexHtml.slice(footerContactStart, footerContactEnd);
+const footerContactOrder = [
+    'instagram.com/estudiovune/',
+    'wa.me/542994215193',
+    'mailto:hola@estudiovune.com',
+    'Cipolletti, Río Negro',
+    '<span>Estudio creativo de la Patagonia argentina</span>'
+];
+expect(footerContactStart >= 0 && footerContactEnd > footerContactStart, 'No se encontró el bloque de contacto del footer');
+expect(
+    footerContactOrder.every((item, index) => {
+        const position = footerContact.indexOf(item);
+        const previousPosition = index === 0 ? -1 : footerContact.indexOf(footerContactOrder[index - 1]);
+        return position >= 0 && position > previousPosition;
+    }),
+    'El contacto del footer debe respetar el orden Instagram, WhatsApp, correo, Cipolletti y la leyenda patagónica'
+);
 
 const inlineScripts = [...indexHtml.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)]
     .filter(([, , body]) => body.trim())
